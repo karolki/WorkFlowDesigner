@@ -6,6 +6,8 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using System.Data.SqlClient;
+using NHibernate;
+
 namespace WorkFlowDesigner
 {
     static class Program
@@ -23,10 +25,15 @@ namespace WorkFlowDesigner
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             Application.Run(new Form1());
-                
 
             
-          
+
+
+
+
+
+
+
         }
     }
 }

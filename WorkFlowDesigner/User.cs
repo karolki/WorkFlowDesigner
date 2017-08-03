@@ -16,12 +16,12 @@ namespace WorkFlowDesigner
 
 
         [DisplayName(@"Id_User")]
-        public int Id_user { get => id_user; set => id_user = value; }
+        public virtual int Id_user { get => id_user; set => id_user = value; }
         [DisplayName(@"Surname")]
-        public string Surname { get => surname; set => surname = value; }
+        public virtual string Surname { get => surname; set => surname = value; }
         [DisplayName(@"Name")]
-        public string Name { get => name; set => name = value; }
+        public virtual string Name { get => name; set => name = value; }
         [DisplayName(@"Permission.")]
-        public string Permission { get => permission; set => permission = value; }
+        public virtual string Permission { get => permission; set => permission = value; }
     }
 }

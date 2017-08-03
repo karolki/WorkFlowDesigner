@@ -16,6 +16,17 @@ namespace WorkFlowDesigner
         public Form1()
         {
             InitializeComponent();
+
+            InitNH init = new InitNH();
+            init.InitNHibernate();
+
+            User user = new User();
+            user.Name = "asdf";
+            user.Surname = "costam";
+            user.Permission = "sadf";
+
+            NHibernateOperation operation = new NHibernateOperation();
+            operation.Add(user);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

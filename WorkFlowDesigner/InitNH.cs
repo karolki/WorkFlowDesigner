@@ -12,19 +12,17 @@ using NHibernate.Mapping.ByCode;
 
 namespace WorkFlowDesigner
 {
-    class InitNH
+    public class InitNH
     {
         public static ISessionFactory SessionFactory;
-        public static void InitNHibernate()
+        public  void InitNHibernate()
         {
-           
-
             if (SessionFactory != null)
                 return;
 
-            string connectionString = ConfigurationManager.ConnectionStrings["DB"].ToString();
+            string connectionString = @"Server = 172.21.70.40; Database = PraktykiWorkFlow; User Id = sa;Password = cdnxl1*";
 
-            string databaseName = ConfigurationManager.AppSettings["DatabaseName"];
+            //string databaseName = ConfigurationManager.AppSettings["PraktykiWorkFlow"];
 
             NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration().DataBaseIntegration(db =>
             {
@@ -38,12 +36,17 @@ namespace WorkFlowDesigner
               typeof(MapUser)
             });
 
-            config.AddDeserializedMapping(mapper.CompileMappingForAllExplicitlyAddedEntities(), "EWA");
+            config.AddDeserializedMapping(mapper.CompileMappingForAllExplicitlyAddedEntities(), null);
 
             NHibernate.Tool.hbm2ddl.SchemaMetadataUpdater.QuoteTableAndColumns(config);
 
             SessionFactory = config.BuildSessionFactory(); 
         }
 
+        public static ISession OppenSession()
+        {
+            return SessionFactory.OpenSession();
+        }
+       
     }
 }
