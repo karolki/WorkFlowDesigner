@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gcAtribute = new DevExpress.XtraGrid.GridControl();
-            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attributeBindingSource = new System.Windows.Forms.BindingSource();
             this.gvAtribute = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId_attribute = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId_workflow = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -81,6 +80,7 @@
             // gcAtribute
             // 
             this.gcAtribute.DataSource = this.attributeBindingSource;
+            this.gcAtribute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcAtribute.Location = new System.Drawing.Point(449, 101);
             this.gcAtribute.MainView = this.gvAtribute;
             this.gcAtribute.Name = "gcAtribute";
@@ -102,21 +102,26 @@
             this.colType});
             this.gvAtribute.GridControl = this.gcAtribute;
             this.gvAtribute.Name = "gvAtribute";
+            this.gvAtribute.OptionsView.ShowGroupPanel = false;
             // 
             // colId_attribute
             // 
             this.colId_attribute.FieldName = "Id_attribute";
             this.colId_attribute.Name = "colId_attribute";
+            this.colId_attribute.OptionsColumn.AllowEdit = false;
             // 
             // colId_workflow
             // 
             this.colId_workflow.FieldName = "Id_workflow";
             this.colId_workflow.Name = "colId_workflow";
+            this.colId_workflow.OptionsColumn.AllowEdit = false;
             // 
             // colName
             // 
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
+            this.colName.OptionsColumn.AllowEdit = false;
+            this.colName.OptionsEditForm.UseEditorColRowSpan = false;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
             // 
@@ -124,6 +129,7 @@
             // 
             this.colType.FieldName = "Type";
             this.colType.Name = "colType";
+            this.colType.OptionsColumn.AllowEdit = false;
             this.colType.Visible = true;
             this.colType.VisibleIndex = 1;
             // 
@@ -237,6 +243,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "AddFlowPanel";
             this.Text = "AddFlowPanel";
+           
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcAtribute)).EndInit();

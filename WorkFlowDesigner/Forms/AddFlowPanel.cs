@@ -8,31 +8,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 
 namespace WorkFlowDesigner
 {
+   
     public partial class AddFlowPanel : DevExpress.XtraEditors.XtraForm
     {
+        AddAtribute addAttribute;
+       
         public AddFlowPanel()
         {
             this.flow = new Flow();
             InitializeComponent();
-        }
-
+            
+         }
+                
         private void gcProperties_Click(object sender, EventArgs e)
         {
 
         }
-
+        
         private void btnAddAtribute_Click(object sender, EventArgs e)
         {
             this.flow.AtributeList.Add(atribute = new Attribute());
-            AddAtribute addAtribute = new AddAtribute(this.flow.AtributeList,this.flow.AtributeList.Count-1 );
-           
+            addAttribute = new AddAtribute(this.flow.AtributeList, this.flow.AtributeList.Count - 1);
             if (attributeBindingSource.DataSource != this.flow.AtributeList) attributeBindingSource.DataSource = this.flow.AtributeList;
-            addAtribute.ShowDialog();
+            addAttribute.ShowDialog();
+            
         }
 
-      
+ 
+
+
+        // Somewhere else in your code:
+
     }
 }

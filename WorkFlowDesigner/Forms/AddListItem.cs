@@ -8,25 +8,49 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Runtime.Remoting;
 
 namespace WorkFlowDesigner
 {
     public partial class AddListItem : DevExpress.XtraEditors.XtraForm
     {
-        ListElement listElement;
+        List<ListElement> listListElement = new List<ListElement>();
+        int index;
+
         public AddListItem()
         {
             InitializeComponent();
         }
-        public AddListItem(List<ListElement> listListElement,int index)
+        public AddListItem(List<ListElement> list, int index)
         {
             InitializeComponent();
-            listElement = listListElement.ElementAt(index);
+            listListElement = list;
+            this.index = index;
+
         }
+
+      
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            listElement.Name = tbListItemName.Text;
+            listListElement.ElementAt(index).Name = tbListItemName.Text;
+         
+        }
+
+        private void btnAddListItem_Click(object sender, EventArgs e)
+        {
+            if (tbListItemName.Text == "")
+            {
+                MessageBox.Show("List item name can't be empty!");
+                return;
+            }
+            this.Close();
+        }
+
+        private void btnCancelAddListItem_Click(object sender, EventArgs e)
+        {
+            listListElement.RemoveAt(index);
+            this.Close();
         }
     }
 }

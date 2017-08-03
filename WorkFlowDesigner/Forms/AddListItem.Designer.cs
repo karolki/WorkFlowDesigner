@@ -30,6 +30,8 @@
         {
             this.tbListItemName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAddListItem = new System.Windows.Forms.Button();
+            this.btnCancelAddListItem = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbListItemName
@@ -49,11 +51,33 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "List item name:";
             // 
+            // btnAddListItem
+            // 
+            this.btnAddListItem.Location = new System.Drawing.Point(23, 73);
+            this.btnAddListItem.Name = "btnAddListItem";
+            this.btnAddListItem.Size = new System.Drawing.Size(75, 23);
+            this.btnAddListItem.TabIndex = 2;
+            this.btnAddListItem.Text = "Add";
+            this.btnAddListItem.UseVisualStyleBackColor = true;
+            this.btnAddListItem.Click += new System.EventHandler(this.btnAddListItem_Click);
+            // 
+            // btnCancelAddListItem
+            // 
+            this.btnCancelAddListItem.Location = new System.Drawing.Point(129, 73);
+            this.btnCancelAddListItem.Name = "btnCancelAddListItem";
+            this.btnCancelAddListItem.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelAddListItem.TabIndex = 3;
+            this.btnCancelAddListItem.Text = "Cancel";
+            this.btnCancelAddListItem.UseVisualStyleBackColor = true;
+            this.btnCancelAddListItem.Click += new System.EventHandler(this.btnCancelAddListItem_Click);
+            // 
             // AddListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(255, 117);
+            this.Controls.Add(this.btnCancelAddListItem);
+            this.Controls.Add(this.btnAddListItem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbListItemName);
             this.Name = "AddListItem";
@@ -67,5 +91,7 @@
 
         private System.Windows.Forms.TextBox tbListItemName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAddListItem;
+        private System.Windows.Forms.Button btnCancelAddListItem;
     }
 }
