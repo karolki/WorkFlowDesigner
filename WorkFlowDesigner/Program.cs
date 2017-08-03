@@ -23,6 +23,8 @@ namespace WorkFlowDesigner
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             Application.Run(new Form1());
+                
+
             
           
         }
