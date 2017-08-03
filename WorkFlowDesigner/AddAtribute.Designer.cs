@@ -53,6 +53,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tbAtributeName
             // 
@@ -60,6 +61,7 @@
             this.tbAtributeName.Name = "tbAtributeName";
             this.tbAtributeName.Size = new System.Drawing.Size(100, 21);
             this.tbAtributeName.TabIndex = 2;
+            this.tbAtributeName.TextChanged += new System.EventHandler(this.tbAtributeName_TextChanged);
             // 
             // cbeListAtribute
             // 
@@ -74,6 +76,7 @@
             // 
             this.cbAtributeType.FormattingEnabled = true;
             this.cbAtributeType.Items.AddRange(new object[] {
+            "",
             "text",
             "int",
             "float",
@@ -83,6 +86,7 @@
             this.cbAtributeType.Name = "cbAtributeType";
             this.cbAtributeType.Size = new System.Drawing.Size(121, 21);
             this.cbAtributeType.TabIndex = 4;
+            this.cbAtributeType.SelectedIndexChanged += new System.EventHandler(this.cbAtributeType_SelectedIndexChanged);
             // 
             // AddAtribute
             // 

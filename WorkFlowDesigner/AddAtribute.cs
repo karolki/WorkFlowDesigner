@@ -17,11 +17,28 @@ namespace WorkFlowDesigner
         {
             InitializeComponent();
         }
-        public AddAtribute(Attribute a)
+        public AddAtribute(List<Attribute> a, int index)
         {
-            this.atribute = a;
             InitializeComponent();
+            this.atribute = a.ElementAt(index);
+            tbAtributeName.Text = a.ElementAt(index).Name;
+            cbAtributeType.SelectedItem = a.ElementAt(index).Type;
+        }
+        
+
+        private void tbAtributeName_TextChanged(object sender, EventArgs e)
+        {
+            atribute.Name = tbAtributeName.Text;
         }
 
+        private void cbAtributeType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            atribute.Type = cbAtributeType.SelectedItem.ToString();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

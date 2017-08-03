@@ -276,5 +276,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colType;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        Attribute atribute;
+        Flow flow;
+        
     }
 }

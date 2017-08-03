@@ -15,6 +15,7 @@ namespace WorkFlowDesigner
     {
         public AddFlowPanel()
         {
+            this.flow = new Flow();
             InitializeComponent();
         }
 
@@ -25,8 +26,13 @@ namespace WorkFlowDesigner
 
         private void btnAddAtribute_Click(object sender, EventArgs e)
         {
-            AddAtribute addAtribute = new AddAtribute();
+            this.flow.AtributeList.Add(atribute = new Attribute());
+            AddAtribute addAtribute = new AddAtribute(this.flow.AtributeList,this.flow.AtributeList.Count-1 );
+           
+            if (attributeBindingSource.DataSource != this.flow.AtributeList) attributeBindingSource.DataSource = this.flow.AtributeList;
             addAtribute.ShowDialog();
         }
+
+      
     }
 }
