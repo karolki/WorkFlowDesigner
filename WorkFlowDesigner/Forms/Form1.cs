@@ -19,14 +19,26 @@ namespace WorkFlowDesigner
 
             InitNH init = new InitNH();
             init.InitNHibernate();
+            Position position = new Position();
+            List<Position> list = new List<Position>();
+            List<Attribute> lista2 = new List<Attribute>();
+            Flow flow = new Flow();
+            flow.Flow_description = "asd";
+            flow.Flow_name = "asd";
+            
 
-            User user = new User();
-            user.Name = "asdf";
-            user.Surname = "costam";
-            user.Permission = "sadf";
+            position.Name = "przeplywamsobieposwiecie";
+            position.Id_flow = flow;
+            list.Add(position);
+            flow.PositionList = list;
+            flow.AtributeList = lista2;
+            
+           
+           
 
             NHibernateOperation operation = new NHibernateOperation();
-            operation.Add(user);
+            operation.AddFlow(flow);
+            operation.AddPosition(position);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

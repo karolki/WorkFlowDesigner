@@ -10,15 +10,16 @@ namespace WorkFlowDesigner
         private string flow_description;
         private string flow_name;
         private List<Attribute> attributeList = new List<Attribute>();
-        private List<Position> positionList = new List<Position>();
+        private IList<Position> positionList = new List<Position>();
 
         [DisplayName(@"Flow_id")]
-        public int Flow_id { get => flow_id; set => flow_id = value; }
+        public virtual int Flow_id { get => flow_id; set => flow_id = value; }
         [DisplayName(@"Flow_description")]
-        public string Flow_description { get => flow_description; set => flow_description = value; }
+        public virtual string Flow_description { get => flow_description; set => flow_description = value; }
         [DisplayName(@"Flow_name")]
-        public string Flow_name { get => flow_name; set => flow_name = value; }
-        public List<Attribute> AtributeList { get => attributeList; set => attributeList = value; }
-        public List<Position> PositionList { get => positionList; set => positionList = value; }
+        public virtual string Flow_name { get => flow_name; set => flow_name = value; }
+        public virtual List<Attribute> AtributeList { get => attributeList; set => attributeList = value; }
+        public virtual IList<Position> PositionList { get => positionList; set => positionList = value; }
     }
+
 }

@@ -33,7 +33,10 @@ namespace WorkFlowDesigner
             ModelMapper mapper = new ModelMapper();
             mapper.AddMappings(new List<Type>()
             {
-              typeof(MapUser)
+              typeof(MapUser),
+              typeof(MapFlow),
+              typeof(MapPosition)
+
             });
 
             config.AddDeserializedMapping(mapper.CompileMappingForAllExplicitlyAddedEntities(), null);
