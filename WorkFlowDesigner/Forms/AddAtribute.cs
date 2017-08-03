@@ -13,6 +13,7 @@ namespace WorkFlowDesigner
 {
     public partial class AddAtribute : DevExpress.XtraEditors.XtraForm
     {
+        List<ListElement> listElement = new List<ListElement>();
         public AddAtribute()
         {
             InitializeComponent();
@@ -66,6 +67,9 @@ namespace WorkFlowDesigner
         private void btnAddListItem_Click(object sender, EventArgs e)
         {
 
+            listElement.Add(new ListElement());
+            AddListItem addListItem = new AddListItem(listElement, listElement.Count - 1);
+            addListItem.ShowDialog();
         }
 
        
