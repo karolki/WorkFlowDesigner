@@ -15,7 +15,9 @@ namespace WorkFlowDesigner
 
         [DisplayName(@"Id_position")]
         public int Id_position { get => id_position; set => id_position = value; }
+        [DisplayName(@"Id_flow")]
         public int Id_flow { get => id_flow; set => id_flow = value; }
+        [DisplayName(@"Name")]
         public string Name { get => name; set => name = value; }
 
         
