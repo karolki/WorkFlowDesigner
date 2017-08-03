@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WorkFlowDesigner
 {
-    class Step
+    public class Step
     {
         private int id_step;
         private int start_position_id;

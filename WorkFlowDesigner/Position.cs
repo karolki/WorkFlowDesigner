@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WorkFlowDesigner
 {
-    class Position
+    public class Position
     {
         private int id_position;
         private int id_flow;

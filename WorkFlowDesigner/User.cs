@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace WorkFlowDesigner
 {
-    class User
+    public class User
     {
         private int id_user;
         private String surname;
