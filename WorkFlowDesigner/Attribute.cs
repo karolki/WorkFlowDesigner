@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkFlowDesigner
 {
-    class Attribute
+    public class Attribute
     {
         private int id_attribute;
         private int id_workflow;

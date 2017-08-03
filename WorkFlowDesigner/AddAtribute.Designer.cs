@@ -109,5 +109,6 @@
         private System.Windows.Forms.TextBox tbAtributeName;
         private DevExpress.XtraEditors.ComboBoxEdit cbeListAtribute;
         private System.Windows.Forms.ComboBox cbAtributeType;
+        Attribute atribute;
     }
 }

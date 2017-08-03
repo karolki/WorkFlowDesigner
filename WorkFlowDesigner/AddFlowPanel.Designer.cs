@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gcAtribute = new DevExpress.XtraGrid.GridControl();
             this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvAtribute = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId_attribute = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colId_workflow = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,9 +50,9 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcAtribute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvAtribute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
@@ -66,7 +66,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gridControl1);
+            this.layoutControl1.Controls.Add(this.gcAtribute);
             this.layoutControl1.Controls.Add(this.btnAddAtribute);
             this.layoutControl1.Controls.Add(this.tbName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -78,30 +78,30 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // gridControl1
+            // gcAtribute
             // 
-            this.gridControl1.DataSource = this.attributeBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(449, 101);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(434, 227);
-            this.gridControl1.TabIndex = 4;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gcAtribute.DataSource = this.attributeBindingSource;
+            this.gcAtribute.Location = new System.Drawing.Point(449, 101);
+            this.gcAtribute.MainView = this.gvAtribute;
+            this.gcAtribute.Name = "gcAtribute";
+            this.gcAtribute.Size = new System.Drawing.Size(434, 227);
+            this.gcAtribute.TabIndex = 4;
+            this.gcAtribute.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvAtribute});
             // 
             // attributeBindingSource
             // 
             this.attributeBindingSource.DataSource = typeof(WorkFlowDesigner.Attribute);
             // 
-            // gridView1
+            // gvAtribute
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvAtribute.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId_attribute,
             this.colId_workflow,
             this.colName,
             this.colType});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.gvAtribute.GridControl = this.gcAtribute;
+            this.gvAtribute.Name = "gvAtribute";
             // 
             // colId_attribute
             // 
@@ -222,7 +222,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.gridControl1;
+            this.layoutControlItem2.Control = this.gcAtribute;
             this.layoutControlItem2.Location = new System.Drawing.Point(437, 89);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(438, 231);
@@ -239,9 +239,9 @@
             this.Text = "AddFlowPanel";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcAtribute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvAtribute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
@@ -268,9 +268,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gcAtribute;
         private System.Windows.Forms.BindingSource attributeBindingSource;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvAtribute;
         private DevExpress.XtraGrid.Columns.GridColumn colId_attribute;
         private DevExpress.XtraGrid.Columns.GridColumn colId_workflow;
         private DevExpress.XtraGrid.Columns.GridColumn colName;

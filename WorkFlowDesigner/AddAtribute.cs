@@ -17,5 +17,11 @@ namespace WorkFlowDesigner
         {
             InitializeComponent();
         }
+        public AddAtribute(Attribute a)
+        {
+            this.atribute = a;
+            InitializeComponent();
+        }
+
     }
 }
