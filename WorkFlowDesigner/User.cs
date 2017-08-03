@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace WorkFlowDesigner
 {
@@ -13,25 +14,14 @@ namespace WorkFlowDesigner
         private String name;
         private String permission;
 
-        public User(int id_user, string surname, string name, string permission)
-        {
-            this.id_user = id_user;
-            this.surname = surname;
-            this.name = name;
-            this.permission = permission;
-        }
 
-        public User()
-        {
-            this.id_user = 0;
-            this.surname = "";
-            this.name = "";
-            this.permission = "";
-        }
-
+        [DisplayName(@"Id_User")]
         public int Id_user { get => id_user; set => id_user = value; }
+        [DisplayName(@"Surname")]
         public string Surname { get => surname; set => surname = value; }
+        [DisplayName(@"Name")]
         public string Name { get => name; set => name = value; }
+        [DisplayName(@"Permission.")]
         public string Permission { get => permission; set => permission = value; }
     }
 }
