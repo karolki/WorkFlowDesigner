@@ -9,7 +9,7 @@ namespace WorkFlowDesigner
     class NHibernateOperation
     {
 
-        public void AddFlow (Flow flow)
+        public void AddFlow(Flow flow)
         {
             using (ISession session = InitNH.OppenSession())
             {
@@ -50,11 +50,11 @@ namespace WorkFlowDesigner
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     session.Delete(DeleteFlow);
-                        transaction.Commit();
+                    transaction.Commit();
                 }
             }
         }
-       
+
         public void UpdateUser(User UpdateUser)
         {
             using (ISession session = InitNH.OppenSession())
@@ -78,13 +78,14 @@ namespace WorkFlowDesigner
                 using (ITransaction transaction = session.BeginTransaction())
 
                 {
-                  
-                     listposition =session.QueryOver<Position>().List();
+
+                    listposition = session.QueryOver<Position>().List();
                 }
 
             }
             return listposition;
         }
+    }
 }
 
 
