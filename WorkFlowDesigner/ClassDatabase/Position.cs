@@ -14,6 +14,7 @@ namespace WorkFlowDesigner
         private String name;
         private IList<Step> startstepList = new List<Step>();
         private IList<Step> endstepList = new List<Step>();
+        private IList<Access> accesslist = new List<Access>();
 
         [DisplayName(@"Id_position")]
         public virtual int Id_position { get => id_position; set => id_position = value; }
@@ -23,10 +24,7 @@ namespace WorkFlowDesigner
         public virtual string Name { get => name; set => name = value; }
         public virtual IList<Step> StartStepList { get => startstepList; set => startstepList = value; }
         public virtual IList<Step> EndStepList { get => endstepList; set => endstepList = value; }
-
-
-
-
-
+        [DisplayName(@"Access_list")]
+        public IList<Access> Accesslist { get => accesslist; set => accesslist = value; }
     }
 }

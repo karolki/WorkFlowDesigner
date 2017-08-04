@@ -40,7 +40,8 @@ namespace WorkFlowDesigner
               typeof(MapStepCondition),
               typeof(MapAttribute),
               typeof(MapListElement),
-              typeof(MapDocument)
+              typeof(MapDocument),
+              typeof(Access)
 
             });
 

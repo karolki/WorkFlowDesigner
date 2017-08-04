@@ -32,6 +32,12 @@ namespace WorkFlowDesigner
 
             }, r => r.OneToMany(x => x.Class(typeof(Step))));
 
+            Bag(x => x.Accesslist, m =>
+            {
+                m.Inverse(true); m.Key(k => k.Column("id_position"));
+
+            }, r => r.OneToMany(x => x.Class(typeof(Access))));
+
 
 
         }
