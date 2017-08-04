@@ -60,6 +60,67 @@
 
 
         </member>
+        <member name="T:DevExpress.Sparkline.BarSparklineView">
+
+            <summary>
+                <para>The <b>Bar</b> sparkline view.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineView.#ctor">
+            <summary>
+                <para>Initializes a new instance of the BarSparklineView class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineView.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the BarSparklineView object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A BarSparklineView object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.BarSparklineView.HighlightNegativePoints">
+            <summary>
+                <para>Gets or sets a value specifying whether or not to highlight all sparkline points that have negative values (less than 0).
+</para>
+            </summary>
+            <value><b>true</b>, to highlight points with negative values; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.BarSparklineView.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.Bar"/>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current BarSparklineView object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
         <member name="T:DevExpress.Sparkline.LineSparklineView">
 
             <summary>
@@ -251,6 +312,47 @@
 
 
         </member>
+        <member name="T:DevExpress.Sparkline.SparklineViewType">
+
+            <summary>
+                <para>Lists the values used to specify the available view types of a sparkline.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.Area">
+            <summary>
+                <para>Sparkline data points are represented as <b>area</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.Bar">
+            <summary>
+                <para>Sparkline data points are represented as <b>bars</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.Line">
+            <summary>
+                <para>Sparkline data points are represented as a <b>line</b>.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Sparkline.SparklineViewType.WinLoss">
+            <summary>
+                <para>Sparkline data points are represented as <b>win</b> and <b>loss</b> squares.
+</para>
+            </summary>
+
+
+        </member>
         <member name="T:DevExpress.Sparkline.SparklineRange">
 
             <summary>
@@ -330,239 +432,6 @@
             </summary>
             <returns>A <see cref="T:System.String"/> value which is the textual representation of the SparklineRange.
 </returns>
-
-
-        </member>
-        <member name="T:DevExpress.Sparkline.WinLossSparklineView">
-
-            <summary>
-                <para>The <b>WinLoss</b> sparkline view.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Sparkline.WinLossSparklineView.#ctor">
-            <summary>
-                <para>Initializes a new instance of the WinLossSparklineView class with default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.Sparkline.WinLossSparklineView.Type">
-            <summary>
-                <para>Gets the type of the sparkline view.
-</para>
-            </summary>
-            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.WinLoss"/>.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.Sparkline.WinLossSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
-            <summary>
-                <para>Invokes the <b>Visit</b> method of the specified visitor for the current WinLossSparklineView object.
-</para>
-            </summary>
-            <param name="visitor">
-		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="T:DevExpress.Sparkline.BarSparklineViewBase">
-
-            <summary>
-                <para>The base for <b>Bar</b> and <b>WinLoss</b> sparkline views.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Sparkline.BarSparklineViewBase.Assign(DevExpress.Sparkline.SparklineViewBase)">
-            <summary>
-                <para>Copies all the settings from the BarSparklineViewBase object passed as the parameter.
-
-</para>
-            </summary>
-            <param name="view">
-		A BarSparklineViewBase object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.Sparkline.BarSparklineViewBase.BarDistance">
-            <summary>
-                <para>Specifies the distance between two bars of a bar sparkline.
-</para>
-            </summary>
-            <value>An integer value (in pixels).
-</value>
-
-
-        </member>
-        <member name="T:DevExpress.Sparkline.BarSparklineView">
-
-            <summary>
-                <para>The <b>Bar</b> sparkline view.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Sparkline.BarSparklineView.#ctor">
-            <summary>
-                <para>Initializes a new instance of the BarSparklineView class with default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.Sparkline.BarSparklineView.Assign(DevExpress.Sparkline.SparklineViewBase)">
-            <summary>
-                <para>Copies all the settings from the BarSparklineView object passed as the parameter.
-
-</para>
-            </summary>
-            <param name="view">
-		A BarSparklineView object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.Sparkline.BarSparklineView.HighlightNegativePoints">
-            <summary>
-                <para>Gets or sets a value specifying whether or not to highlight all sparkline points that have negative values (less than 0).
-</para>
-            </summary>
-            <value><b>true</b>, to highlight points with negative values; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Sparkline.BarSparklineView.Type">
-            <summary>
-                <para>Gets the type of the sparkline view.
-</para>
-            </summary>
-            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.Bar"/>.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.Sparkline.BarSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
-            <summary>
-                <para>Invokes the <b>Visit</b> method of the specified visitor for the current BarSparklineView object.
-</para>
-            </summary>
-            <param name="visitor">
-		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="T:DevExpress.Sparkline.AreaSparklineView">
-
-            <summary>
-                <para>The <b>Area</b> sparkline view.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Sparkline.AreaSparklineView.#ctor">
-            <summary>
-                <para>Initializes a new instance of the AreaSparklineView class with default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.Sparkline.AreaSparklineView.AreaOpacity">
-            <summary>
-                <para>Specifies the opacity (<b>0</b>-<b>255</b>) of the area sparkline.
-
-</para>
-            </summary>
-            <value>A <see cref="T:System.Byte"/> value from <b>0</b> (transparent) to <b>255</b> (opaque).
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.Sparkline.AreaSparklineView.Assign(DevExpress.Sparkline.SparklineViewBase)">
-            <summary>
-                <para>Copies all the settings from the AreaSparklineView object passed as the parameter.
-
-</para>
-            </summary>
-            <param name="view">
-		A AreaSparklineView object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.Sparkline.AreaSparklineView.Type">
-            <summary>
-                <para>Gets the type of the sparkline view.
-</para>
-            </summary>
-            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.Area"/>.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.Sparkline.AreaSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
-            <summary>
-                <para>Invokes the <b>Visit</b> method of the specified visitor for the current AreaSparklineView object.
-</para>
-            </summary>
-            <param name="visitor">
-		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
-
-            </param>
-
-
-        </member>
-        <member name="T:DevExpress.Sparkline.SparklineViewType">
-
-            <summary>
-                <para>Lists the values used to specify the available view types of a sparkline.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="F:DevExpress.Sparkline.SparklineViewType.Area">
-            <summary>
-                <para>Sparkline data points are represented as <b>area</b>.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Sparkline.SparklineViewType.Bar">
-            <summary>
-                <para>Sparkline data points are represented as <b>bars</b>.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Sparkline.SparklineViewType.Line">
-            <summary>
-                <para>Sparkline data points are represented as a <b>line</b>.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Sparkline.SparklineViewType.WinLoss">
-            <summary>
-                <para>Sparkline data points are represented as <b>win</b> and <b>loss</b> squares.
-</para>
-            </summary>
 
 
         </member>
@@ -801,6 +670,137 @@
         <member name="M:DevExpress.Sparkline.SparklineViewBase.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
             <summary>
                 <para>Invokes the <b>Visit</b> method of the specified visitor for the current SparklineViewBase object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.WinLossSparklineView">
+
+            <summary>
+                <para>The <b>WinLoss</b> sparkline view.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.WinLossSparklineView.#ctor">
+            <summary>
+                <para>Initializes a new instance of the WinLossSparklineView class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.WinLossSparklineView.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.WinLoss"/>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.WinLossSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current WinLossSparklineView object.
+</para>
+            </summary>
+            <param name="visitor">
+		An object implementing the <see cref="T:DevExpress.Sparkline.ISparklineViewVisitor"/> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.BarSparklineViewBase">
+
+            <summary>
+                <para>The base for <b>Bar</b> and <b>WinLoss</b> sparkline views.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.BarSparklineViewBase.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the BarSparklineViewBase object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A BarSparklineViewBase object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.BarSparklineViewBase.BarDistance">
+            <summary>
+                <para>Specifies the distance between two bars of a bar sparkline.
+</para>
+            </summary>
+            <value>An integer value (in pixels).
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Sparkline.AreaSparklineView">
+
+            <summary>
+                <para>The <b>Area</b> sparkline view.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Sparkline.AreaSparklineView.#ctor">
+            <summary>
+                <para>Initializes a new instance of the AreaSparklineView class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.AreaSparklineView.AreaOpacity">
+            <summary>
+                <para>Specifies the opacity (<b>0</b>-<b>255</b>) of the area sparkline.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Byte"/> value from <b>0</b> (transparent) to <b>255</b> (opaque).
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.AreaSparklineView.Assign(DevExpress.Sparkline.SparklineViewBase)">
+            <summary>
+                <para>Copies all the settings from the AreaSparklineView object passed as the parameter.
+
+</para>
+            </summary>
+            <param name="view">
+		A AreaSparklineView object (which is the <see cref="T:DevExpress.Sparkline.SparklineViewBase"/> descendant) whose settings are assigned to the current object. If <b>null</b> (<b>Nothing</b> in Visual Basic), then a <see cref="T:System.ArgumentNullException"/> will be thrown.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Sparkline.AreaSparklineView.Type">
+            <summary>
+                <para>Gets the type of the sparkline view.
+</para>
+            </summary>
+            <value>Always <see cref="F:DevExpress.Sparkline.SparklineViewType.Area"/>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Sparkline.AreaSparklineView.Visit(DevExpress.Sparkline.ISparklineViewVisitor)">
+            <summary>
+                <para>Invokes the <b>Visit</b> method of the specified visitor for the current AreaSparklineView object.
 </para>
             </summary>
             <param name="visitor">

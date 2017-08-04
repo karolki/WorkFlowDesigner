@@ -10,16 +10,16 @@ namespace WorkFlowDesigner
    public class StepCondition
     {
         private int id_stepcondition;
-        private int id_step;
-        private String condition;
+        private Step id_step;
+        private string condition;
 
 
         [DisplayName(@"Id_stepcondition")]
-        public int Id_stepcondition { get => id_stepcondition; set => id_stepcondition = value; }
+        public virtual int Id_stepcondition { get => id_stepcondition; set => id_stepcondition = value; }
         [DisplayName(@"Id_step")]
-        public int Id_step { get => id_step; set => id_step = value; }
+        public virtual Step Id_step { get => id_step; set => id_step = value; }
         [DisplayName(@"Condition")]
-        public string Condition { get => condition; set => condition = value; }
+        public virtual  string Condition { get => condition; set => condition = value; }
 
 
     }

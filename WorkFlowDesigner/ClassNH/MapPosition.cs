@@ -21,8 +21,18 @@ namespace WorkFlowDesigner
             {
                 m.Column("id_flow");
             });
-                
-            
+            Bag(x => x.StartStepList, m =>
+            {
+                m.Inverse(true); m.Key(k => k.Column("id_position"));
+
+            }, r => r.OneToMany(x => x.Class(typeof(Step))));
+            Bag(x => x.EndStepList, m =>
+            {
+                m.Inverse(true); m.Key(k => k.Column("id_position"));
+
+            }, r => r.OneToMany(x => x.Class(typeof(Step))));
+
+
 
         }
 

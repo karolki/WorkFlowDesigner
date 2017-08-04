@@ -13,6 +13,7 @@ namespace WorkFlowDesigner
         private Position start_position_id;
         private Position end_position_id;
         private String description;
+        private IList<Step> stepconditionlist = new List<Step>();
 
 
         [DisplayName(@"Id_step")]
@@ -23,6 +24,7 @@ namespace WorkFlowDesigner
         public virtual Position End_position_id { get => end_position_id; set => end_position_id = value; }
         [DisplayName(@"Description")]
         public virtual string Description { get => description; set => description = value; }
+        public virtual IList<Step> StepConditionList { get => stepconditionlist; set => stepconditionlist = value; }
 
     }
 }

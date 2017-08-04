@@ -11,14 +11,13 @@ namespace WorkFlowDesigner
     {
         public MapStepCondition()
         {
-            
-
                 Table("StepCondition");
                 Id(x => x.Id_stepcondition, m => { m.Column("id_stepcondition"); m.Generator(Generators.Identity); });
-                Property(x =>x.Condition, m => { m.Column("name"); });
-               
-
-            
+                Property(x =>x.Condition, m => { m.Column("condition"); });
+            ManyToOne(x => x.Id_step, m =>
+            {
+                m.Column("id_step");
+            });
         }
     }
 }
