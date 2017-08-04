@@ -31,6 +31,17 @@ namespace WorkFlowDesigner
                 }
             }
         }
+        public void AddStep(Step element)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(element);
+                    transaction.Commit();
+                }
+            }
+        }
 
         public void Delete(Flow DeleteFlow)
         {
@@ -58,5 +69,22 @@ namespace WorkFlowDesigner
             }
         }
 
-    }
+        public IList<Position> GetP(Position GetPosition)
+        {
+            IList<Position> listposition = new List<Position>();
+            using (ISession session = InitNH.OppenSession())
+
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+
+                {
+                  
+                     listposition =session.QueryOver<Position>().List();
+                }
+
+            }
+            return listposition;
+        }
 }
+
+

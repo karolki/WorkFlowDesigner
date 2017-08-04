@@ -35,7 +35,8 @@ namespace WorkFlowDesigner
             {
               typeof(MapUser),
               typeof(MapFlow),
-              typeof(MapPosition)
+              typeof(MapPosition),
+              typeof(MapStep)
 
             });
 

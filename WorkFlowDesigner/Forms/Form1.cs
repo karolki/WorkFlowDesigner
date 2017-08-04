@@ -22,23 +22,34 @@ namespace WorkFlowDesigner
             Position position = new Position();
             List<Position> list = new List<Position>();
             List<Attribute> lista2 = new List<Attribute>();
+            List<Step> startsteplista = new List<Step>();
+            List<Step> endsteplista = new List<Step>();
+
+
             Flow flow = new Flow();
             flow.Flow_description = "asd";
-            flow.Flow_name = "asd";
-            
+            flow.Flow_name = "FlowSTep";
 
-            position.Name = "przeplywamsobieposwiecie";
+
+            position.Name = "PositionSTep";
             position.Id_flow = flow;
             list.Add(position);
             flow.PositionList = list;
-            flow.AtributeList = lista2;
-            
-           
-           
+            flow.AtributeList = lista2;//dodanie przeplywu i pozycji
 
-            // operation = new NHibernateOperation();
-            //operation.AddFlow(flow);
-           // operation.AddPosition(position);
+            Step step = new Step();//dodanie kroku
+            step.Description = "TEST";
+            step.Start_position_id = position;
+            step.End_position_id = position;
+
+            startsteplista.Add(step);
+            endsteplista.Add(step);
+
+            NHibernateOperation operation = new NHibernateOperation();
+            operation.AddFlow(flow);
+            operation.AddPosition(position);
+            operation.GetP(position);
+
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
