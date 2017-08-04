@@ -16,13 +16,13 @@ namespace WorkFlowDesigner
 
 
         [DisplayName(@"Id_step")]
-        public int Id_step { get => id_step; set => id_step = value; }
+        public virtual int Id_step { get => id_step; set => id_step = value; }
         [DisplayName(@"Start_position_id")]
-        public Position Start_position_id { get => start_position_id; set => start_position_id = value; }
+        public virtual Position Start_position_id { get => start_position_id; set => start_position_id = value; }
         [DisplayName(@"End_position_id")]
-        public Position End_position_id { get => end_position_id; set => end_position_id = value; }
+        public virtual Position End_position_id { get => end_position_id; set => end_position_id = value; }
         [DisplayName(@"Description")]
-        public string Description { get => description; set => description = value; }
+        public virtual string Description { get => description; set => description = value; }
 
     }
 }

@@ -17,8 +17,8 @@ namespace WorkFlowDesigner
         {
             InitializeComponent();
 
-            //InitNH init = new InitNH();
-           // init.InitNHibernate();
+            InitNH init = new InitNH();
+            init.InitNHibernate();
             Position position = new Position();
             List<Position> list = new List<Position>();
             List<Attribute> lista2 = new List<Attribute>();
@@ -45,10 +45,10 @@ namespace WorkFlowDesigner
             startsteplista.Add(step);
             endsteplista.Add(step);
 
-            //NHibernateOperation operation = new NHibernateOperation();
-            //operation.AddFlow(flow);
-            //operation.AddPosition(position);
-            //operation.GetP(position);
+            NHibernateOperation operation = new NHibernateOperation();
+            operation.AddFlow(flow);
+            operation.AddPosition(position);
+            operation.GetP(position);
 
         }
 

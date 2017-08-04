@@ -22,7 +22,7 @@ namespace WorkFlowDesigner
 
             string connectionString = @"Server = 172.21.70.40; Database = PraktykiWorkFlow; User Id = sa;Password = cdnxl1*";
 
-            //string databaseName = ConfigurationManager.AppSettings["PraktykiWorkFlow"];
+           
 
             NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration().DataBaseIntegration(db =>
             {
