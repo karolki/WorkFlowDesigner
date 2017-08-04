@@ -4,332 +4,246 @@
         <name>DevExpress.Utils.v17.1</name>
     </assembly>
     <members>
-        <member name="T:DevExpress.Utils.TextOptions">
+        <member name="T:DevExpress.XtraEditors.ButtonPanel.IButtonProperties">
 
             <summary>
-                <para>Contains options that specify how text is rendered.
+                <para>Contains properties for <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> objects.
 </para>
             </summary>
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.#ctor(DevExpress.Utils.HorzAlignment,DevExpress.Utils.VertAlignment,DevExpress.Utils.WordWrap,DevExpress.Utils.Trimming)">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Appearance">
             <summary>
-                <para>Initializes a new instance of the TextOptions class with the specified alignments, word wrapping and text trimming options.
-
+                <para>Provides access to the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's appearance settings. 
 </para>
             </summary>
-            <param name="hAlignment">
-		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the horizontal alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.HAlignment"/> property.
-
-
-            </param>
-            <param name="vAlignment">
-		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the vertical alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.VAlignment"/> property.
-
-
-            </param>
-            <param name="wordWrap">
-		A <see cref="T:DevExpress.Utils.WordWrap"/> value that specifies word wrapping mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.WordWrap"/> property.
-
-
-            </param>
-            <param name="trimming">
-		A <see cref="T:DevExpress.Utils.Trimming"/> value that specifies text trimming mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.Trimming"/> property.
-
-            </param>
+            <value>An AppearanceObject that stores the current IButton object's appearance settings.
+</value>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.#ctor(DevExpress.Utils.AppearanceObject)">
+        <member name="M:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.BeginUpdate">
             <summary>
-                <para>Initializes a new instance of the TextOptions class with the specified owner, the text settings are set to default values.
-
+                <para>Locks the <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> by preventing visual updates of the object and its elements until the EndUpdate method is called. 
 </para>
             </summary>
-            <param name="owner">
-		An <see cref="T:DevExpress.Utils.AppearanceObject"/> object which becomes the owner of the current object.
-
-            </param>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.#ctor(DevExpress.Utils.HorzAlignment,DevExpress.Utils.VertAlignment,DevExpress.Utils.WordWrap,DevExpress.Utils.Trimming,DevExpress.Utils.HKeyPrefix)">
+        <member name="M:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.CancelUpdate">
             <summary>
-                <para>Initializes a new instance of the TextOptions class with the specified alignments, word wrapping and text trimming options.
-
+                <para>Unlocks the <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object and its elements without immediate visual update.
 </para>
             </summary>
-            <param name="hAlignment">
-		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the horizontal alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.HAlignment"/> property.
-
-            </param>
-            <param name="vAlignment">
-		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the vertical alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.VAlignment"/> property.
-
-
-            </param>
-            <param name="wordWrap">
-		A <see cref="T:DevExpress.Utils.WordWrap"/> value that specifies word wrapping mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.WordWrap"/> property.
-
-            </param>
-            <param name="trimming">
-		A <see cref="T:DevExpress.Utils.Trimming"/> value that specifies text trimming mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.Trimming"/> property.
-
-            </param>
-            <param name="hotKeyPrefix">
-		A <see cref="T:DevExpress.Utils.HKeyPrefix"/> enumeration value that specifies the hotkey prefix for the text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.HotkeyPrefix"/> property.
-
-            </param>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.Assign(DevExpress.Utils.TextOptions)">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption">
             <summary>
-                <para>Copies settings from the specified object to the current TextOptions object.
+                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's caption. 
 </para>
             </summary>
-            <param name="options">
-		A TextOptions object whose settings are copied to the current object.
-
-            </param>
+            <value>A String value that is the current IButton object's caption. 
+</value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.TextOptions.DefaultOptions">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Checked">
             <summary>
-                <para>Gets an object that specifies the default text options.
-
+                <para>Gets or sets if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> is checked. 
 </para>
             </summary>
-            <value>A <see cref="T:DevExpress.Utils.TextOptions"/> object that specifies the default text options.
+            <value>A Boolean value specifying whether the current IButton is checked. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Enabled">
+            <summary>
+                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is enabled. 
+</para>
+            </summary>
+            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is enabled; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.EndUpdate">
+            <summary>
+                <para>Unlocks an <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> causing immediate visual update of the object and all its elements.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Glyphs">
+            <summary>
+                <para>Gets or sets a collection of glyphs for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object. 
+</para>
+            </summary>
+            <value>An Object that is the glyphs collection for the current IButton object. 
 
 </value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsCenteredWithEllipsis">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.GroupIndex">
             <summary>
-                <para>Gets an object whose settings force text to be centered.
-
+                <para>Gets or sets a group index for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object. 
 </para>
             </summary>
-            <value>A TextOptions object with its settings set to the corresponding values.
-
+            <value>An Int32 value that is the group index for the current IButton object. The default value is <b>-1</b>. 
 </value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsMultiLine">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Image">
             <summary>
-                <para>Gets an object whose settings allow text to wrap.
+                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon. 
 </para>
             </summary>
-            <value>A TextOptions object with its settings set to the corresponding values.
-
+            <value>An Image object that is the current IButton object's icon. 
 </value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsNoWrap">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageIndex">
             <summary>
-                <para>Gets an object whose settings prevent text from wrapping.
-
+                <para>Gets or sets an <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Images"/> collection member used as the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's glyph. 
 </para>
             </summary>
-            <value>A TextOptions object with its settings set to the corresponding values.
-
+            <value>An Int32 value that points to an <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Images"/> collection member used as the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's glyph. 
 </value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsNoWrapEx">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageLocation">
             <summary>
-                <para>Gets an object whose settings force text to be centered and prevent it from wrapping.
-
+                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon location relative to its <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/>. 
 </para>
             </summary>
-            <value>A TextOptions object with its settings set to the corresponding values.
-
+            <value>An ImageLocation enumerator value specifying the current IButton object's icon location relative to its <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/>. 
 </value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.TextOptions.DefaultStringFormat">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageOptions">
             <summary>
-                <para>Gets an object that contains the default formatting settings.
+                <para>Provides access to all properties that allow you to assign and customize an icon for this <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>.
 </para>
             </summary>
-            <value>A <see cref="T:System.Drawing.StringFormat"/> object containing the default formatting settings.
+            <value>A <see cref="BaseButtonImageOptions"/> object that stores all properties that allow you to assign and customize an icon for this <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>.
 </value>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.ForceUseGenericDefaultStringFormat">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Images">
             <summary>
-                <para>Specifies how the default string format referred to by the <see cref="P:DevExpress.Utils.TextOptions.DefaultStringFormat"/> property is constructed.
+                <para>Gets a collection of images that can be used as the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon. 
 </para>
             </summary>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.TextOptions.GetStringFormat">
-            <summary>
-                <para>Returns a <see cref="T:System.Drawing.StringFormat"/> object whose settings reflect the alignment, word wrapping and text trimming options of the <see cref="P:DevExpress.Utils.TextOptions.DefaultOptions"/> object.
-
-</para>
-            </summary>
-            <returns>A <see cref="T:System.Drawing.StringFormat"/> object whose properties are set to match the appropriate values.
-
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.TextOptions.GetStringFormat(DevExpress.Utils.TextOptions)">
-            <summary>
-                <para>Returns a <see cref="T:System.Drawing.StringFormat"/> object whose settings reflect the alignment, word wrapping and text trimming options of the specified TextOptions object.
-
-</para>
-            </summary>
-            <param name="defaultOptions">
-		A TextOptions object whose settings are used to initialize the corresponding settings of the <see cref="T:System.Drawing.StringFormat"/> object that is to be returned.
-
-            </param>
-            <returns>A <see cref="T:System.Drawing.StringFormat"/> object whose properties are set to match the appropriate values.
-
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.TextOptions.HAlignment">
-            <summary>
-                <para>Gets or sets the horizontal alignment of text.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the text horizontal alignment.
+            <value>The Object that is the source of images assigned to the parent dock panel's <see cref="P:DevExpress.XtraBars.Docking.DockPanel.Images"/> property. 
 </value>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.HorzAlignmentToStringAlignment(DevExpress.Utils.HorzAlignment)">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageUri">
             <summary>
-                <para>Converts the specified <see cref="T:DevExpress.Utils.HorzAlignment"/> value to a corresponding <see cref="T:System.Drawing.StringAlignment"/> value.
-
+                <para>Gets or sets the uniform resource identifier of the image in the DX Image Gallery displayed in the button. 
+A specific version of the addressed image is automatically chosen based on the app context (the current skin and required image size).
 </para>
             </summary>
-            <param name="align">
-		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that is to be converted.
-
-            </param>
-            <returns>A <see cref="T:System.Drawing.StringAlignment"/> value that corresponds to the specified <see cref="T:DevExpress.Utils.HorzAlignment"/> value.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.TextOptions.HotkeyPrefix">
-            <summary>
-                <para>Gets or sets the hotkey prefix for the text. 
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.HKeyPrefix"/> enumeration value which represents the hotkey prefix for the text.
+            <value>A string value that specifies the uniform resource identifier of the image to be displayed in the button.
 </value>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.IsEqual(DevExpress.Utils.TextOptions)">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.IsUpdateLocked">
             <summary>
-                <para>Tests whether two objects have the same property values.
+                <para>Gets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> is locked for any visual update.
 </para>
             </summary>
-            <param name="options">
-		The TextOptions object to which the current object is compared.
-
-            </param>
-            <returns><b>true</b> if the current object has the same property values as the specified object; otherwise, <b>false</b>.
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.TextOptions.Reset">
-            <summary>
-                <para>Resets all the text settings to their default values.
-
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.TextOptions.RightToLeft">
-            <summary>
-                <para>Gets or sets whether the text is directed from right to left.
-</para>
-            </summary>
-            <value><b>true</b>, if the text is directed from right to left; otherwise, <b>false</b>.
+            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> is locked for any visual update; otherwise, <b>false</b>.
 </value>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.ToString">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Style">
             <summary>
-                <para>Returns the text representation of the current object.
+                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's type. 
 </para>
             </summary>
-            <returns>The text representation of the current object.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.TextOptions.Trimming">
-            <summary>
-                <para>Gets or sets text trimming mode.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.Trimming"/> value that specifies text trimming mode.
+            <value>A ButtonStyle enumerator value that specifies the current IButton object's type. 
 </value>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.UpdateDefaultOptions(DevExpress.Utils.TextOptions)">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.SuperTip">
             <summary>
-                <para>For internal use. Copies settings from the specified object to the current object.
+                <para>Gets or sets a super tool-tip for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>. 
 </para>
             </summary>
-            <param name="defaultOptions">
-		A <see cref="T:DevExpress.Utils.TextOptions"/> object whose settings are copied to the current object.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.TextOptions.VAlignment">
-            <summary>
-                <para>Gets or sets the vertical alignment of text.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.VertAlignment"/> value that specifies the text vertical alignment.
+            <value>A <see cref="T:DevExpress.Utils.SuperToolTip"/> object associated with the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>.
 </value>
 
 
         </member>
-        <member name="M:DevExpress.Utils.TextOptions.VertAlignmentToStringAlignment(DevExpress.Utils.VertAlignment)">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Tag">
             <summary>
-                <para>Converts the specified <see cref="T:DevExpress.Utils.VertAlignment"/> value to a corresponding <see cref="T:System.Drawing.StringAlignment"/> value.
+                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's tag. 
 </para>
             </summary>
-            <param name="align">
-		A <see cref="T:DevExpress.Utils.VertAlignment"/> value that is to be converted.
-
-            </param>
-            <returns>A <see cref="T:System.Drawing.StringAlignment"/> value that corresponds to the specified <see cref="T:DevExpress.Utils.VertAlignment"/> value.
-</returns>
+            <value>An Object that is the current IButton object's tag. 
+</value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.TextOptions.WordWrap">
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ToolTip">
             <summary>
-                <para>Gets or sets text wrapping mode.
+                <para>Gets or sets a tool-tip for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>. 
 </para>
             </summary>
-            <value>A <see cref="T:DevExpress.Utils.WordWrap"/> value that specifies text wrapping mode.
+            <value>A String value that is the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>'s tool-tip.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.UseCaption">
+            <summary>
+                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/> is visible. 
+</para>
+            </summary>
+            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/> is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.UseImage">
+            <summary>
+                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon is visible. 
+</para>
+            </summary>
+            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Visible">
+            <summary>
+                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is visible. 
+</para>
+            </summary>
+            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.VisibleIndex">
+            <summary>
+                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's relative position. 
+</para>
+            </summary>
+            <value>An Int32 value specifying the current IButton object's relative position. 
 </value>
 
 
@@ -1445,6 +1359,77 @@
 
 
         </member>
+        <member name="T:DevExpress.Utils.Menu.DXSubMenuItem">
+
+            <summary>
+                <para>Specifies a submenu.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.#ctor(System.String)">
+            <summary>
+                <para>Initializes a new instance of the DXSubMenuItem class with the specified caption.
+</para>
+            </summary>
+            <param name="caption">
+		A string that specifies the text displayed by the menu item. This value is assigned to the <see cref="P:DevExpress.Utils.Menu.DXMenuItem.Caption"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.#ctor">
+            <summary>
+                <para>Initializes a new instance of the DXSubMenuItem class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.#ctor(System.String,System.EventHandler)">
+            <summary>
+                <para>Initializes a new instance of the DXSubMenuItem class with the specified caption and the handler for the <see cref="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup"/> event.
+</para>
+            </summary>
+            <param name="caption">
+		A string that specifies the text displayed by the menu item. This value is assigned to the <see cref="P:DevExpress.Utils.Menu.DXMenuItem.Caption"/> property.
+
+            </param>
+            <param name="beforePopup">
+		A handler for the <see cref="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup"/> event.
+
+            </param>
+
+
+        </member>
+        <member name="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup">
+            <summary>
+                <para>Allows you to dynamically provide sub-items for the current DXSubMenuItem object.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.GenerateBeforePopupEvent">
+            <summary>
+                <para>Invokes the event handler assigned to the <see cref="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup"/> event.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.Menu.DXSubMenuItem.Items">
+            <summary>
+                <para>Gets a collection of items displayed when the current submenu is expanded.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.Menu.DXMenuItemCollection"/> object which contains menu items displayed when the submenu is expanded.
+</value>
+
+
+        </member>
         <member name="T:DevExpress.Utils.Menu.DXMenuCheckItem">
 
             <summary>
@@ -1670,6 +1655,173 @@
 </para>
             </summary>
             <value>An Int32 value that is the distance between panel borders, starting from which the panel snapping feature activates.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Utils.ContextButtonBase">
+
+            <summary>
+                <para>A base class for context buttons.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Utils.ContextButtonBase.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ContextButtonBase class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.AllowHtmlText">
+            <summary>
+                <para>Gets or sets whether the current button's caption is formatted using HTML tags.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.DefaultBoolean"/> enumeration value that specifies whether the current button's caption is formatted using HTML tags.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.ContextButtonBase.BindCommand(System.Linq.Expressions.Expression`1,System.Object,System.Func`1)">
+            <summary>
+                <para>Uses the command selector to find an appropriate parameterized command in the source and binds it to this ContextButtonBase.
+
+</para>
+            </summary>
+            <param name="commandSelector">
+		An Expression that selects the appropriate command from the <i>source</i> object. 
+
+            </param>
+            <param name="source">
+		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command. 
+
+            </param>
+            <param name="queryCommandParameter">
+		A Func delegate that passes the specific Object to the command as a parameter. 
+
+            </param>
+            <returns>An IDisposable object. Disposing of this object unbinds the command from this ContextButtonBase.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.ContextButtonBase.BindCommand(System.Object,System.Func`1)">
+            <summary>
+                <para>Binds the specific parameterized command to this ContextButtonBase.
+</para>
+            </summary>
+            <param name="command">
+		An Object that is the command to be bound to this ContextButtonBase.
+
+            </param>
+            <param name="queryCommandParameter">
+		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
+
+            </param>
+            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this ContextButtonBase.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.ContextButtonBase.BindCommand``1(System.Linq.Expressions.Expression{System.Action`1},System.Object,System.Func{``0})">
+            <summary>
+                <para>Uses the command selector to find an appropriate parameterized command of the target type in the source and binds it to this ContextButtonBase.
+</para>
+            </summary>
+            <param name="commandSelector">
+		An Expression that selects the appropriate command from the <i>source</i> object. 
+
+            </param>
+            <param name="source">
+		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command. 
+
+            </param>
+            <param name="queryCommandParameter">
+		A Func delegate that passes the specific Object to the command as a parameter. 
+
+            </param>
+            <returns>An IDisposable object. Disposing of this object unbinds the command from this ContextButtonBase.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.Caption">
+            <summary>
+                <para>Gets or sets the current button's caption.
+</para>
+            </summary>
+            <value>A string value that specifies the current button's caption.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.Height">
+            <summary>
+                <para>Gets or sets the button height.
+</para>
+            </summary>
+            <value>An integer value that specifies the button height.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Utils.ContextButtonBase.HyperlinkClick">
+            <summary>
+                <para>Fires when a hyperlink in the button caption is clicked.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.HyperLinkColor">
+            <summary>
+                <para>Gets or sets the color of the hyperlink text in the current button's caption.
+</para>
+            </summary>
+            <value>A <b>Color</b> object that specifies the color of the hyperlink text in the current button's caption.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.MaxHeight">
+            <summary>
+                <para>Gets or sets the maximum height of the current button.
+</para>
+            </summary>
+            <value>An integer value that specifies the maximum height of the current button.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.MaxWidth">
+            <summary>
+                <para>Gets or sets the maximum width of the current button.
+</para>
+            </summary>
+            <value>An integer value that specifies the maximum width of the current button.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.Padding">
+            <summary>
+                <para>Gets or sets the amount of space around the current button.
+</para>
+            </summary>
+            <value>A <b>Padding</b> structure that specifies the amount of space around the current button.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ContextButtonBase.Width">
+            <summary>
+                <para>Gets or sets the button width.
+</para>
+            </summary>
+            <value>An integer value that specifies the button width.
 </value>
 
 
@@ -2958,6 +3110,39 @@ In this mode, the scroll bar thumb supports the auto-hide functionality. It auto
 
 
         </member>
+        <member name="T:DevExpress.Utils.GroupElementLocation">
+
+            <summary>
+                <para>Contains values that specify how an element is displayed relative to a text label within a group control.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Utils.GroupElementLocation.AfterText">
+            <summary>
+                <para>Displays an element after a text label.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.GroupElementLocation.BeforeText">
+            <summary>
+                <para>Displays an element before a text label.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.GroupElementLocation.Default">
+            <summary>
+                <para>Specifies the default position of an element relative to a text label.
+Currently, the <b>Default</b> option is equivalent to the <b>BeforeText</b> option.
+</para>
+            </summary>
+
+
+        </member>
         <member name="T:DevExpress.Utils.VisualEffects.BadgeProperties">
 
             <summary>
@@ -3572,184 +3757,6 @@ In this mode, the scroll bar thumb supports the auto-hide functionality. It auto
             </param>
             <returns><b>true</b>, if the element was successfully removed; otherwise, <b>false</b>.
 </returns>
-
-
-        </member>
-        <member name="T:DevExpress.Utils.VisualEffects.AdornerElement">
-
-            <summary>
-                <para>The base class for all adorner elements (e.g., <see cref="T:DevExpress.Utils.VisualEffects.Badge"/>s).
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.#ctor">
-            <summary>
-                <para>Initializes a new instance of the AdornerElement class with the default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Appearances">
-            <summary>
-                <para>Provides access to multiple sets of appearance settings, applied in different AdornerElement visual states.
-</para>
-            </summary>
-            <value>An <see cref="AdornerAppearanceCollection"/> object that stores sets of appearance settings, applied in different AdornerElement visual states.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.Assign(DevExpress.Utils.VisualEffects.IAdornerElement)">
-            <summary>
-                <para>Copies all settings from the target AdornerElement to this AdornerElement.
-</para>
-            </summary>
-            <param name="element">
-		An AdornerElement object whose settings are to be copied to this AdornerElement.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.BindCommand(System.Linq.Expressions.Expression`1,System.Object,System.Func`1)">
-            <summary>
-                <para>Uses the command selector to find an appropriate parameterized command in the source and bind it to this AdornerElement.
-</para>
-            </summary>
-            <param name="commandSelector">
-		An Expression that selects the appropriate command from the <i>source</i> object.
-
-            </param>
-            <param name="source">
-		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command.
-
-            </param>
-            <param name="queryCommandParameter">
-		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
-
-            </param>
-            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this AdornerElement. 
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.BindCommand(System.Object,System.Func`1)">
-            <summary>
-                <para>Binds the specific parameterized command to this AdornerElement.
-</para>
-            </summary>
-            <param name="command">
-		An Object that is the command to be bound to this AdornerElement. 
-
-            </param>
-            <param name="queryCommandParameter">
-		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
-
-            </param>
-            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this AdornerElement. 
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.BindCommand``1(System.Linq.Expressions.Expression{System.Action`1},System.Object,System.Func{``0})">
-            <summary>
-                <para>Uses the command selector to find an appropriate parameterized command of the target type in the source and bind it to this AdornerElement.
-</para>
-            </summary>
-            <param name="commandSelector">
-		An Expression that selects the appropriate command from the <i>source</i> object.
-
-            </param>
-            <param name="source">
-		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command.
-
-            </param>
-            <param name="queryCommandParameter">
-		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
-
-            </param>
-            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this AdornerElement. 
-</returns>
-
-
-        </member>
-        <member name="E:DevExpress.Utils.VisualEffects.AdornerElement.Click">
-            <summary>
-                <para>Occurs when end-users clicks this AdornerElement.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.Clone">
-            <summary>
-                <para>Duplicates this AdornerElement.
-</para>
-            </summary>
-            <returns>An Object that is this AdornerElement object's copy.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.IsDisposing">
-            <summary>
-                <para>Gets whether the AdornerElement is being disposed of.
-</para>
-            </summary>
-            <value><b>true</b>, if the AdornerElement is being disposed of; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Properties">
-            <summary>
-                <para>Provides access to a set of AdornerElement properties.
-</para>
-            </summary>
-            <value>An <see cref="AdornerElementDefaultProperties"/> object that stores settings for this AdornerElement.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.TabIndex">
-            <summary>
-                <para>Gets or sets the tab index for this AdornerElement.
-</para>
-            </summary>
-            <value>An Int32 value that is the tab index for this AdornerElement.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Tag">
-            <summary>
-                <para>Gets or sets any object associated with this AdornerElement.
-</para>
-            </summary>
-            <value>An Object that is the tag for this AdornerElement.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.TargetElement">
-            <summary>
-                <para>Gets or sets the UI element to which this AdornerElement is bound.
-</para>
-            </summary>
-            <value>An Object related to this AdornerElement.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Visible">
-            <summary>
-                <para>Gets or sets whether or not this AdornerElement is visible.
-</para>
-            </summary>
-            <value><b>true</b>, if this AdornerElement is visible; otherwise, <b>false</b>.
-</value>
 
 
         </member>
@@ -5130,250 +5137,6 @@ The <b>false</b> value restricts the <b>SaveWorkspace</b> method to create new w
 
 
         </member>
-        <member name="T:DevExpress.XtraEditors.ButtonPanel.IButtonProperties">
-
-            <summary>
-                <para>Contains properties for <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> objects.
-</para>
-            </summary>
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Appearance">
-            <summary>
-                <para>Provides access to the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's appearance settings. 
-</para>
-            </summary>
-            <value>An AppearanceObject that stores the current IButton object's appearance settings.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.BeginUpdate">
-            <summary>
-                <para>Locks the <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> by preventing visual updates of the object and its elements until the EndUpdate method is called. 
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.CancelUpdate">
-            <summary>
-                <para>Unlocks the <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object and its elements without immediate visual update.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption">
-            <summary>
-                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's caption. 
-</para>
-            </summary>
-            <value>A String value that is the current IButton object's caption. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Checked">
-            <summary>
-                <para>Gets or sets if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> is checked. 
-</para>
-            </summary>
-            <value>A Boolean value specifying whether the current IButton is checked. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Enabled">
-            <summary>
-                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is enabled. 
-</para>
-            </summary>
-            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is enabled; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.EndUpdate">
-            <summary>
-                <para>Unlocks an <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> causing immediate visual update of the object and all its elements.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Glyphs">
-            <summary>
-                <para>Gets or sets a collection of glyphs for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object. 
-</para>
-            </summary>
-            <value>An Object that is the glyphs collection for the current IButton object. 
-
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.GroupIndex">
-            <summary>
-                <para>Gets or sets a group index for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object. 
-</para>
-            </summary>
-            <value>An Int32 value that is the group index for the current IButton object. The default value is <b>-1</b>. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Image">
-            <summary>
-                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon. 
-</para>
-            </summary>
-            <value>An Image object that is the current IButton object's icon. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageIndex">
-            <summary>
-                <para>Gets or sets an <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Images"/> collection member used as the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's glyph. 
-</para>
-            </summary>
-            <value>An Int32 value that points to an <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Images"/> collection member used as the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's glyph. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageLocation">
-            <summary>
-                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon location relative to its <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/>. 
-</para>
-            </summary>
-            <value>An ImageLocation enumerator value specifying the current IButton object's icon location relative to its <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/>. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageOptions">
-            <summary>
-                <para>Provides access to all properties that allow you to assign and customize an icon for this <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>.
-</para>
-            </summary>
-            <value>A <see cref="BaseButtonImageOptions"/> object that stores all properties that allow you to assign and customize an icon for this <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Images">
-            <summary>
-                <para>Gets a collection of images that can be used as the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon. 
-</para>
-            </summary>
-            <value>The Object that is the source of images assigned to the parent dock panel's <see cref="P:DevExpress.XtraBars.Docking.DockPanel.Images"/> property. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ImageUri">
-            <summary>
-                <para>Gets or sets the uniform resource identifier of the image in the DX Image Gallery displayed in the button. 
-A specific version of the addressed image is automatically chosen based on the app context (the current skin and required image size).
-</para>
-            </summary>
-            <value>A string value that specifies the uniform resource identifier of the image to be displayed in the button.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.IsUpdateLocked">
-            <summary>
-                <para>Gets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> is locked for any visual update.
-</para>
-            </summary>
-            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> is locked for any visual update; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Style">
-            <summary>
-                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's type. 
-</para>
-            </summary>
-            <value>A ButtonStyle enumerator value that specifies the current IButton object's type. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.SuperTip">
-            <summary>
-                <para>Gets or sets a super tool-tip for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>. 
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.SuperToolTip"/> object associated with the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Tag">
-            <summary>
-                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's tag. 
-</para>
-            </summary>
-            <value>An Object that is the current IButton object's tag. 
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.ToolTip">
-            <summary>
-                <para>Gets or sets a tool-tip for the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>. 
-</para>
-            </summary>
-            <value>A String value that is the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/>'s tool-tip.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.UseCaption">
-            <summary>
-                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/> is visible. 
-</para>
-            </summary>
-            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's <see cref="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Caption"/> is visible; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.UseImage">
-            <summary>
-                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon is visible. 
-</para>
-            </summary>
-            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's icon is visible; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.Visible">
-            <summary>
-                <para>Gets or sets whether the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is visible. 
-</para>
-            </summary>
-            <value><b>true</b> if the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object is visible; otherwise, <b>false</b>.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.XtraEditors.ButtonPanel.IButtonProperties.VisibleIndex">
-            <summary>
-                <para>Gets or sets the current <see cref="T:DevExpress.XtraBars.Docking2010.IButton"/> object's relative position. 
-</para>
-            </summary>
-            <value>An Int32 value specifying the current IButton object's relative position. 
-</value>
-
-
-        </member>
         <member name="T:DevExpress.Utils.VisualEffects.ValidationHintDefaultProperties">
 
             <summary>
@@ -5456,6 +5219,73 @@ A specific version of the addressed image is automatically chosen based on the a
             </summary>
             <value>A <see cref="ValidationHintBaseDefaultProperties"/> object that stores behavior settings applied when the target UI element passes validation.
 </value>
+
+
+        </member>
+        <member name="T:DevExpress.Utils.Trimming">
+
+            <summary>
+                <para>List values that specify how the characters in a string that do not completely fit into a layout shape are trimmed.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Utils.Trimming.Character">
+            <summary>
+                <para>Specifies that the text is trimmed to the nearest character.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.Trimming.Default">
+            <summary>
+                <para>Trimming is determined by a control's current settings. The default value is automatically set for a control if an end-user doesn't specify a value.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.Trimming.EllipsisCharacter">
+            <summary>
+                <para>Specifies that the text is trimmed to the nearest character, and an ellipsis is inserted at the end of a trimmed line.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.Trimming.EllipsisPath">
+            <summary>
+                <para>The center is removed from trimmed lines and replaced by an ellipsis. The algorithm keeps as much of the last slash-delimited segment of the line as possible.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.Trimming.EllipsisWord">
+            <summary>
+                <para>Specifies that text is trimmed to the nearest word, and an ellipsis is inserted at the end of a trimmed line.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.Trimming.None">
+            <summary>
+                <para>Specifies no trimming.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Utils.Trimming.Word">
+            <summary>
+                <para>Specifies that text is trimmed to the nearest word.
+</para>
+            </summary>
 
 
         </member>
@@ -6086,38 +5916,6 @@ This is a static property.
             </summary>
             <value>A value that specifies if touch UI mode is enabled.
 </value>
-
-
-        </member>
-        <member name="T:DevExpress.DocumentView.PageBorderVisibility">
-
-            <summary>
-                <para>Lists the values used to specify the visibility of page borders.
-</para>
-            </summary>
-
-        </member>
-        <member name="F:DevExpress.DocumentView.PageBorderVisibility.All">
-            <summary>
-                <para>Both standard borders and selection borders are painted around pages.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.DocumentView.PageBorderVisibility.AllWithoutSelection">
-            <summary>
-                <para>Only standard page borders are painted.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.DocumentView.PageBorderVisibility.None">
-            <summary>
-                <para>Borders are not painted around pages at all.
-</para>
-            </summary>
 
 
         </member>
@@ -6872,170 +6670,35 @@ In other cases, tooltips are painted using the <see cref="F:DevExpress.Utils.Too
 
 
         </member>
-        <member name="T:DevExpress.Utils.ContextButtonBase">
+        <member name="T:DevExpress.DocumentView.PageBorderVisibility">
 
             <summary>
-                <para>A base class for context buttons.
+                <para>Lists the values used to specify the visibility of page borders.
 </para>
             </summary>
 
         </member>
-        <member name="M:DevExpress.Utils.ContextButtonBase.#ctor">
+        <member name="F:DevExpress.DocumentView.PageBorderVisibility.All">
             <summary>
-                <para>Initializes a new instance of the ContextButtonBase class with the default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.AllowHtmlText">
-            <summary>
-                <para>Gets or sets whether the current button's caption is formatted using HTML tags.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.DefaultBoolean"/> enumeration value that specifies whether the current button's caption is formatted using HTML tags.
-</value>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.ContextButtonBase.BindCommand(System.Linq.Expressions.Expression`1,System.Object,System.Func`1)">
-            <summary>
-                <para>Uses the command selector to find an appropriate parameterized command in the source and binds it to this ContextButtonBase.
-
-</para>
-            </summary>
-            <param name="commandSelector">
-		An Expression that selects the appropriate command from the <i>source</i> object. 
-
-            </param>
-            <param name="source">
-		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command. 
-
-            </param>
-            <param name="queryCommandParameter">
-		A Func delegate that passes the specific Object to the command as a parameter. 
-
-            </param>
-            <returns>An IDisposable object. Disposing of this object unbinds the command from this ContextButtonBase.
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.ContextButtonBase.BindCommand(System.Object,System.Func`1)">
-            <summary>
-                <para>Binds the specific parameterized command to this ContextButtonBase.
-</para>
-            </summary>
-            <param name="command">
-		An Object that is the command to be bound to this ContextButtonBase.
-
-            </param>
-            <param name="queryCommandParameter">
-		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
-
-            </param>
-            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this ContextButtonBase.
-</returns>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.ContextButtonBase.BindCommand``1(System.Linq.Expressions.Expression{System.Action`1},System.Object,System.Func{``0})">
-            <summary>
-                <para>Uses the command selector to find an appropriate parameterized command of the target type in the source and binds it to this ContextButtonBase.
-</para>
-            </summary>
-            <param name="commandSelector">
-		An Expression that selects the appropriate command from the <i>source</i> object. 
-
-            </param>
-            <param name="source">
-		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command. 
-
-            </param>
-            <param name="queryCommandParameter">
-		A Func delegate that passes the specific Object to the command as a parameter. 
-
-            </param>
-            <returns>An IDisposable object. Disposing of this object unbinds the command from this ContextButtonBase.
-</returns>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.Caption">
-            <summary>
-                <para>Gets or sets the current button's caption.
-</para>
-            </summary>
-            <value>A string value that specifies the current button's caption.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.Height">
-            <summary>
-                <para>Gets or sets the button height.
-</para>
-            </summary>
-            <value>An integer value that specifies the button height.
-</value>
-
-
-        </member>
-        <member name="E:DevExpress.Utils.ContextButtonBase.HyperlinkClick">
-            <summary>
-                <para>Fires when a hyperlink in the button caption is clicked.
+                <para>Both standard borders and selection borders are painted around pages.
 </para>
             </summary>
 
 
         </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.HyperLinkColor">
+        <member name="F:DevExpress.DocumentView.PageBorderVisibility.AllWithoutSelection">
             <summary>
-                <para>Gets or sets the color of the hyperlink text in the current button's caption.
+                <para>Only standard page borders are painted.
 </para>
             </summary>
-            <value>A <b>Color</b> object that specifies the color of the hyperlink text in the current button's caption.
-</value>
 
 
         </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.MaxHeight">
+        <member name="F:DevExpress.DocumentView.PageBorderVisibility.None">
             <summary>
-                <para>Gets or sets the maximum height of the current button.
+                <para>Borders are not painted around pages at all.
 </para>
             </summary>
-            <value>An integer value that specifies the maximum height of the current button.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.MaxWidth">
-            <summary>
-                <para>Gets or sets the maximum width of the current button.
-</para>
-            </summary>
-            <value>An integer value that specifies the maximum width of the current button.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.Padding">
-            <summary>
-                <para>Gets or sets the amount of space around the current button.
-</para>
-            </summary>
-            <value>A <b>Padding</b> structure that specifies the amount of space around the current button.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ContextButtonBase.Width">
-            <summary>
-                <para>Gets or sets the button width.
-</para>
-            </summary>
-            <value>An integer value that specifies the button width.
-</value>
 
 
         </member>
@@ -8925,39 +8588,6 @@ Use the <see cref="P:DevExpress.Utils.FlyoutPanelOptions.AnchorType"/> property 
 
 
         </member>
-        <member name="T:DevExpress.Utils.GroupElementLocation">
-
-            <summary>
-                <para>Contains values that specify how an element is displayed relative to a text label within a group control.
-</para>
-            </summary>
-
-        </member>
-        <member name="F:DevExpress.Utils.GroupElementLocation.AfterText">
-            <summary>
-                <para>Displays an element after a text label.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.GroupElementLocation.BeforeText">
-            <summary>
-                <para>Displays an element before a text label.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.GroupElementLocation.Default">
-            <summary>
-                <para>Specifies the default position of an element relative to a text label.
-Currently, the <b>Default</b> option is equivalent to the <b>BeforeText</b> option.
-</para>
-            </summary>
-
-
-        </member>
         <member name="T:DevExpress.Utils.Controls.ExpandButtonMode">
 
             <summary>
@@ -9015,59 +8645,6 @@ Currently, the <b>Default</b> option is equivalent to the <b>BeforeText</b> opti
 </para>
             </summary>
             <value>A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object containing the control's look and feel settings.
-</value>
-
-
-        </member>
-        <member name="T:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs">
-
-            <summary>
-                <para>Provides data for the <see cref="E:DevExpress.Utils.ToolTipController.GetActiveObjectInfo"/> event.
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.#ctor(System.Windows.Forms.Control,System.Object,DevExpress.Utils.ToolTipControlInfo,System.Drawing.Point)">
-            <summary>
-                <para>Initializes a new instance of the ToolTipControllerGetActiveObjectInfoEventArgs class with the specified settings.
-</para>
-            </summary>
-            <param name="control">
-		The control for which a tooltip controller's event is fired. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerEventArgsBase.SelectedControl"/> property.
-
-            </param>
-            <param name="obj">
-		The element of the control (or the type of the element) for which the tooltip is displayed. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerEventArgsBase.SelectedObject"/> property.
-
-            </param>
-            <param name="info">
-		An object which uniquely identifies the current element for which the tooltip is displayed. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.Info"/> property.
-
-            </param>
-            <param name="controlMousePosition">
-		A <see cref="T:System.Drawing.Point"/> structure that specifies the position of the mouse cursor relative to the control's upper left corner. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.ControlMousePosition"/> property.
-
-            </param>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.ControlMousePosition">
-            <summary>
-                <para>Gets the position of the mouse cursor relative to the control's upper left corner. 
-
-</para>
-            </summary>
-            <value>A <see cref="T:System.Drawing.Point"/> structure that specifies the position of the mouse cursor relative to the control's upper left corner.
-</value>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.Info">
-            <summary>
-                <para>Gets or sets an object which uniquely identifies the visual element at the current position.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.ToolTipControlInfo"/> object which identifies the visual element at the current position.
 </value>
 
 
@@ -10406,77 +9983,6 @@ For the <see cref="T:DevExpress.XtraBars.Ribbon.RibbonForm"/>, a shadow is displ
 
 
         </member>
-        <member name="T:DevExpress.Utils.Menu.DXSubMenuItem">
-
-            <summary>
-                <para>Specifies a submenu.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.#ctor(System.String)">
-            <summary>
-                <para>Initializes a new instance of the DXSubMenuItem class with the specified caption.
-</para>
-            </summary>
-            <param name="caption">
-		A string that specifies the text displayed by the menu item. This value is assigned to the <see cref="P:DevExpress.Utils.Menu.DXMenuItem.Caption"/> property.
-
-            </param>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.#ctor">
-            <summary>
-                <para>Initializes a new instance of the DXSubMenuItem class with default settings.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.#ctor(System.String,System.EventHandler)">
-            <summary>
-                <para>Initializes a new instance of the DXSubMenuItem class with the specified caption and the handler for the <see cref="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup"/> event.
-</para>
-            </summary>
-            <param name="caption">
-		A string that specifies the text displayed by the menu item. This value is assigned to the <see cref="P:DevExpress.Utils.Menu.DXMenuItem.Caption"/> property.
-
-            </param>
-            <param name="beforePopup">
-		A handler for the <see cref="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup"/> event.
-
-            </param>
-
-
-        </member>
-        <member name="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup">
-            <summary>
-                <para>Allows you to dynamically provide sub-items for the current DXSubMenuItem object.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="M:DevExpress.Utils.Menu.DXSubMenuItem.GenerateBeforePopupEvent">
-            <summary>
-                <para>Invokes the event handler assigned to the <see cref="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup"/> event.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="P:DevExpress.Utils.Menu.DXSubMenuItem.Items">
-            <summary>
-                <para>Gets a collection of items displayed when the current submenu is expanded.
-</para>
-            </summary>
-            <value>A <see cref="T:DevExpress.Utils.Menu.DXMenuItemCollection"/> object which contains menu items displayed when the submenu is expanded.
-</value>
-
-
-        </member>
         <member name="T:DevExpress.Utils.Menu.DXMenuItem">
 
             <summary>
@@ -10808,6 +10314,14 @@ For the <see cref="T:DevExpress.XtraBars.Ribbon.RibbonForm"/>, a shadow is displ
             </summary>
             <value> 
 </value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.Menu.DXMenuItem.CloseOwnerMenuOnlyOnClick">
+            <summary>
+                <para> </para>
+            </summary>
+            <value> </value>
 
 
         </member>
@@ -11204,6 +10718,59 @@ For the <see cref="T:DevExpress.XtraBars.Ribbon.RibbonForm"/>, a shadow is displ
 		A <see cref="T:DevExpress.Utils.ToolTipIconType"/> value representing the type of the icon that should be displayed within the specified control's regular tooltip.
 
             </param>
+
+
+        </member>
+        <member name="T:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.Utils.ToolTipController.GetActiveObjectInfo"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.#ctor(System.Windows.Forms.Control,System.Object,DevExpress.Utils.ToolTipControlInfo,System.Drawing.Point)">
+            <summary>
+                <para>Initializes a new instance of the ToolTipControllerGetActiveObjectInfoEventArgs class with the specified settings.
+</para>
+            </summary>
+            <param name="control">
+		The control for which a tooltip controller's event is fired. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerEventArgsBase.SelectedControl"/> property.
+
+            </param>
+            <param name="obj">
+		The element of the control (or the type of the element) for which the tooltip is displayed. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerEventArgsBase.SelectedObject"/> property.
+
+            </param>
+            <param name="info">
+		An object which uniquely identifies the current element for which the tooltip is displayed. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.Info"/> property.
+
+            </param>
+            <param name="controlMousePosition">
+		A <see cref="T:System.Drawing.Point"/> structure that specifies the position of the mouse cursor relative to the control's upper left corner. This value is assigned to the <see cref="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.ControlMousePosition"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.ControlMousePosition">
+            <summary>
+                <para>Gets the position of the mouse cursor relative to the control's upper left corner. 
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Point"/> structure that specifies the position of the mouse cursor relative to the control's upper left corner.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs.Info">
+            <summary>
+                <para>Gets or sets an object which uniquely identifies the visual element at the current position.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.ToolTipControlInfo"/> object which identifies the visual element at the current position.
+</value>
 
 
         </member>
@@ -11776,6 +11343,336 @@ For the <see cref="T:DevExpress.XtraBars.Ribbon.RibbonForm"/>, a shadow is displ
                 <para>An element is located at the top edge of another element.
 </para>
             </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Utils.TextOptions">
+
+            <summary>
+                <para>Contains options that specify how text is rendered.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.#ctor(DevExpress.Utils.HorzAlignment,DevExpress.Utils.VertAlignment,DevExpress.Utils.WordWrap,DevExpress.Utils.Trimming)">
+            <summary>
+                <para>Initializes a new instance of the TextOptions class with the specified alignments, word wrapping and text trimming options.
+
+</para>
+            </summary>
+            <param name="hAlignment">
+		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the horizontal alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.HAlignment"/> property.
+
+
+            </param>
+            <param name="vAlignment">
+		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the vertical alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.VAlignment"/> property.
+
+
+            </param>
+            <param name="wordWrap">
+		A <see cref="T:DevExpress.Utils.WordWrap"/> value that specifies word wrapping mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.WordWrap"/> property.
+
+
+            </param>
+            <param name="trimming">
+		A <see cref="T:DevExpress.Utils.Trimming"/> value that specifies text trimming mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.Trimming"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.#ctor(DevExpress.Utils.AppearanceObject)">
+            <summary>
+                <para>Initializes a new instance of the TextOptions class with the specified owner, the text settings are set to default values.
+
+</para>
+            </summary>
+            <param name="owner">
+		An <see cref="T:DevExpress.Utils.AppearanceObject"/> object which becomes the owner of the current object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.#ctor(DevExpress.Utils.HorzAlignment,DevExpress.Utils.VertAlignment,DevExpress.Utils.WordWrap,DevExpress.Utils.Trimming,DevExpress.Utils.HKeyPrefix)">
+            <summary>
+                <para>Initializes a new instance of the TextOptions class with the specified alignments, word wrapping and text trimming options.
+
+</para>
+            </summary>
+            <param name="hAlignment">
+		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the horizontal alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.HAlignment"/> property.
+
+            </param>
+            <param name="vAlignment">
+		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the vertical alignment of text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.VAlignment"/> property.
+
+
+            </param>
+            <param name="wordWrap">
+		A <see cref="T:DevExpress.Utils.WordWrap"/> value that specifies word wrapping mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.WordWrap"/> property.
+
+            </param>
+            <param name="trimming">
+		A <see cref="T:DevExpress.Utils.Trimming"/> value that specifies text trimming mode. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.Trimming"/> property.
+
+            </param>
+            <param name="hotKeyPrefix">
+		A <see cref="T:DevExpress.Utils.HKeyPrefix"/> enumeration value that specifies the hotkey prefix for the text. This value is assigned to the <see cref="P:DevExpress.Utils.TextOptions.HotkeyPrefix"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.Assign(DevExpress.Utils.TextOptions)">
+            <summary>
+                <para>Copies settings from the specified object to the current TextOptions object.
+</para>
+            </summary>
+            <param name="options">
+		A TextOptions object whose settings are copied to the current object.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.DefaultOptions">
+            <summary>
+                <para>Gets an object that specifies the default text options.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.TextOptions"/> object that specifies the default text options.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsCenteredWithEllipsis">
+            <summary>
+                <para>Gets an object whose settings force text to be centered.
+
+</para>
+            </summary>
+            <value>A TextOptions object with its settings set to the corresponding values.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsMultiLine">
+            <summary>
+                <para>Gets an object whose settings allow text to wrap.
+</para>
+            </summary>
+            <value>A TextOptions object with its settings set to the corresponding values.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsNoWrap">
+            <summary>
+                <para>Gets an object whose settings prevent text from wrapping.
+
+</para>
+            </summary>
+            <value>A TextOptions object with its settings set to the corresponding values.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.DefaultOptionsNoWrapEx">
+            <summary>
+                <para>Gets an object whose settings force text to be centered and prevent it from wrapping.
+
+</para>
+            </summary>
+            <value>A TextOptions object with its settings set to the corresponding values.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.DefaultStringFormat">
+            <summary>
+                <para>Gets an object that contains the default formatting settings.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.StringFormat"/> object containing the default formatting settings.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.ForceUseGenericDefaultStringFormat">
+            <summary>
+                <para>Specifies how the default string format referred to by the <see cref="P:DevExpress.Utils.TextOptions.DefaultStringFormat"/> property is constructed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.GetStringFormat">
+            <summary>
+                <para>Returns a <see cref="T:System.Drawing.StringFormat"/> object whose settings reflect the alignment, word wrapping and text trimming options of the <see cref="P:DevExpress.Utils.TextOptions.DefaultOptions"/> object.
+
+</para>
+            </summary>
+            <returns>A <see cref="T:System.Drawing.StringFormat"/> object whose properties are set to match the appropriate values.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.GetStringFormat(DevExpress.Utils.TextOptions)">
+            <summary>
+                <para>Returns a <see cref="T:System.Drawing.StringFormat"/> object whose settings reflect the alignment, word wrapping and text trimming options of the specified TextOptions object.
+
+</para>
+            </summary>
+            <param name="defaultOptions">
+		A TextOptions object whose settings are used to initialize the corresponding settings of the <see cref="T:System.Drawing.StringFormat"/> object that is to be returned.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.StringFormat"/> object whose properties are set to match the appropriate values.
+
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.HAlignment">
+            <summary>
+                <para>Gets or sets the horizontal alignment of text.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that specifies the text horizontal alignment.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.HorzAlignmentToStringAlignment(DevExpress.Utils.HorzAlignment)">
+            <summary>
+                <para>Converts the specified <see cref="T:DevExpress.Utils.HorzAlignment"/> value to a corresponding <see cref="T:System.Drawing.StringAlignment"/> value.
+
+</para>
+            </summary>
+            <param name="align">
+		A <see cref="T:DevExpress.Utils.HorzAlignment"/> value that is to be converted.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.StringAlignment"/> value that corresponds to the specified <see cref="T:DevExpress.Utils.HorzAlignment"/> value.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.HotkeyPrefix">
+            <summary>
+                <para>Gets or sets the hotkey prefix for the text. 
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.HKeyPrefix"/> enumeration value which represents the hotkey prefix for the text.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.IsEqual(DevExpress.Utils.TextOptions)">
+            <summary>
+                <para>Tests whether two objects have the same property values.
+</para>
+            </summary>
+            <param name="options">
+		The TextOptions object to which the current object is compared.
+
+            </param>
+            <returns><b>true</b> if the current object has the same property values as the specified object; otherwise, <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.Reset">
+            <summary>
+                <para>Resets all the text settings to their default values.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.RightToLeft">
+            <summary>
+                <para>Gets or sets whether the text is directed from right to left.
+</para>
+            </summary>
+            <value><b>true</b>, if the text is directed from right to left; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.ToString">
+            <summary>
+                <para>Returns the text representation of the current object.
+</para>
+            </summary>
+            <returns>The text representation of the current object.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.Trimming">
+            <summary>
+                <para>Gets or sets text trimming mode.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.Trimming"/> value that specifies text trimming mode.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.UpdateDefaultOptions(DevExpress.Utils.TextOptions)">
+            <summary>
+                <para>For internal use. Copies settings from the specified object to the current object.
+</para>
+            </summary>
+            <param name="defaultOptions">
+		A <see cref="T:DevExpress.Utils.TextOptions"/> object whose settings are copied to the current object.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.VAlignment">
+            <summary>
+                <para>Gets or sets the vertical alignment of text.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.VertAlignment"/> value that specifies the text vertical alignment.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.TextOptions.VertAlignmentToStringAlignment(DevExpress.Utils.VertAlignment)">
+            <summary>
+                <para>Converts the specified <see cref="T:DevExpress.Utils.VertAlignment"/> value to a corresponding <see cref="T:System.Drawing.StringAlignment"/> value.
+</para>
+            </summary>
+            <param name="align">
+		A <see cref="T:DevExpress.Utils.VertAlignment"/> value that is to be converted.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.StringAlignment"/> value that corresponds to the specified <see cref="T:DevExpress.Utils.VertAlignment"/> value.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.TextOptions.WordWrap">
+            <summary>
+                <para>Gets or sets text wrapping mode.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Utils.WordWrap"/> value that specifies text wrapping mode.
+</value>
 
 
         </member>
@@ -12915,6 +12812,184 @@ For the PivotGrid control, this option acts as the <see cref="F:DevExpress.Utils
 
 
             </param>
+
+
+        </member>
+        <member name="T:DevExpress.Utils.VisualEffects.AdornerElement">
+
+            <summary>
+                <para>The base class for all adorner elements (e.g., <see cref="T:DevExpress.Utils.VisualEffects.Badge"/>s).
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.#ctor">
+            <summary>
+                <para>Initializes a new instance of the AdornerElement class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Appearances">
+            <summary>
+                <para>Provides access to multiple sets of appearance settings, applied in different AdornerElement visual states.
+</para>
+            </summary>
+            <value>An <see cref="AdornerAppearanceCollection"/> object that stores sets of appearance settings, applied in different AdornerElement visual states.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.Assign(DevExpress.Utils.VisualEffects.IAdornerElement)">
+            <summary>
+                <para>Copies all settings from the target AdornerElement to this AdornerElement.
+</para>
+            </summary>
+            <param name="element">
+		An AdornerElement object whose settings are to be copied to this AdornerElement.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.BindCommand(System.Linq.Expressions.Expression`1,System.Object,System.Func`1)">
+            <summary>
+                <para>Uses the command selector to find an appropriate parameterized command in the source and bind it to this AdornerElement.
+</para>
+            </summary>
+            <param name="commandSelector">
+		An Expression that selects the appropriate command from the <i>source</i> object.
+
+            </param>
+            <param name="source">
+		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command.
+
+            </param>
+            <param name="queryCommandParameter">
+		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
+
+            </param>
+            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this AdornerElement. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.BindCommand(System.Object,System.Func`1)">
+            <summary>
+                <para>Binds the specific parameterized command to this AdornerElement.
+</para>
+            </summary>
+            <param name="command">
+		An Object that is the command to be bound to this AdornerElement. 
+
+            </param>
+            <param name="queryCommandParameter">
+		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
+
+            </param>
+            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this AdornerElement. 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.BindCommand``1(System.Linq.Expressions.Expression{System.Action`1},System.Object,System.Func{``0})">
+            <summary>
+                <para>Uses the command selector to find an appropriate parameterized command of the target type in the source and bind it to this AdornerElement.
+</para>
+            </summary>
+            <param name="commandSelector">
+		An Expression that selects the appropriate command from the <i>source</i> object.
+
+            </param>
+            <param name="source">
+		An Object (typically, a ViewModel) where the <i>commandSelector</i> looks for the required command.
+
+            </param>
+            <param name="queryCommandParameter">
+		A Func delegate that passes the specific Object to the <i>command</i> as a parameter. 
+
+            </param>
+            <returns>An IDisposable object. Disposing of this object unbinds the <i>command</i> from this AdornerElement. 
+</returns>
+
+
+        </member>
+        <member name="E:DevExpress.Utils.VisualEffects.AdornerElement.Click">
+            <summary>
+                <para>Occurs when end-users clicks this AdornerElement.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Utils.VisualEffects.AdornerElement.Clone">
+            <summary>
+                <para>Duplicates this AdornerElement.
+</para>
+            </summary>
+            <returns>An Object that is this AdornerElement object's copy.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.IsDisposing">
+            <summary>
+                <para>Gets whether the AdornerElement is being disposed of.
+</para>
+            </summary>
+            <value><b>true</b>, if the AdornerElement is being disposed of; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Properties">
+            <summary>
+                <para>Provides access to a set of AdornerElement properties.
+</para>
+            </summary>
+            <value>An <see cref="AdornerElementDefaultProperties"/> object that stores settings for this AdornerElement.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.TabIndex">
+            <summary>
+                <para>Gets or sets the tab index for this AdornerElement.
+</para>
+            </summary>
+            <value>An Int32 value that is the tab index for this AdornerElement.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Tag">
+            <summary>
+                <para>Gets or sets any object associated with this AdornerElement.
+</para>
+            </summary>
+            <value>An Object that is the tag for this AdornerElement.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.TargetElement">
+            <summary>
+                <para>Gets or sets the UI element to which this AdornerElement is bound.
+</para>
+            </summary>
+            <value>An Object related to this AdornerElement.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Utils.VisualEffects.AdornerElement.Visible">
+            <summary>
+                <para>Gets or sets whether or not this AdornerElement is visible.
+</para>
+            </summary>
+            <value><b>true</b>, if this AdornerElement is visible; otherwise, <b>false</b>.
+</value>
 
 
         </member>
@@ -15176,73 +15251,6 @@ For the PivotGrid control, this option acts as the <see cref="F:DevExpress.Utils
             </summary>
             <value>An <see cref="T:DevExpress.Utils.AppearanceOptionsEx"/> object containing the appearance options.
 </value>
-
-
-        </member>
-        <member name="T:DevExpress.Utils.Trimming">
-
-            <summary>
-                <para>List values that specify how the characters in a string that do not completely fit into a layout shape are trimmed.
-
-</para>
-            </summary>
-
-        </member>
-        <member name="F:DevExpress.Utils.Trimming.Character">
-            <summary>
-                <para>Specifies that the text is trimmed to the nearest character.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.Trimming.Default">
-            <summary>
-                <para>Trimming is determined by a control's current settings. The default value is automatically set for a control if an end-user doesn't specify a value.
-
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.Trimming.EllipsisCharacter">
-            <summary>
-                <para>Specifies that the text is trimmed to the nearest character, and an ellipsis is inserted at the end of a trimmed line.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.Trimming.EllipsisPath">
-            <summary>
-                <para>The center is removed from trimmed lines and replaced by an ellipsis. The algorithm keeps as much of the last slash-delimited segment of the line as possible.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.Trimming.EllipsisWord">
-            <summary>
-                <para>Specifies that text is trimmed to the nearest word, and an ellipsis is inserted at the end of a trimmed line.
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.Trimming.None">
-            <summary>
-                <para>Specifies no trimming.
-
-</para>
-            </summary>
-
-
-        </member>
-        <member name="F:DevExpress.Utils.Trimming.Word">
-            <summary>
-                <para>Specifies that text is trimmed to the nearest word.
-</para>
-            </summary>
 
 
         </member>

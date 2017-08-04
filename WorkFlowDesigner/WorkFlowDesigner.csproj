@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassNH\MapAttribute.cs" />
+    <Compile Include="ClassNH\MapListElement.cs" />
     <Compile Include="ClassNH\MapPosition.cs" />
     <Compile Include="ClassNH\MapStep.cs" />
     <Compile Include="Forms\AddAtribute.cs">
