@@ -113,7 +113,7 @@
             // 
             // bsAttribute
             // 
-            this.bsAttribute.DataSource = typeof(WorkFlowDesigner.Position);
+            this.bsAttribute.DataSource = typeof(WorkFlowDesigner.T);
             // 
             // gvAtribute
             // 
@@ -272,7 +272,7 @@
             // 
             // bsPosition
             // 
-            this.bsPosition.DataSource = typeof(WorkFlowDesigner.Position);
+            this.bsPosition.DataSource = typeof(WorkFlowDesigner.T);
             // 
             // gcPosition
             // 

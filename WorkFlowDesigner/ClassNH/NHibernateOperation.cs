@@ -9,39 +9,7 @@ namespace WorkFlowDesigner
     class NHibernateOperation
     {
 
-        public void AddFlow(Flow flow)
-        {
-            using (ISession session = InitNH.OppenSession())
-            {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    session.Save(flow);
-                    transaction.Commit();
-                }
-            }
-        }
-        public void AddPosition(Position element)
-        {
-            using (ISession session = InitNH.OppenSession())
-            {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    session.Save(element);
-                    transaction.Commit();
-                }
-            }
-        }
-        public void AddStep(Step element)
-        {
-            using (ISession session = InitNH.OppenSession())
-            {
-                using (ITransaction transaction = session.BeginTransaction())
-                {
-                    session.Save(element);
-                    transaction.Commit();
-                }
-            }
-        }
+
 
         public void AddElement<T>(T element)
         {
@@ -55,19 +23,19 @@ namespace WorkFlowDesigner
             }
         }
 
-        public void Delete(Flow DeleteFlow)
+        public void Delete<T>(T element)
         {
             using (ISession session = InitNH.OppenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.Delete(DeleteFlow);
+                    session.Delete(element);
                     transaction.Commit();
                 }
             }
         }
 
-        public void UpdateUser(User UpdateUser)
+        public void Update<T>(T element)
         {
             using (ISession session = InitNH.OppenSession())
 
@@ -75,15 +43,15 @@ namespace WorkFlowDesigner
                 using (ITransaction transaction = session.BeginTransaction())
 
                 {
-                    session.Update(UpdateUser);
+                    session.Update(element);
                     transaction.Commit();
                 }
             }
         }
 
-        public IList<Position> GetP(Position GetPosition)
+        public IList<T> GetList<T>() where T:class 
         {
-            IList<Position> listposition = new List<Position>();
+             IList<T> listposition = new List<T>();
             using (ISession session = InitNH.OppenSession())
 
             {
@@ -91,12 +59,16 @@ namespace WorkFlowDesigner
 
                 {
 
-                    listposition = session.QueryOver<Position>().List();
+                    listposition = session.QueryOver<T>().List();
+                    
                 }
 
             }
             return listposition;
         }
+       
+
+        
     }
 }
 

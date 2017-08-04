@@ -65,9 +65,10 @@ namespace WorkFlowDesigner
             flow.AtributeList = lista2;
 
             NHibernateOperation operation = new NHibernateOperation();
-            operation.AddFlow(flow);
-            operation.AddElement<Attribute>(att);
-            operation.AddElement<ListElement>(elem);
+
+            IList<Position> sprawdzam = operation.GetList<Position>();
+            System.Console.Write(sprawdzam);
+
             
 
             
