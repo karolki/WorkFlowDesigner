@@ -36,9 +36,9 @@ namespace WorkFlowDesigner
            
            
 
-            NHibernateOperation operation = new NHibernateOperation();
-            operation.AddFlow(flow);
-            operation.AddPosition(position);
+            // operation = new NHibernateOperation();
+            //operation.AddFlow(flow);
+           // operation.AddPosition(position);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
