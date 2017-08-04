@@ -37,7 +37,7 @@ namespace WorkFlowDesigner
             cbAtributeType.SelectedItem = a.ElementAt(index).Type;
             btnAddListItem.Visible = false;
             gcListElements.Visible = false;
-
+           
 
             listElementBindingSource.DataSource = listElement;
         }
@@ -87,6 +87,7 @@ namespace WorkFlowDesigner
             AddListItem addListItem = new AddListItem(listElement,listElement.Count-1);
             addListItem.Show();
             addListItem.FormClosing += new FormClosingEventHandler(AddListItem_Closing);
+            
         }
         private void AddListItem_Closing(object sender, FormClosingEventArgs e)
         {

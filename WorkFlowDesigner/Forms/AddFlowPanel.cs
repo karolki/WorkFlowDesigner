@@ -15,7 +15,7 @@ namespace WorkFlowDesigner
    
     public partial class AddFlowPanel : DevExpress.XtraEditors.XtraForm
     {
-        AddAtribute addAttribute;
+        
        
         public AddFlowPanel()
         {
@@ -32,16 +32,21 @@ namespace WorkFlowDesigner
         private void btnAddAtribute_Click(object sender, EventArgs e)
         {
             this.flow.AtributeList.Add(atribute = new Attribute());
-            addAttribute = new AddAtribute(this.flow.AtributeList, this.flow.AtributeList.Count - 1);
-            if (attributeBindingSource.DataSource != this.flow.AtributeList) attributeBindingSource.DataSource = this.flow.AtributeList;
-            addAttribute.ShowDialog();
-            
+            AddAtribute addAttribute = new AddAtribute(this.flow.AtributeList, this.flow.AtributeList.Count - 1);
+            if (bsAttribute.DataSource != this.flow.AtributeList) bsAttribute.DataSource = this.flow.AtributeList;
+            addAttribute.Show();
+            addAttribute.FormClosing += new FormClosingEventHandler(AddAttribute_Closing);
         }
-
- 
-
-
-        // Somewhere else in your code:
-
+        
+    
+    private void AddAttribute_Closing(object sender, FormClosingEventArgs e)
+    {
+        bsAttribute.ResetBindings(true);
     }
+
+
+
+    // Somewhere else in your code:
+
+}
 }

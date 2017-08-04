@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbAtributeName = new System.Windows.Forms.TextBox();
             this.cbAtributeType = new System.Windows.Forms.ComboBox();
             this.btnAddListItem = new System.Windows.Forms.Button();
             this.gcListElements = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.listElementBindingSource = new System.Windows.Forms.BindingSource();
+            this.listElementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gvListElements = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId_list_element = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gcListElements)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listElementBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvListElements)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,25 +104,25 @@
             // 
             this.gcListElements.DataSource = this.listElementBindingSource;
             this.gcListElements.Location = new System.Drawing.Point(304, 43);
-            this.gcListElements.MainView = this.gridView1;
+            this.gcListElements.MainView = this.gvListElements;
             this.gcListElements.Name = "gcListElements";
             this.gcListElements.Size = new System.Drawing.Size(180, 130);
             this.gcListElements.TabIndex = 6;
             this.gcListElements.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colId_list_element,
-            this.colName});
-            this.gridView1.GridControl = this.gcListElements;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gvListElements});
             // 
             // listElementBindingSource
             // 
             this.listElementBindingSource.DataSource = typeof(WorkFlowDesigner.ListElement);
+            // 
+            // gvListElements
+            // 
+            this.gvListElements.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colId_list_element,
+            this.colName});
+            this.gvListElements.GridControl = this.gcListElements;
+            this.gvListElements.Name = "gvListElements";
+            this.gvListElements.OptionsView.ShowGroupPanel = false;
             // 
             // colId_list_element
             // 
@@ -151,8 +152,8 @@
             this.Name = "AddAtribute";
             this.Text = "AddAtribute";
             ((System.ComponentModel.ISupportInitialize)(this.gcListElements)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listElementBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvListElements)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,7 +170,7 @@
         private System.Windows.Forms.Button btnAddListItem;
         private DevExpress.XtraGrid.GridControl gcListElements;
         private System.Windows.Forms.BindingSource listElementBindingSource;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvListElements;
         private DevExpress.XtraGrid.Columns.GridColumn colId_list_element;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
