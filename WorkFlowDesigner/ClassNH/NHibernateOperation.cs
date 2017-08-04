@@ -43,6 +43,18 @@ namespace WorkFlowDesigner
             }
         }
 
+        public void AddElement<T>(T element)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Save(element);
+                    transaction.Commit();
+                }
+            }
+        }
+
         public void Delete(Flow DeleteFlow)
         {
             using (ISession session = InitNH.OppenSession())

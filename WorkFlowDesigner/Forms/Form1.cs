@@ -31,11 +31,11 @@ namespace WorkFlowDesigner
             flow.Flow_name = "FlowSTep";
 
 
-            position.Name = "PositionSTep";
+            position.Name = "FlowTest";
             position.Id_flow = flow;
             list.Add(position);
             flow.PositionList = list;
-            flow.AtributeList = lista2;//dodanie przeplywu i pozycji
+            //dodanie przeplywu i pozycji
 
             Step step = new Step();//dodanie kroku
             step.Description = "TEST";
@@ -45,10 +45,32 @@ namespace WorkFlowDesigner
             startsteplista.Add(step);
             endsteplista.Add(step);
 
+            Attribute att = new Attribute();
+            att.Name = "name";
+            att.Type = "";
+            att.Read_property = 0;
+            att.Required_change = 0;
+            att.Optional_change = 0;
+            att.Id_workflow = flow;
+
+            List<ListElement> list2 = new List<ListElement>();
+            ListElement elem = new ListElement();
+            elem.Name = "elmname";
+            elem.Id_attribute = att;
+            list2.Add(elem);
+
+            att.List = list2;
+            lista2.Add(att);
+
+            flow.AtributeList = lista2;
+
             NHibernateOperation operation = new NHibernateOperation();
             operation.AddFlow(flow);
-            operation.AddPosition(position);
-            operation.GetP(position);
+            operation.AddElement<Attribute>(att);
+            operation.AddElement<ListElement>(elem);
+            
+
+            
 
         }
 

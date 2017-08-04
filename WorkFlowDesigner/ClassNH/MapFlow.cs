@@ -20,6 +20,12 @@ namespace WorkFlowDesigner
                 m.Inverse(true); m.Key(k => k.Column("flow_id"));
 
             }, r => r.OneToMany(x => x.Class(typeof(Position))));
+
+            Bag(x => x.AtributeList, m =>
+            {
+                m.Inverse(true); m.Key(k => k.Column("flow_id"));
+
+            }, r => r.OneToMany(x => x.Class(typeof(Attribute))));
         }
     }
 }

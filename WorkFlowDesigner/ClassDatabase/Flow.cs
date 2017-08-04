@@ -9,7 +9,7 @@ namespace WorkFlowDesigner
         private int flow_id;
         private string flow_description;
         private string flow_name;
-        private List<Attribute> attributeList = new List<Attribute>();
+        private IList<Attribute> attributeList = new List<Attribute>();
         private IList<Position> positionList = new List<Position>();
 
         [DisplayName(@"Flow_id")]
@@ -18,7 +18,7 @@ namespace WorkFlowDesigner
         public virtual string Flow_description { get => flow_description; set => flow_description = value; }
         [DisplayName(@"Flow_name")]
         public virtual string Flow_name { get => flow_name; set => flow_name = value; }
-        public virtual List<Attribute> AtributeList { get => attributeList; set => attributeList = value; }
+        public virtual IList<Attribute> AtributeList { get => attributeList; set => attributeList = value; }
         public virtual IList<Position> PositionList { get => positionList; set => positionList = value; }
     }
 
