@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 329);
+            this.ClientSize = new System.Drawing.Size(766, 333);
             this.Name = "DefineFlow";
             this.Text = "DefineFlow";
             this.ResumeLayout(false);

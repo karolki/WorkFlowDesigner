@@ -29,17 +29,34 @@ namespace WorkFlowDesigner
         public DefineFlow(Flow flow)
         {
             this.flow = flow;
-            foreach(var position in flow.PositionList)
+            foreach (var position in flow.PositionList)
             {
                 flowLabels.Add(new FlowLabel(position));
                 this.Controls.Add(flowLabels.ElementAt(flowLabels.Count - 1));
                 flowLabels.ElementAt(flowLabels.Count - 1).MouseClick += Label_MouseClick;
                 flowLabels.ElementAt(flowLabels.Count - 1).LocationChanged += DefineFlow_LocationChanged;
+
             }
             this.MouseClick += DefineFlow_MouseClick;
             this.MouseMove += DefineFlow_MouseMove;
             this.DoubleBuffered = true;
+            this.KeyDown += DefineFlow_KeyDown; ;
             InitializeComponent();
+        }
+        private void DefineFlow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (selectedLabelStart != null && e.KeyCode==Keys.Delete)
+            {
+               for(int i=selectedLabelStart.connections.Count-1;i>=0;i--)
+                {
+                    selectedLabelStart.connections.ElementAt(i).label.Hide();
+                    selectedLabelStart.connections.RemoveAt(i);
+                }
+                selectedLabelStart.BackColor = Color.Black;
+                 selectedLabelStart = null;
+                Invalidate();
+               
+            }
         }
 
         private void DefineFlow_LocationChanged(object sender, EventArgs e)
@@ -49,16 +66,12 @@ namespace WorkFlowDesigner
             {
                 foreach (var connection in flowlabel.connections)
                 {
-
                     DrawLShapeLine(this.CreateGraphics(), connection.startFlowLabel.Location.X, connection.startFlowLabel.Location.Y,
                         connection.endFlowLabel.Location.X, connection.endFlowLabel.Location.Y);
                     if(connection.label.Text!="") connection.label.Location=
                             new Point((int)(connection.startFlowLabel.Location.X+connection.endFlowLabel.Location.X)/2,connection.endFlowLabel.Location.Y);
-
-
                 }
             }
-
         }
 
         private void Label_MouseClick(object sender, MouseEventArgs e)
@@ -109,7 +122,7 @@ namespace WorkFlowDesigner
         private void EnterDescription_FormClosed(object sender, FormClosedEventArgs e)
         {
             selectedLabelStart.connections.Add(new Connection(selectedLabelStart, selectedLabelEnd, (sender as EnterDescription).description));
-            selectedLabelEnd.connections.Add(new Connection(selectedLabelStart, selectedLabelEnd, (sender as EnterDescription).description));
+           
             this.Controls.Add(selectedLabelStart.connections.ElementAt(selectedLabelStart.connections.Count - 1).label);
             selectedLabelStart.connections.ElementAt(selectedLabelStart.connections.Count - 1).label.Location =
              new Point((int)(selectedLabelStart.Location.X + selectedLabelEnd.Location.X) / 2,selectedLabelEnd.Location.Y);
