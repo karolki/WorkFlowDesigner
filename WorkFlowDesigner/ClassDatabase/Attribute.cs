@@ -29,6 +29,6 @@ namespace WorkFlowDesigner
         [DisplayName(@"Element_list")]
         public virtual IList<ListElement> List { get => list; set => list = value; }
         [DisplayName(@"Access_list")]
-        public IList<Access> Accesslist { get => accesslist; set => accesslist = value; }
+        public virtual IList<Access> Accesslist { get => accesslist; set => accesslist = value; }
     }
 }

@@ -457,3 +457,7 @@ C:\Users\KSzelag\Documents\GitHub\WorkFlowDesigner5\WorkFlowDesigner\obj\Debug\W
 C:\Users\KSzelag\Documents\GitHub\WorkFlowDesigner5\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.exe.licenses
 C:\Users\KSzelag\Documents\GitHub\WorkFlowDesigner5\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.exe
 C:\Users\KSzelag\Documents\GitHub\WorkFlowDesigner5\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.pdb
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.AddPosition.resources
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.StepSet.resources
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.DefineFlow.resources
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.EnterDescription.resources

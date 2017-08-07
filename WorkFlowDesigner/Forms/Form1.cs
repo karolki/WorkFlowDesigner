@@ -48,9 +48,6 @@ namespace WorkFlowDesigner
             Attribute att = new Attribute();
             att.Name = "name";
             att.Type = "";
-            att.Read_property = 0;
-            att.Required_change = 0;
-            att.Optional_change = 0;
             att.Id_workflow = flow;
 
             List<ListElement> list2 = new List<ListElement>();

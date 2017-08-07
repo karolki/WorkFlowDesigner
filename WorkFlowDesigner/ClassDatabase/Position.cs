@@ -25,6 +25,6 @@ namespace WorkFlowDesigner
         public virtual IList<Step> StartStepList { get => startstepList; set => startstepList = value; }
         public virtual IList<Step> EndStepList { get => endstepList; set => endstepList = value; }
         [DisplayName(@"Access_list")]
-        public IList<Access> Accesslist { get => accesslist; set => accesslist = value; }
+        public virtual IList<Access> Accesslist { get => accesslist; set => accesslist = value; }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using WorkFlowDesigner.Forms;
 
 namespace WorkFlowDesigner
 {
@@ -21,8 +22,10 @@ namespace WorkFlowDesigner
         {
             this.flow = new Flow();
             InitializeComponent();
-            
-         }
+            bsPosition.DataSource = this.flow.PositionList;
+            bsAttribute.DataSource = this.flow.AtributeList;
+
+        }
                 
         private void gcProperties_Click(object sender, EventArgs e)
         {
@@ -31,9 +34,8 @@ namespace WorkFlowDesigner
         
         private void btnAddAtribute_Click(object sender, EventArgs e)
         {
-            this.flow.AtributeList.Add(atribute = new Attribute());
-            AddAtribute addAttribute = new AddAtribute(this.flow.AtributeList, this.flow.AtributeList.Count - 1);
-            if (bsAttribute.DataSource != this.flow.AtributeList) bsAttribute.DataSource = this.flow.AtributeList;
+            flow.AtributeList.Add(new Attribute());
+            AddAtribute addAttribute = new AddAtribute(flow.AtributeList, flow.AtributeList.Count - 1);
             addAttribute.Show();
             addAttribute.FormClosing += new FormClosingEventHandler(AddAttribute_Closing);
         }
@@ -44,9 +46,28 @@ namespace WorkFlowDesigner
         bsAttribute.ResetBindings(true);
     }
 
+        private void btnAddPosition_Click(object sender, EventArgs e)
+        {
+            flow.PositionList.Add(new Position());
+            AddPosition addAttribute = new AddPosition(flow.PositionList, flow.PositionList.Count - 1);
+            addAttribute.Show();
+            addAttribute.FormClosing += new FormClosingEventHandler(AddPosition_Closing);
+        }
+    private void AddPosition_Closing(object sender, FormClosingEventArgs e)
+     {
+            bsPosition.ResetBindings(true);
+     }
+
+        private void btnSetSteps_Click(object sender, EventArgs e)
+        {
+            //StepSet stepSet = new StepSet(flow);
+            //stepSet.Show();
+            DefineFlow defineFlow = new DefineFlow(flow);
+            defineFlow.Show();
+        }
 
 
-    // Somewhere else in your code:
+        // Somewhere else in your code:
 
-}
+    }
 }

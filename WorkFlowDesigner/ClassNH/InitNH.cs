@@ -41,7 +41,7 @@ namespace WorkFlowDesigner
               typeof(MapAttribute),
               typeof(MapListElement),
               typeof(MapDocument),
-              typeof(Access)
+              typeof(MapAccess)
 
             });
 

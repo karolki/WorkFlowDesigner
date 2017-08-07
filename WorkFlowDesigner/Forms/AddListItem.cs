@@ -14,14 +14,14 @@ namespace WorkFlowDesigner
 {
     public partial class AddListItem : DevExpress.XtraEditors.XtraForm
     {
-        List<ListElement> listListElement = new List<ListElement>();
+        IList<ListElement> listListElement = new List<ListElement>();
         int index;
 
         public AddListItem()
         {
             InitializeComponent();
         }
-        public AddListItem(List<ListElement> list, int index)
+        public AddListItem(IList<ListElement> list, int index)
         {
             InitializeComponent();
             listListElement = list;

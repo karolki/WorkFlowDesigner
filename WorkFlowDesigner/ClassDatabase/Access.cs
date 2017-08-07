@@ -25,8 +25,8 @@ namespace WorkFlowDesigner
         [DisplayName(@"Required_change")]
         public virtual int Required_change { get => required_change; set => required_change = value; }
         [DisplayName(@"Position_id")]
-        public Position Id_position { get => id_position; set => id_position = value; }
+        public virtual Position Id_position { get => id_position; set => id_position = value; }
         [DisplayName(@"Position_id")]
-        public Attribute Id_attribute { get => id_attribute; set => id_attribute = value; }
+        public virtual Attribute Id_attribute { get => id_attribute; set => id_attribute = value; }
     }
 }

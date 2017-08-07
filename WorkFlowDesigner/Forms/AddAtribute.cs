@@ -14,11 +14,11 @@ namespace WorkFlowDesigner
 {
     public partial class AddAtribute : DevExpress.XtraEditors.XtraForm
     {
-        ListElement testElement;
-        List<ListElement> listElement = new List<ListElement>();
-        List<Attribute> tempAtributeList = new List<Attribute>();
+
+        Attribute attribute;
+        IList<Attribute> tempAtributeList = new List<Attribute>();
         int index;
-     
+        bool delete = true;
         public AddAtribute()
         {
             InitializeComponent();
@@ -26,33 +26,33 @@ namespace WorkFlowDesigner
             
         }
        
-        public AddAtribute(List<Attribute> a, int index)
+        public AddAtribute(IList<Attribute> a, int index)
         {
             
             InitializeComponent();
             this.index = index;
             this.tempAtributeList = a;
-            this.atribute = a.ElementAt(index);
+            this.attribute = a.ElementAt(index);
             tbAtributeName.Text = a.ElementAt(index).Name;
             cbAtributeType.SelectedItem = a.ElementAt(index).Type;
             btnAddListItem.Visible = false;
             gcListElements.Visible = false;
-           
-
-            listElementBindingSource.DataSource = listElement;
+            attribute.List = new List<ListElement>();
+            this.FormClosing += new FormClosingEventHandler(Closing);
+            listElementBindingSource.DataSource = attribute.List;
         }
         
 
         private void tbAtributeName_TextChanged(object sender, EventArgs e)
         {
-            atribute.Name = tbAtributeName.Text;
+            attribute.Name = tbAtributeName.Text;
             
         }
 
         private void cbAtributeType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            atribute.Type = cbAtributeType.SelectedItem.ToString();
-            if (atribute.Type.ToString() == "list")
+            attribute.Type = cbAtributeType.SelectedItem.ToString();
+            if (attribute.Type.ToString() == "list")
             {
                 gcListElements.Visible = true;
                 btnAddListItem.Visible = true;
@@ -76,15 +76,15 @@ namespace WorkFlowDesigner
                 MessageBox.Show("Type of the attribute can't be empty!");
                 return;
             }
-           
+            delete = false;
             this.Close();
         }
 
         private void btnAddListItem_Click(object sender, EventArgs e)
         {
-            listElement.Add(new ListElement());
+            attribute.List.Add(new ListElement());
             listElementBindingSource.ResetBindings(false);
-            AddListItem addListItem = new AddListItem(listElement,listElement.Count-1);
+            AddListItem addListItem = new AddListItem(attribute.List, attribute.List.Count-1);
             addListItem.Show();
             addListItem.FormClosing += new FormClosingEventHandler(AddListItem_Closing);
             
@@ -94,19 +94,14 @@ namespace WorkFlowDesigner
             listElementBindingSource.ResetBindings(true);
         }
         
-
-
-
-        private void lbcListItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            tempAtributeList.RemoveAt(index);
+            
             this.Close();
         }
-        
+        private void Closing(object sender, FormClosingEventArgs e)
+        {
+            if(delete)tempAtributeList.RemoveAt(index); ;
+        }
     }
 }
