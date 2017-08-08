@@ -71,6 +71,18 @@
     <Compile Include="ClassNH\MapListElement.cs" />
     <Compile Include="ClassNH\MapPosition.cs" />
     <Compile Include="ClassNH\MapStep.cs" />
+    <Compile Include="Forms\AddCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCondition.Designer.cs">
+      <DependentUpon>AddCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CreateForm.Designer.cs">
+      <DependentUpon>CreateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DefineFlow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +149,12 @@
     <Compile Include="ClassDatabase\StepCondition.cs" />
     <Compile Include="ClassDatabase\User.cs" />
     <Compile Include="Forms\StepView.cs" />
+    <EmbeddedResource Include="Forms\AddCondition.resx">
+      <DependentUpon>AddCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CreateForm.resx">
+      <DependentUpon>CreateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DefineFlow.resx">
       <DependentUpon>DefineFlow.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +191,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Attribute.datasource" />
+    <None Include="Properties\DataSources\ListElement1.datasource" />
     <None Include="Properties\DataSources\Position1.datasource" />
     <None Include="Properties\DataSources\Step.datasource" />
     <None Include="Properties\DataSources\StepCondition.datasource" />

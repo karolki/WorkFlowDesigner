@@ -16,28 +16,32 @@ namespace WorkFlowDesigner
    
     public partial class AddFlowPanel : DevExpress.XtraEditors.XtraForm
     {
-        
+        Flow flow;
        
         public AddFlowPanel()
         {
             this.flow = new Flow();
+            flow.PositionList = new List<Position>();
+            flow.AtributeList = new List<Attribute>();
             InitializeComponent();
             bsPosition.DataSource = this.flow.PositionList;
             bsAttribute.DataSource = this.flow.AtributeList;
 
         }
-                
-        private void gcProperties_Click(object sender, EventArgs e)
-        {
-
-        }
         
         private void btnAddAtribute_Click(object sender, EventArgs e)
         {
-            flow.AtributeList.Add(new Attribute());
-            AddAtribute addAttribute = new AddAtribute(flow.AtributeList, flow.AtributeList.Count - 1);
-            addAttribute.Show();
-            addAttribute.FormClosing += new FormClosingEventHandler(AddAttribute_Closing);
+            /*  flow.AtributeList.Add(new Attribute());
+              AddAtribute addAttribute = new AddAtribute(flow.AtributeList, flow.AtributeList.Count - 1);
+              addAttribute.Show();
+              addAttribuateForm te.FormClosing += new FormClosingEventHandler(AddAttribute_Closing);*/
+              if(tbName.Text=="")
+            {
+                MessageBox.Show("Please enter flow name!");
+                return;
+            }
+            CreateForm createForm = new CreateForm(flow);
+            createForm.Show();
         }
         
     

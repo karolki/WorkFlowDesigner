@@ -7,7 +7,7 @@ using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 namespace WorkFlowDesigner
 {
-   class MapStep : ClassMapping<Step>
+    class MapStep : ClassMapping<Step>
     {
         public MapStep()
         {
@@ -28,7 +28,7 @@ namespace WorkFlowDesigner
             {
                 m.Inverse(true); m.Key(k => k.Column("id_step"));
 
-            }, r => r.OneToMany(x => x.Class(typeof(Step))));
+            }, r => r.OneToMany(x => x.Class(typeof(StepCondition))));
 
 
 

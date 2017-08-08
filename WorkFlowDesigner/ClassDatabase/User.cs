@@ -7,21 +7,20 @@ using System.ComponentModel;
 
 namespace WorkFlowDesigner
 {
-    public class User
+    public  class User
     {
-        private int id_user;
-        private String surname;
-        private String name;
-        private String permission;
-
-
-        [DisplayName(@"Id_User")]
-        public virtual int Id_user { get => id_user; set => id_user = value; }
-        [DisplayName(@"Surname")]
-        public virtual string Surname { get => surname; set => surname = value; }
-        [DisplayName(@"Name")]
-        public virtual string Name { get => name; set => name = value; }
-        [DisplayName(@"Permission.")]
-        public virtual string Permission { get => permission; set => permission = value; }
+       
+        
+        public virtual int Id_user { get; set; }
+        public virtual string Surname { get; set; }
+  
+        public virtual string Name { get; set; }
+        public virtual string Permission { get; set; }
+        public virtual string Email { get; set; }
+     
+        public virtual string Password { get; set; }        
+        
+        public virtual Position Id_position { get; set; }
+        public virtual IList<Document> DocumentList { get; set; }
     }
 }

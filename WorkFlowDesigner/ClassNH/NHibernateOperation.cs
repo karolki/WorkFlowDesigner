@@ -1,12 +1,15 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
+
+
 namespace WorkFlowDesigner
 {
-    class NHibernateOperation
+    public class NHibernateOperation
     {
 
 
@@ -49,9 +52,9 @@ namespace WorkFlowDesigner
             }
         }
 
-        public IList<T> GetList<T>() where T:class 
+        public IList<T> GetList<T>() where T : class
         {
-             IList<T> listposition = new List<T>();
+            IList<T> listposition = new List<T>();
             using (ISession session = InitNH.OppenSession())
 
             {
@@ -60,16 +63,14 @@ namespace WorkFlowDesigner
                 {
 
                     listposition = session.QueryOver<T>().List();
-                    
+
                 }
 
             }
             return listposition;
         }
-       
 
-        
+
+
     }
 }
-
-

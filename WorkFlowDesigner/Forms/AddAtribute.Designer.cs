@@ -39,11 +39,9 @@
             this.gvListElements = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId_list_element = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gcListElements)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listElementBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListElements)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -154,7 +152,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcListElements)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listElementBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListElements)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,13 +163,12 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbAtributeName;
         private System.Windows.Forms.ComboBox cbAtributeType;
-        Attribute atribute;
+        
         private System.Windows.Forms.Button btnAddListItem;
         private DevExpress.XtraGrid.GridControl gcListElements;
         private System.Windows.Forms.BindingSource listElementBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gvListElements;
         private DevExpress.XtraGrid.Columns.GridColumn colId_list_element;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

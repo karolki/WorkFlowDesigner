@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using WorkFlowDesigner.Forms;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Menu;
+using DevExpress.Utils.Menu;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace WorkFlowDesigner
 {
@@ -40,9 +45,43 @@ namespace WorkFlowDesigner
             this.MouseClick += DefineFlow_MouseClick;
             this.MouseMove += DefineFlow_MouseMove;
             this.DoubleBuffered = true;
-            this.KeyDown += DefineFlow_KeyDown; ;
+            this.KeyDown += DefineFlow_KeyDown;
+           
             InitializeComponent();
+            gridView1.MouseDown += GridView1_MouseDown;
+
         }
+
+        private void GridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+         
+            GridView view = sender as GridView;
+            // obtaining hit info 
+            GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
+            if (((e.Button & MouseButtons.Right) != 0) && (hitInfo.InRow) &&
+                (!view.IsGroupRow(hitInfo.RowHandle)))
+            {
+                // switching focus 
+                view.FocusedRowHandle = hitInfo.RowHandle;
+                // showing the custom context menu 
+
+                ViewMenu menu = new ViewMenu(view);
+                DXMenuItem menuItem = new DXMenuItem("DeleteRow",
+                  new EventHandler(DeleteFocusedRow));
+                menuItem.Tag = view;
+                menu.Items.Add(menuItem);
+                menu.Show(hitInfo.HitPoint);
+            }
+        }
+
+        void DeleteFocusedRow(object sender, EventArgs e)
+        {
+            DXMenuItem menuItem = sender as DXMenuItem;
+            if (menuItem == null) return;
+            ColumnView View = menuItem.Tag as ColumnView;
+            View.DeleteRow(View.FocusedRowHandle);
+        }
+
         private void DefineFlow_KeyDown(object sender, KeyEventArgs e)
         {
             if (selectedLabelStart != null && e.KeyCode==Keys.Delete)
@@ -67,7 +106,7 @@ namespace WorkFlowDesigner
                 foreach (var connection in flowlabel.connections)
                 {
                     DrawLShapeLine(this.CreateGraphics(), connection.startFlowLabel.Location.X, connection.startFlowLabel.Location.Y,
-                        connection.endFlowLabel.Location.X, connection.endFlowLabel.Location.Y);
+                        connection.endFlowLabel.Location.X, connection.endFlowLabel.Location.Y,Color.Black);
                     if(connection.label.Text!="") connection.label.Location=
                             new Point((int)(connection.startFlowLabel.Location.X+connection.endFlowLabel.Location.X)/2,connection.endFlowLabel.Location.Y);
                 }
@@ -88,7 +127,7 @@ namespace WorkFlowDesigner
                         {
 
                             DrawLShapeLine(this.CreateGraphics(), connection.startFlowLabel.Location.X, connection.startFlowLabel.Location.Y,
-                                connection.endFlowLabel.Location.X, connection.endFlowLabel.Location.Y);
+                                connection.endFlowLabel.Location.X, connection.endFlowLabel.Location.Y,Color.Black);
                             if (connection.label.Text != "") connection.label.Location = 
                                     new Point((int)(connection.startFlowLabel.Location.X + connection.endFlowLabel.Location.X) / 2,connection.endFlowLabel.Location.Y);
                         }
@@ -118,7 +157,7 @@ namespace WorkFlowDesigner
                 }
             }
         }
-
+       
         private void EnterDescription_FormClosed(object sender, FormClosedEventArgs e)
         {
             selectedLabelStart.connections.Add(new Connection(selectedLabelStart, selectedLabelEnd, (sender as EnterDescription).description));
@@ -126,7 +165,7 @@ namespace WorkFlowDesigner
             this.Controls.Add(selectedLabelStart.connections.ElementAt(selectedLabelStart.connections.Count - 1).label);
             selectedLabelStart.connections.ElementAt(selectedLabelStart.connections.Count - 1).label.Location =
              new Point((int)(selectedLabelStart.Location.X + selectedLabelEnd.Location.X) / 2,selectedLabelEnd.Location.Y);
-            DrawLShapeLine(this.CreateGraphics(), selectedLabelStart.Location.X, selectedLabelStart.Location.Y, selectedLabelEnd.Location.X, selectedLabelEnd.Location.Y);
+            DrawLShapeLine(this.CreateGraphics(), selectedLabelStart.Location.X, selectedLabelStart.Location.Y, selectedLabelEnd.Location.X, selectedLabelEnd.Location.Y,Color.Black);
             selectedLabelStart = null;
             selectedLabelEnd = null;
         }
@@ -136,7 +175,38 @@ namespace WorkFlowDesigner
         private void DefineFlow_MouseClick(object sender, MouseEventArgs e)
         {
             if (selectedLabel != null) selectedLabel = null;
-            
+            else
+            {
+                foreach (var label in flowLabels)
+                {
+                    foreach (var connection in label.connections)
+                    {
+                        if(connection.IsSelected(e.Location))
+                        {
+                            DrawLShapeLine(this.CreateGraphics(), connection.startFlowLabel.Location.X, connection.startFlowLabel.Location.Y, connection.endFlowLabel.Location.X, connection.endFlowLabel.Location.Y, Color.Red);
+                            AddCondition addCondition = new AddCondition(connection.step, flow.AtributeList);
+                            addCondition.FormClosed += AddCondition_FormClosed;
+                            addCondition.Show();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void AddCondition_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            List<Step> tempList = new List<Step>();
+            foreach (var position in flowLabels)
+            {
+                foreach (var a in position.connections)
+                {
+                    tempList.Add(a.step);
+                }
+            }
+            stepBindingSource1.DataSource = tempList;
+            stepBindingSource1.ResetBindings(true);
+
         }
 
         private void DefineFlow_MouseMove(object sender, MouseEventArgs e)
@@ -145,9 +215,9 @@ namespace WorkFlowDesigner
 
         }
     
-        public void DrawLShapeLine(System.Drawing.Graphics g, int StartX, int StartY, int EndX, int EndY)
+        public void DrawLShapeLine(System.Drawing.Graphics g, int StartX, int StartY, int EndX, int EndY,Color color)
         {
-            Pen myPen = new Pen(Color.Black);
+            Pen myPen = new Pen(color);
             myPen.Width = 2;
             int arrowSize = 4;
             int deltaPointX = EndX - StartX;
@@ -181,23 +251,40 @@ namespace WorkFlowDesigner
             }
 
         }
+
+    
     }
-     public class Connection
+    public class Connection
     {
         public FlowLabel startFlowLabel;
         public FlowLabel endFlowLabel;
-       
+        public Step step;
         public Label label;
         public Connection()
         { }
-        public Connection(FlowLabel start, FlowLabel end,string description)
+        public Connection(FlowLabel start, FlowLabel end, string description)
         {
             startFlowLabel = start;
             endFlowLabel = end;
             label = new Label();
-            label.Text = description;        
+            label.Text = description;
+            step = new Step(start.positionSet, end.positionSet, description);
         }
-
+        public bool IsSelected(Point p)
+        {
+            List<Rectangle> rc = new List<Rectangle>();
+            rc.Add(new Rectangle(startFlowLabel.Location.X-2, (startFlowLabel.Location.Y > endFlowLabel.Location.Y ? endFlowLabel.Location.Y : startFlowLabel.Location.Y),4,Math.Abs(endFlowLabel.Location.Y-startFlowLabel.Location.Y)));
+            rc.Add(new Rectangle(endFlowLabel.Location.X > startFlowLabel.Location.X ? startFlowLabel.Location.X : endFlowLabel.Location.X, endFlowLabel.Location.Y + 2, Math.Abs(startFlowLabel.Location.X - endFlowLabel.Location.X), 4));
+            foreach (var rect in rc)
+            {
+                if(rect.Contains(p))
+                {
+                    return true;
+                    
+                }
+            }
+            return false;
+        }
       
 
        

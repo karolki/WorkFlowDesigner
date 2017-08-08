@@ -461,3 +461,5 @@ C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlow
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.StepSet.resources
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.DefineFlow.resources
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.EnterDescription.resources
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.AddCondition.resources
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.CreateForm.resources

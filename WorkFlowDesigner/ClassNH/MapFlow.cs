@@ -8,9 +8,10 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace WorkFlowDesigner
 {
-    class MapFlow:ClassMapping<Flow>
+    class MapFlow : ClassMapping<Flow>
     {
-        public MapFlow() {
+        public MapFlow()
+        {
             Table("WorkFlow");
             Id(x => x.Flow_id, m => { m.Column("flow_id"); m.Generator(Generators.Identity); });
             Property(x => x.Flow_name, m => { m.Column("flow_name"); });
@@ -26,6 +27,12 @@ namespace WorkFlowDesigner
                 m.Inverse(true); m.Key(k => k.Column("flow_id"));
 
             }, r => r.OneToMany(x => x.Class(typeof(Attribute))));
+
+            Bag(x => x.DocumentList, m =>
+            {
+                m.Inverse(true); m.Key(k => k.Column("flow_id"));
+
+            }, r => r.OneToMany(x => x.Class(typeof(Document))));
         }
     }
 }

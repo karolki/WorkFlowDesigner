@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using System.ComponentModel;
+
 
 namespace WorkFlowDesigner
-{ 
-
-   public class Document
+{
+    public class Document
     {
-        private int id_document;
-        private string name;
-        private string type;
 
-        public virtual int Id_document { get => id_document; set => id_document = value; }
-        public virtual string Name { get => name; set => name = value; }
-        public virtual string Type { get => type; set => type = value; }
+        public virtual int Id_document { get; set; }        
+        public virtual string Name { get; set; }
+        public virtual Flow Id_flow { get; set; }
+        public virtual User Id_user { get; set; }
     }
-    
 }

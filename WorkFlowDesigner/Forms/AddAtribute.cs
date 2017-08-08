@@ -15,23 +15,26 @@ namespace WorkFlowDesigner
     public partial class AddAtribute : DevExpress.XtraEditors.XtraForm
     {
 
-        Attribute attribute;
-        IList<Attribute> tempAtributeList = new List<Attribute>();
-        int index;
+        public Attribute attribute;
+      //  IList<Attribute> tempAtributeList = new List<Attribute>();
+      //  int index;
         bool delete = true;
         public AddAtribute()
         {
             InitializeComponent();
             btnAddListItem.Visible = false;
-            
+            attribute = new Attribute();
+            attribute.List = new List<ListElement>();
+            listElementBindingSource.DataSource = attribute.List;
+            gcListElements.Visible = false;
         }
        
         public AddAtribute(IList<Attribute> a, int index)
         {
             
             InitializeComponent();
-            this.index = index;
-            this.tempAtributeList = a;
+          //  this.index = index;
+          //  this.tempAtributeList = a;
             this.attribute = a.ElementAt(index);
             tbAtributeName.Text = a.ElementAt(index).Name;
             cbAtributeType.SelectedItem = a.ElementAt(index).Type;
@@ -101,7 +104,7 @@ namespace WorkFlowDesigner
         }
         private void Closing(object sender, FormClosingEventArgs e)
         {
-            if(delete)tempAtributeList.RemoveAt(index); ;
+        //    if(delete)tempAtributeList.RemoveAt(index); ;
         }
     }
 }

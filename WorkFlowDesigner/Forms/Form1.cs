@@ -25,42 +25,6 @@ namespace WorkFlowDesigner
             List<Step> startsteplista = new List<Step>();
             List<Step> endsteplista = new List<Step>();
 
-
-            Flow flow = new Flow();
-            flow.Flow_description = "asd";
-            flow.Flow_name = "FlowSTep";
-
-
-            position.Name = "FlowTest";
-            position.Id_flow = flow;
-            list.Add(position);
-            flow.PositionList = list;
-            //dodanie przeplywu i pozycji
-
-            Step step = new Step();//dodanie kroku
-            step.Description = "TEST";
-            step.Start_position_id = position;
-            step.End_position_id = position;
-
-            startsteplista.Add(step);
-            endsteplista.Add(step);
-
-            Attribute att = new Attribute();
-            att.Name = "name";
-            att.Type = "";
-            att.Id_workflow = flow;
-
-            List<ListElement> list2 = new List<ListElement>();
-            ListElement elem = new ListElement();
-            elem.Name = "elmname";
-            elem.Id_attribute = att;
-            list2.Add(elem);
-
-            att.List = list2;
-            lista2.Add(att);
-
-            flow.AtributeList = lista2;
-
             NHibernateOperation operation = new NHibernateOperation();
 
             IList<Position> sprawdzam = operation.GetList<Position>();

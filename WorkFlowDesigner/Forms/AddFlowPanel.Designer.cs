@@ -473,8 +473,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colType;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        Attribute atribute;
-        Flow flow;
         private DevExpress.XtraGrid.GridControl gcPosition;
         private System.Windows.Forms.BindingSource bsPosition;
         private DevExpress.XtraGrid.Views.Grid.GridView gvPosition;
