@@ -12,27 +12,31 @@ namespace WorkFlowDesigner
     {
         public MapFlow()
         {
-            Table("WorkFlow");
-            Id(x => x.Flow_id, m => { m.Column("flow_id"); m.Generator(Generators.Identity); });
-            Property(x => x.Flow_name, m => { m.Column("flow_name"); });
-            Property(x => x.Flow_description, m => { m.Column("flow_description"); });
-            Bag(x => x.PositionList, m =>
+            Table("Flow");
+            Id(x => x.id_flow, m => { m.Column("id_flow"); m.Generator(Generators.Identity); });
+            Property(x => x.Name, m => { m.Column("name"); });
+            
+            ManyToOne(x => x.id_user, m =>
             {
-                m.Inverse(true); m.Key(k => k.Column("flow_id"));
+                m.Column("id_user");
+            });
 
-            }, r => r.OneToMany(x => x.Class(typeof(Position))));
-
-            Bag(x => x.AtributeList, m =>
+            ManyToOne(x => x.id_position, m =>
             {
-                m.Inverse(true); m.Key(k => k.Column("flow_id"));
+                m.Column("id_position");
+            });
 
-            }, r => r.OneToMany(x => x.Class(typeof(Attribute))));
 
-            Bag(x => x.DocumentList, m =>
+            ManyToOne(x => x.id_flowdefinition, m =>
             {
-                m.Inverse(true); m.Key(k => k.Column("flow_id"));
+                m.Column("id_workflowdefinition");
+            });
 
-            }, r => r.OneToMany(x => x.Class(typeof(Document))));
+            Bag(x => x.FlowExtensionList, m =>
+            {
+                m.Inverse(true); m.Key(k => k.Column("id_flow"));
+
+            }, r => r.OneToMany(x => x.Class(typeof(FlowExtension))));
         }
     }
 }

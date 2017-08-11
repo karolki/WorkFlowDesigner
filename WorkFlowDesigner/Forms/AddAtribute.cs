@@ -9,32 +9,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using WorkFlowDesigner.Forms;
 
 namespace WorkFlowDesigner
 {
     public partial class AddAtribute : DevExpress.XtraEditors.XtraForm
     {
 
-        public Attribute attribute;
+        public Attributes attribute;
+        IList<Position> positionList;
       //  IList<Attribute> tempAtributeList = new List<Attribute>();
       //  int index;
         bool delete = true;
-        public AddAtribute()
+        public AddAtribute(IList<Position> pos)
         {
             InitializeComponent();
             btnAddListItem.Visible = false;
-            attribute = new Attribute();
+            attribute = new Attributes();
             attribute.List = new List<ListElement>();
             listElementBindingSource.DataSource = attribute.List;
+            positionList = pos;
             gcListElements.Visible = false;
         }
        
-        public AddAtribute(IList<Attribute> a, int index)
+        public AddAtribute(IList<Attributes> a, int index,IList<Position>pos)
         {
             
             InitializeComponent();
-          //  this.index = index;
-          //  this.tempAtributeList = a;
+            
             this.attribute = a.ElementAt(index);
             tbAtributeName.Text = a.ElementAt(index).Name;
             cbAtributeType.SelectedItem = a.ElementAt(index).Type;
@@ -80,8 +82,15 @@ namespace WorkFlowDesigner
                 return;
             }
             delete = false;
+            SetAccess setAccess = new SetAccess(attribute, positionList);
+            
+            setAccess.Show();
             this.Close();
         }
+
+      
+
+        
 
         private void btnAddListItem_Click(object sender, EventArgs e)
         {

@@ -463,3 +463,16 @@ C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlow
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.EnterDescription.resources
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.AddCondition.resources
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.CreateForm.resources
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.SetAccess.resources
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\DevExpress.XtraScheduler.v17.1.Core.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\DevExpress.XtraScheduler.v17.1.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\DevExpress.XtraScheduler.v17.1.xml
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\DevExpress.XtraScheduler.v17.1.Core.xml
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\de\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\es\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\ja\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\ru\DevExpress.XtraScheduler.v17.1.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\de\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\es\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\ja\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\ru\DevExpress.XtraScheduler.v17.1.Core.resources.dll

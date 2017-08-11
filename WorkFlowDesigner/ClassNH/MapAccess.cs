@@ -20,7 +20,7 @@ namespace WorkFlowDesigner
             Property(x => x.Required_change, m => { m.Column("required_change"); });
 
             ManyToOne(x =>x.Id_attribute, m => {
-                m.Column("id_atribute");
+                m.Column("id_attribute");
             });
 
             ManyToOne(x => x.Id_position, m => {

@@ -19,19 +19,19 @@ namespace WorkFlowDesigner
 {
     public partial class DefineFlow : DevExpress.XtraEditors.XtraForm
     {
-        Flow flow;
+        FlowDefinition flow;
         
         List<FlowLabel> flowLabels = new List<FlowLabel>();
         FlowLabel selectedLabel=null;
         FlowLabel selectedLabelStart = null;
         FlowLabel selectedLabelEnd =null;
-
+        public List<Step> stepList;
         public DefineFlow()
         {
             InitializeComponent();
            
         }
-        public DefineFlow(Flow flow)
+        public DefineFlow(FlowDefinition flow)
         {
             this.flow = flow;
             foreach (var position in flow.PositionList)
@@ -46,10 +46,25 @@ namespace WorkFlowDesigner
             this.MouseMove += DefineFlow_MouseMove;
             this.DoubleBuffered = true;
             this.KeyDown += DefineFlow_KeyDown;
-           
+            this.FormClosing += DefineFlow_FormClosing;
             InitializeComponent();
             gridView1.MouseDown += GridView1_MouseDown;
 
+        }
+
+        private void DefineFlow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            stepList = new List<Step>();
+            foreach(var label in flowLabels)
+            {
+                foreach(var connection in label.connections)
+                {
+                    
+                    stepList.Add(connection.step);
+                    
+                }
+            }
+           
         }
 
         private void GridView1_MouseDown(object sender, MouseEventArgs e)
@@ -168,6 +183,18 @@ namespace WorkFlowDesigner
             DrawLShapeLine(this.CreateGraphics(), selectedLabelStart.Location.X, selectedLabelStart.Location.Y, selectedLabelEnd.Location.X, selectedLabelEnd.Location.Y,Color.Black);
             selectedLabelStart = null;
             selectedLabelEnd = null;
+            List<Step> tempList = new List<Step>();
+            foreach (var position in flowLabels)
+            {
+                foreach (var a in position.connections)
+                {
+                    tempList.Add(a.step);
+                    
+                }
+            }
+            stepList = tempList;
+            stepBindingSource1.DataSource = stepList;
+            stepBindingSource1.ResetBindings(true);
         }
 
   
@@ -196,16 +223,18 @@ namespace WorkFlowDesigner
 
         private void AddCondition_FormClosed(object sender, FormClosedEventArgs e)
         {
-            List<Step> tempList = new List<Step>();
+           /* List<Step> tempList = new List<Step>();
             foreach (var position in flowLabels)
             {
                 foreach (var a in position.connections)
                 {
                     tempList.Add(a.step);
+
                 }
             }
-            stepBindingSource1.DataSource = tempList;
-            stepBindingSource1.ResetBindings(true);
+            stepList = tempList;
+            stepBindingSource1.DataSource = stepList;
+            stepBindingSource1.ResetBindings(true);*/
 
         }
 

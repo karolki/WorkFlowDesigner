@@ -7,11 +7,17 @@ namespace WorkFlowDesigner
 {
     public class Flow
     {
-        public virtual int Flow_id { get; set; }
-        public virtual string Flow_name { get; set; }
-        public virtual string Flow_description { get; set; }
-        public virtual IList<Attribute> AtributeList { get; set; }
-        public virtual IList<Position> PositionList { get ; set; }
-        public virtual IList<Document> DocumentList { get; set; }
+        public virtual int id_flow { get; set; }
+        
+        public virtual string Name { get; set; }
+        public virtual User id_user { get; set; }
+        
+        public virtual FlowDefinition id_flowdefinition{ get; set; }
+
+        public virtual IList<FlowExtension> FlowExtensionList { get; set; }
+        public virtual Position id_position { get; set; }
+
+
+
     }
 }

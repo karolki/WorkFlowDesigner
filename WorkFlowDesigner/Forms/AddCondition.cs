@@ -14,45 +14,68 @@ namespace WorkFlowDesigner.Forms
     public partial class AddCondition : DevExpress.XtraEditors.XtraForm
     {
         Step step;
-        IList<Attribute> listAttribute;
-        string condition="";
-        string attribute="";
+        IList<Attributes> listAttribute;
+        string condition = "";
+        string attribute = "";
         public AddCondition()
         {
             InitializeComponent();
+
         }
-        public AddCondition(Step step,IList<Attribute> list)
+        public AddCondition(Step step, IList<Attributes> list)
         {
-            
             listAttribute = list;
-
-           
             InitializeComponent();
-            attributeBindingSource.DataSource = list;
             this.step = step;
+
+            if (this.step.StepConditionList == null) this.step.StepConditionList = new List<StepConditions>();
+            
+            this.step.StepConditionList.Add(new StepConditions());
+            stepConditionsBindingSource.DataSource = this.step.StepConditionList;
+            bsAtributeList.DataSource = this.listAttribute;
+           
+            operatorDataGridViewTextBoxColumn.Items.AddRange(new string[] { "<", "<=", ">", ">=", "=", "!=" });
+           
+            dgv.CellClick += Dgv_CellClick;
         }
 
-        private void btnAddCondition_Click(object sender, EventArgs e)
+        private void Dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(tbCondition.Text=="")
-            {
-                MessageBox.Show("Condition can't be empty!");
+            if ((sender as DataGridView).CurrentCell.Value == null)
                 return;
+            foreach (var element in listAttribute)
+            { 
+
+                if ((sender as DataGridView).CurrentCell.Value.ToString() == element.Name && element.Type == "int")
+                {
+                    operatorDataGridViewTextBoxColumn.Items.Clear();
+                    operatorDataGridViewTextBoxColumn.Items.AddRange(new string[] { "<", "<=", ">", ">=", "=", "!=" });
+                    break;
+                }
+                else if ((sender as DataGridView).CurrentCell.Value.ToString() == element.Name && element.Type == "text")
+                {
+                    operatorDataGridViewTextBoxColumn.Items.Clear();
+                    operatorDataGridViewTextBoxColumn.Items.AddRange(new string[] { "=", "!=" });
+                    break;
+                }
             }
-            step.StepConditionList.Add(new StepCondition(attribute+condition));
-            this.Close();
-            
-            
         }
 
-        private void cbAttributes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            attribute = cbAttributes.SelectedText;
-        }
+       
 
-        private void tbCondition_TextChanged(object sender, EventArgs e)
+   
+
+      
+    }
+    public class ConditionData
+    {
+        public ConditionData(List<Attributes> a)
         {
-            condition = tbCondition.Text;
+            atributes = a;
         }
+        public List<Attributes> atributes;
+        public string[] operators = new string[] { "<", "<=", ">", ">=", "=", "!=" };
+        public string[] answers = new string[] { "is checked", "is not checked", "is filled" };
+
     }
 }

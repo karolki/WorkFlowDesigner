@@ -36,12 +36,14 @@ namespace WorkFlowDesigner
               typeof(MapUser),
               typeof(MapAttribute),
               typeof(MapDocument),
-              typeof(MapFlow),
+              typeof(MapFlowDefinition),
               typeof(MapListElement),
               typeof(MapPosition),
               typeof(MapStep),
-              typeof(MapStepCondition)           
-
+              typeof(MapStepCondition),
+              typeof(MapFlow),
+              typeof(MapFlowExtension),
+              typeof(MapAccess)
 
             });
 

@@ -10,6 +10,6 @@ namespace WorkFlowDesigner
         
         public virtual int Id_list_element { get; set; }
         public virtual string Name { get; set; }
-        public virtual Attribute Id_attribute { get; set; }
+        public virtual Attributes Id_attribute { get; set; }
     }
 }

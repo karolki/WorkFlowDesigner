@@ -23,11 +23,11 @@ namespace WorkFlowDesigner
             {
                 m.Column("id_position");
             });
-            Bag(x => x.DocumentList, m =>
+            Bag(x => x.FlowList, m =>
             {
                 m.Inverse(true); m.Key(k => k.Column("id_user"));
 
-            }, r => r.OneToMany(x => x.Class(typeof(Document))));
+            }, r => r.OneToMany(x => x.Class(typeof(Flow))));
 
 
         }

@@ -14,16 +14,16 @@ namespace WorkFlowDesigner.Forms
 {
     public partial class StepSet : DevExpress.XtraEditors.XtraForm
     {
-        Flow flow;
+        FlowDefinition flow;
         List<StepView> stepViev = new List<StepView>();
         List<Step> Steps = new List<Step>();
-        List<StepCondition> StepConditions = new List<StepCondition>();
+        List<StepConditions> StepConditions = new List<StepConditions>();
 
         public StepSet()
         {
             InitializeComponent();
         }
-        public StepSet(Flow flow)
+        public StepSet(FlowDefinition flow)
         {
             InitializeComponent();
             this.flow = flow;

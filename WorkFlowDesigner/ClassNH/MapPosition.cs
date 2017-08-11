@@ -18,7 +18,7 @@ namespace WorkFlowDesigner
             Table("Position");
             Id(x => x.Id_position, m => { m.Column("id_position"); m.Generator(Generators.Identity); });
             Property(x => x.Name, m => { m.Column("name"); });
-            ManyToOne(x => x.Id_flow, m =>
+            ManyToOne(x => x.Id_flowDefinition, m =>
             {
                 m.Column("id_flow");
             });
@@ -38,6 +38,12 @@ namespace WorkFlowDesigner
                 m.Inverse(true); m.Key(k => k.Column("id_user"));
 
             }, r => r.OneToMany(x => x.Class(typeof(User))));
+
+            Bag(x => x.FlowList, m =>
+            {
+                m.Inverse(true); m.Key(k => k.Column("id_flow"));
+
+            }, r => r.OneToMany(x => x.Class(typeof(Flow))));
 
 
         }

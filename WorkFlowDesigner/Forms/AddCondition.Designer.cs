@@ -29,67 +29,88 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.cbAttributes = new System.Windows.Forms.ComboBox();
-            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbCondition = new System.Windows.Forms.TextBox();
-            this.btnAddCondition = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.bsAtributeList = new System.Windows.Forms.BindingSource(this.components);
+            this.stepConditionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Position = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.operatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAtributeList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepConditionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbAttributes
+            // dgv
             // 
-            this.cbAttributes.DataSource = this.attributeBindingSource;
-            this.cbAttributes.DisplayMember = "Name";
-            this.cbAttributes.FormattingEnabled = true;
-            this.cbAttributes.Location = new System.Drawing.Point(47, 44);
-            this.cbAttributes.Name = "cbAttributes";
-            this.cbAttributes.Size = new System.Drawing.Size(121, 21);
-            this.cbAttributes.TabIndex = 0;
-            this.cbAttributes.SelectedIndexChanged += new System.EventHandler(this.cbAttributes_SelectedIndexChanged);
+            this.dgv.AutoGenerateColumns = false;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Position,
+            this.operatorDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn3});
+            this.dgv.DataSource = this.stepConditionsBindingSource;
+            this.dgv.Location = new System.Drawing.Point(12, 12);
+            this.dgv.Name = "dgv";
+            this.dgv.Size = new System.Drawing.Size(547, 150);
+            this.dgv.TabIndex = 0;
             // 
-            // attributeBindingSource
+            // bsAtributeList
             // 
-            this.attributeBindingSource.DataSource = typeof(WorkFlowDesigner.Attribute);
+            this.bsAtributeList.DataSource = typeof(WorkFlowDesigner.Attributes);
             // 
-            // tbCondition
+            // stepConditionsBindingSource
             // 
-            this.tbCondition.Location = new System.Drawing.Point(223, 44);
-            this.tbCondition.Name = "tbCondition";
-            this.tbCondition.Size = new System.Drawing.Size(159, 21);
-            this.tbCondition.TabIndex = 1;
-            this.tbCondition.TextChanged += new System.EventHandler(this.tbCondition_TextChanged);
+            this.stepConditionsBindingSource.DataSource = typeof(WorkFlowDesigner.StepConditions);
             // 
-            // btnAddCondition
+            // Position
             // 
-            this.btnAddCondition.Location = new System.Drawing.Point(47, 148);
-            this.btnAddCondition.Name = "btnAddCondition";
-            this.btnAddCondition.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCondition.TabIndex = 2;
-            this.btnAddCondition.Text = "Add";
-            this.btnAddCondition.UseVisualStyleBackColor = true;
-            this.btnAddCondition.Click += new System.EventHandler(this.btnAddCondition_Click);
+            this.Position.DataPropertyName = "Position.Name";
+            this.Position.DataSource = this.bsAtributeList;
+            this.Position.DisplayMember = "Name";
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            this.Position.ValueMember = "Name";
+            // 
+            // operatorDataGridViewTextBoxColumn
+            // 
+            this.operatorDataGridViewTextBoxColumn.DataPropertyName = "Operator";
+            this.operatorDataGridViewTextBoxColumn.HeaderText = "Operator";
+            this.operatorDataGridViewTextBoxColumn.Name = "operatorDataGridViewTextBoxColumn";
+            this.operatorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.operatorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Condition";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Condition";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // AddCondition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 235);
-            this.Controls.Add(this.btnAddCondition);
-            this.Controls.Add(this.tbCondition);
-            this.Controls.Add(this.cbAttributes);
+            this.ClientSize = new System.Drawing.Size(686, 336);
+            this.Controls.Add(this.dgv);
             this.Name = "AddCondition";
             this.Text = "AddCondition";
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAtributeList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepConditionsBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbAttributes;
-        private System.Windows.Forms.TextBox tbCondition;
-        private System.Windows.Forms.Button btnAddCondition;
-        private System.Windows.Forms.BindingSource attributeBindingSource;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idstepconditionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idstepDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conditionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource stepConditionsBindingSource;
+        private System.Windows.Forms.BindingSource bsAtributeList;
+        private System.Windows.Forms.DataGridViewComboBoxColumn positionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Position;
+        private System.Windows.Forms.DataGridViewComboBoxColumn operatorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v17.1" />
     <Reference Include="DevExpress.Data.v17.1" />
     <Reference Include="DevExpress.Utils.v17.1" />
@@ -44,6 +45,8 @@
     <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -53,6 +56,11 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,10 +72,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassDatabase\Access.cs" />
+    <Compile Include="ClassDatabase\Attributes.cs" />
     <Compile Include="ClassDatabase\Document.cs" />
+    <Compile Include="ClassDatabase\FlowDefinition.cs" />
+    <Compile Include="ClassDatabase\FlowExtension.cs" />
+    <Compile Include="ClassDatabase\StepConditions.cs" />
     <Compile Include="ClassNH\MapAccess.cs" />
     <Compile Include="ClassNH\MapAttribute.cs" />
     <Compile Include="ClassNH\MapDocument.cs" />
+    <Compile Include="ClassNH\MapFlowDefinition.cs" />
+    <Compile Include="ClassNH\MapFlowExtension.cs" />
     <Compile Include="ClassNH\MapListElement.cs" />
     <Compile Include="ClassNH\MapPosition.cs" />
     <Compile Include="ClassNH\MapStep.cs" />
@@ -107,7 +121,6 @@
     <Compile Include="Forms\AddListItem.Designer.cs">
       <DependentUpon>AddListItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassDatabase\Attribute.cs" />
     <Compile Include="ClassDatabase\Flow.cs" />
     <Compile Include="Forms\AddPosition.cs">
       <SubType>Form</SubType>
@@ -143,10 +156,15 @@
     <Compile Include="Forms\StepSet.Designer.cs">
       <DependentUpon>StepSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SetAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetAccess.Designer.cs">
+      <DependentUpon>SetAccess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClassDatabase\Step.cs" />
-    <Compile Include="ClassDatabase\StepCondition.cs" />
     <Compile Include="ClassDatabase\User.cs" />
     <Compile Include="Forms\StepView.cs" />
     <EmbeddedResource Include="Forms\AddCondition.resx">
@@ -179,6 +197,9 @@
     <EmbeddedResource Include="Forms\StepSet.resx">
       <DependentUpon>StepSet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetAccess.resx">
+      <DependentUpon>SetAccess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -191,11 +212,14 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Attribute.datasource" />
+    <None Include="Properties\DataSources\Attributes.datasource" />
     <None Include="Properties\DataSources\ListElement1.datasource" />
     <None Include="Properties\DataSources\Position1.datasource" />
     <None Include="Properties\DataSources\Step.datasource" />
     <None Include="Properties\DataSources\StepCondition.datasource" />
+    <None Include="Properties\DataSources\StepConditions.datasource" />
     <None Include="Properties\DataSources\StepView.datasource" />
+    <None Include="Properties\DataSources\WorkFlowDesigner.Forms.ConditionData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

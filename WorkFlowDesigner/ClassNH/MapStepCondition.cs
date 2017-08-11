@@ -7,7 +7,7 @@ using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 namespace WorkFlowDesigner
 {
-    class MapStepCondition : ClassMapping<StepCondition>
+    class MapStepCondition : ClassMapping<StepConditions>
     {
         public MapStepCondition()
         {
@@ -18,6 +18,11 @@ namespace WorkFlowDesigner
             {
                 m.Column("id_step");
             });
+            ManyToOne(x => x.Position, m =>
+            {
+                m.Column("id_position");
+            });
+            Property(x => x.Operator, m => { m.Column("operator"); });
         }
     }
 }

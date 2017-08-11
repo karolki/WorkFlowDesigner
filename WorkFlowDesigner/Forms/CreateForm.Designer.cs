@@ -31,14 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.lcLayout = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bs = new System.Windows.Forms.BindingSource(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.btnAddAttribute = new System.Windows.Forms.Button();
             this.btnSaveFormToLayout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lcLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,20 +54,10 @@
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(719, 334);
             this.layoutControlGroup1.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(699, 314);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // bs
             // 
@@ -77,7 +65,7 @@
             // 
             // defaultLookAndFeel1
             // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013 Dark Gray";
             // 
             // btnAddAttribute
             // 
@@ -111,7 +99,6 @@
             this.Text = "CreateForm";
             ((System.ComponentModel.ISupportInitialize)(this.lcLayout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs)).EndInit();
             this.ResumeLayout(false);
 
@@ -124,7 +111,6 @@
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private System.Windows.Forms.Button btnAddAttribute;
         private System.Windows.Forms.Button btnSaveFormToLayout;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private System.Windows.Forms.BindingSource bs;
     }
 }
