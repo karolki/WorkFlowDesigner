@@ -76,7 +76,6 @@
     <Compile Include="ClassDatabase\Document.cs" />
     <Compile Include="ClassDatabase\FlowDefinition.cs" />
     <Compile Include="ClassDatabase\FlowExtension.cs" />
-    <Compile Include="ClassDatabase\StepConditions.cs" />
     <Compile Include="ClassNH\MapAccess.cs" />
     <Compile Include="ClassNH\MapAttribute.cs" />
     <Compile Include="ClassNH\MapDocument.cs" />
@@ -146,10 +145,10 @@
     <Compile Include="ClassNH\InitNH.cs" />
     <Compile Include="ClassDatabase\ListElement.cs" />
     <Compile Include="ClassNH\MapFlow.cs" />
-    <Compile Include="ClassNH\MapStepCondition.cs" />
     <Compile Include="ClassNH\MapUser.cs" />
     <Compile Include="ClassNH\NHibernateOperation.cs" />
     <Compile Include="ClassDatabase\Position.cs" />
+    <Compile Include="Forms\Parser.cs" />
     <Compile Include="Forms\StepSet.cs">
       <SubType>Form</SubType>
     </Compile>

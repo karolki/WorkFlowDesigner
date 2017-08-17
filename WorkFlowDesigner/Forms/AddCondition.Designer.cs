@@ -28,89 +28,135 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dgv = new System.Windows.Forms.DataGridView();
-            this.bsAtributeList = new System.Windows.Forms.BindingSource(this.components);
-            this.stepConditionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Position = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.operatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAtributeList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stepConditionsBindingSource)).BeginInit();
+            this.lcLayout = new DevExpress.XtraLayout.LayoutControl();
+            this.lc = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbLogic = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.lcLayout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lc)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgv
+            // lcLayout
             // 
-            this.dgv.AutoGenerateColumns = false;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Position,
-            this.operatorDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn3});
-            this.dgv.DataSource = this.stepConditionsBindingSource;
-            this.dgv.Location = new System.Drawing.Point(12, 12);
-            this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(547, 150);
-            this.dgv.TabIndex = 0;
+            this.lcLayout.AllowCustomization = false;
+            this.lcLayout.Location = new System.Drawing.Point(14, 32);
+            this.lcLayout.Name = "lcLayout";
+            this.lcLayout.OptionsView.IsReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            this.lcLayout.Root = this.lc;
+            this.lcLayout.Size = new System.Drawing.Size(295, 216);
+            this.lcLayout.TabIndex = 0;
+            this.lcLayout.Text = "layoutControl1";
             // 
-            // bsAtributeList
+            // lc
             // 
-            this.bsAtributeList.DataSource = typeof(WorkFlowDesigner.Attributes);
+            this.lc.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.lc.GroupBordersVisible = false;
+            this.lc.Location = new System.Drawing.Point(0, 0);
+            this.lc.Name = "lc";
+            this.lc.Size = new System.Drawing.Size(295, 216);
+            this.lc.TextVisible = false;
             // 
-            // stepConditionsBindingSource
+            // button1
             // 
-            this.stepConditionsBindingSource.DataSource = typeof(WorkFlowDesigner.StepConditions);
+            this.button1.Location = new System.Drawing.Point(298, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Position
+            // label1
             // 
-            this.Position.DataPropertyName = "Position.Name";
-            this.Position.DataSource = this.bsAtributeList;
-            this.Position.DisplayMember = "Name";
-            this.Position.HeaderText = "Position";
-            this.Position.Name = "Position";
-            this.Position.ValueMember = "Name";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(52, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Attribute";
             // 
-            // operatorDataGridViewTextBoxColumn
+            // label2
             // 
-            this.operatorDataGridViewTextBoxColumn.DataPropertyName = "Operator";
-            this.operatorDataGridViewTextBoxColumn.HeaderText = "Operator";
-            this.operatorDataGridViewTextBoxColumn.Name = "operatorDataGridViewTextBoxColumn";
-            this.operatorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.operatorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(160, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Operator";
             // 
-            // dataGridViewTextBoxColumn3
+            // label3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Condition";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Condition";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(240, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Condition";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(329, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Logic";
+            // 
+            // tbLogic
+            // 
+            this.tbLogic.Location = new System.Drawing.Point(12, 7);
+            this.tbLogic.Name = "tbLogic";
+            this.tbLogic.Size = new System.Drawing.Size(22, 21);
+            this.tbLogic.TabIndex = 6;
+            this.tbLogic.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(109, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AddCondition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 336);
-            this.Controls.Add(this.dgv);
+            this.ClientSize = new System.Drawing.Size(366, 238);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbLogic);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lcLayout);
             this.Name = "AddCondition";
             this.Text = "AddCondition";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAtributeList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stepConditionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcLayout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lc)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idstepconditionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idstepDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conditionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource stepConditionsBindingSource;
-        private System.Windows.Forms.BindingSource bsAtributeList;
-        private System.Windows.Forms.DataGridViewComboBoxColumn positionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Position;
-        private System.Windows.Forms.DataGridViewComboBoxColumn operatorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DevExpress.XtraLayout.LayoutControl lcLayout;
+        private DevExpress.XtraLayout.LayoutControlGroup lc;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbLogic;
+        private System.Windows.Forms.Button button2;
     }
 }

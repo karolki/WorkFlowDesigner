@@ -11,9 +11,6 @@ namespace WorkFlowDesigner
 {
     public class NHibernateOperation
     {
-
-
-
         public void AddElement<T>(T element)
         {
             using (ISession session = InitNH.OppenSession())
@@ -38,6 +35,41 @@ namespace WorkFlowDesigner
                 }
             }
         }
+        public IList<Access> GetAccesByFlowID(FlowDefinition flow)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    IList<Access> access = new List<Access>();
+                    foreach (var pos in flow.AtributeList)
+                    {
+                        IList<Access> a = session.QueryOver<Access>().Where(f => f.Id_attribute.Id_attribute == pos.Id_attribute).List();
+                        access.Union(a);
+                    }
+                    transaction.Commit();
+                    return access;
+                }
+            }
+        }
+        public IList<Step> GetStepByFlowID(FlowDefinition flow)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    IList<Step> step = new List<Step>();
+                    foreach (var pos in flow.PositionList)
+                    {
+                        IList<Step> a = session.QueryOver<Step>().Where(f => f.Start_position_id.Id_position==pos.Id_position).List();
+                        step.Union(a);
+                    }
+                    transaction.Commit();
+                   
+                    return step;
+                }
+            }
+        }
 
         public FlowDefinition GetUserFlow ( Position position)
         {
@@ -52,26 +84,21 @@ namespace WorkFlowDesigner
             }
         }
 
-        
-
         public IList<Step> GetUserTasks (Position pos) 
         {
             
             using (ISession session = InitNH.OppenSession())
             {
-                IList<StepConditions> list = new List<StepConditions>();
+                
                 using (ITransaction transaction = session.BeginTransaction())
                 {        
-                                        
                     IList<Step> steplist = session.QueryOver<Step>().Where(type => type.Start_position_id.Id_position == pos.Id_position).List();
                     transaction.Commit();
-                    return steplist;                   
-                    
+                    return steplist;                                
                 }
             }
             
         }
-
         public void Delete<T>(T element)
         {
             using (ISession session = InitNH.OppenSession())
@@ -83,11 +110,9 @@ namespace WorkFlowDesigner
                 }
             }
         }
-
         public void Update<T>(T element)
         {
             using (ISession session = InitNH.OppenSession())
-
             {
                 using (ITransaction transaction = session.BeginTransaction())
 
@@ -97,10 +122,35 @@ namespace WorkFlowDesigner
                 }
             }
         }
-
         public IList<T> GetList<T>() where T : class
         {
             IList<T> listposition = new List<T>();
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    listposition = session.QueryOver<T>().List();
+                }
+            }
+            return listposition;
+        }
+        public IList<Position> GetPositionByID(int id) 
+        {
+            IList<Position> listposition = new List<Position>();
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+
+                {
+                    listposition = session.QueryOver<Position>().Where(f => f.Id_flowDefinition.id_flowDefinition == id).List();
+                }
+
+            }
+            return listposition;
+        }
+        public IList<Attributes> GetAttributeByID(int id)
+        {
+            IList<Attributes> listattributes = new List<Attributes>();
             using (ISession session = InitNH.OppenSession())
 
             {
@@ -108,12 +158,16 @@ namespace WorkFlowDesigner
 
                 {
 
-                    listposition = session.QueryOver<T>().List();
+                    listattributes = session.QueryOver<Attributes>().Where(f => f.Id_workflow.id_flowDefinition == id).List();
+                    foreach(var a in listattributes)
+                    {
+                        a.List = session.QueryOver<ListElement>().Where(f => f.Id_attribute.Id_attribute == a.Id_attribute).List();
+                    }
 
                 }
 
             }
-            return listposition;
+            return listattributes;
         }
 
 

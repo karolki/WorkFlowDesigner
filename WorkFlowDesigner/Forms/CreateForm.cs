@@ -33,14 +33,26 @@ namespace WorkFlowDesigner.Forms
         {
             InitializeComponent();
             this.flow = flow;
+            
+            foreach(var item in flow.AtributeList)
+            {
+                attribute.Add(item);
+                addItemByType(item.Type);
+            }
             this.Load += CreateForm_Load;
-           
+
         }
 
         private void CreateForm_Load(object sender, EventArgs e)
         {
-          //lcLayout.RestoreLayoutFromXml(String.Format("{0}/{1}.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name));
-           
+            try
+            {
+                lcLayout.RestoreLayoutFromXml(String.Format("{0}/{1}.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name));
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
         }
 
         private void btnAddTB_Click(object sender, EventArgs e)
@@ -49,14 +61,16 @@ namespace WorkFlowDesigner.Forms
             flow.AtributeList.Add(addAtribute.attribute);
             addAtribute.Show();
             addAtribute.FormClosed += AddAtribute_FormClosed;
-            
-
         }
 
         private void AddAtribute_FormClosed(object sender, FormClosedEventArgs e)
         {
             attribute.Add((sender as AddAtribute).attribute);
-            switch (attribute.Last().Type)
+            addItemByType(attribute.Last().Type);
+        }
+        private void addItemByType(string type)
+        {
+            switch (type)
             {
                 case "text":
                     {
@@ -66,8 +80,8 @@ namespace WorkFlowDesigner.Forms
                         layoutControlItemList.Last().Control = textBoxList.Last();
                         layoutControlItemList.Last().Name = attribute.Last().Name;
                         lcLayout.AddItem(layoutControlItemList.Last());
-                        
-                    
+
+
                         break;
                     }
                 case "list":
@@ -107,7 +121,6 @@ namespace WorkFlowDesigner.Forms
 
             }
         }
-
         private void CreateForm_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch((sender as TextBox).Text, "[^0-9]"))
@@ -119,7 +132,6 @@ namespace WorkFlowDesigner.Forms
 
         private void btnSaveFormToLayout_Click(object sender, EventArgs e)
         {
-
             lcLayout.SaveLayoutToXml(String.Format("{0}/{1}.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name));
             Document newDocument = new Document();
             NHibernateOperation operation = new NHibernateOperation();
@@ -146,7 +158,7 @@ namespace WorkFlowDesigner.Forms
             }
             IList<Document> doc = operation.GetList<Document>();
             Byte[] docs= doc.Last().Data;
-
+            
             
             
            

@@ -25,7 +25,7 @@ namespace WorkFlowDesigner
         FlowLabel selectedLabel=null;
         FlowLabel selectedLabelStart = null;
         FlowLabel selectedLabelEnd =null;
-        public List<Step> stepList;
+        public List<Step> stepList=new List<Step>();
         public DefineFlow()
         {
             InitializeComponent();
@@ -223,19 +223,15 @@ namespace WorkFlowDesigner
 
         private void AddCondition_FormClosed(object sender, FormClosedEventArgs e)
         {
-           /* List<Step> tempList = new List<Step>();
-            foreach (var position in flowLabels)
+            Step step = new Step();
+            step.Condition = "";
+
+            foreach (var item in (sender as AddCondition).Condition())
             {
-                foreach (var a in position.connections)
-                {
-                    tempList.Add(a.step);
-
-                }
+                step.Condition += item[0];
+                step.Condition += item[1];
             }
-            stepList = tempList;
-            stepBindingSource1.DataSource = stepList;
-            stepBindingSource1.ResetBindings(true);*/
-
+           
         }
 
         private void DefineFlow_MouseMove(object sender, MouseEventArgs e)
@@ -297,7 +293,7 @@ namespace WorkFlowDesigner
             endFlowLabel = end;
             label = new Label();
             label.Text = description;
-            step = new Step(start.positionSet, end.positionSet, description);
+            step = new Step(start.positionSet, end.positionSet, description,"");
         }
         public bool IsSelected(Point p)
         {

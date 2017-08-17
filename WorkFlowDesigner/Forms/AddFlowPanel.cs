@@ -18,7 +18,7 @@ namespace WorkFlowDesigner
     {
         FlowDefinition flow;
         IList<Step> listStep = new List<Step>();
-       
+        IList<Access> access;
         public AddFlowPanel()
         {
             this.flow = new FlowDefinition();
@@ -29,17 +29,16 @@ namespace WorkFlowDesigner
             bsAttribute.DataSource = this.flow.AtributeList;
 
         }
-        public AddFlowPanel(FlowDefinition flow,IList<Step> step)
+        public AddFlowPanel(FlowDefinition flow,IList<Step> step,IList<Access> access)
         {
             this.flow = flow;
             listStep = step;
-            flow.PositionList = new List<Position>();
-            flow.AtributeList = new List<Attributes>();
             InitializeComponent();
             bsPosition.DataSource = this.flow.PositionList;
             bsAttribute.DataSource = this.flow.AtributeList;
-
-
+            tbName.Text = this.flow.Flow_name;
+            flowDescription.Text = this.flow.Flow_description;
+            this.access = access;
         }
 
         private void btnAddAtribute_Click(object sender, EventArgs e)
@@ -112,13 +111,6 @@ namespace WorkFlowDesigner
             foreach (var step in listStep)
             {
                 operation.AddElement<Step>(step);
-                if(step.StepConditionList!=null)
-                    foreach (var it in step.StepConditionList)
-                    {
-                        it.Id_step = step;
-                        operation.AddElement<StepConditions>(it);
-                    }
-
             }
             foreach (var attribute in flow.AtributeList)
             {
@@ -137,8 +129,8 @@ namespace WorkFlowDesigner
                     operation.AddElement<Access>(item);
                 }
             }
-            
-            
+
+
             this.Close();
         }
 

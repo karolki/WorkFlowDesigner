@@ -40,7 +40,6 @@ namespace WorkFlowDesigner
               typeof(MapListElement),
               typeof(MapPosition),
               typeof(MapStep),
-              typeof(MapStepCondition),
               typeof(MapFlow),
               typeof(MapFlowExtension),
               typeof(MapAccess)
@@ -58,6 +57,6 @@ namespace WorkFlowDesigner
         {
             return SessionFactory.OpenSession();
         }
-
+        
     }
 }

@@ -17,7 +17,7 @@ namespace WorkFlowDesigner.Forms
         FlowDefinition flow;
         List<StepView> stepViev = new List<StepView>();
         List<Step> Steps = new List<Step>();
-        List<StepConditions> StepConditions = new List<StepConditions>();
+       
 
         public StepSet()
         {
