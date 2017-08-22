@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraLayout;
 using System.IO;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid.Menu;
+using DevExpress.Utils.Menu;
+using DevExpress.XtraBars.Docking2010.Views;
 
 namespace WorkFlowDesigner.Forms
 {
@@ -21,9 +25,14 @@ namespace WorkFlowDesigner.Forms
         List<System.Windows.Forms.ComboBox> comboBoxList = new List<System.Windows.Forms.ComboBox>();
         List<LayoutControlItem> layoutControlItemList = new List<LayoutControlItem>();
         List<Label> labelList = new List<Label>();
+        List<DataGridView> gridVievlist = new List<DataGridView>();
         FlowDefinition flow;
+        List<int[]> listTables = new List<int[]>();
         string name;
         string type;
+        private Attributes selectedTable=null;
+        int? selectedGrid = null;
+
         public CreateForm()
         {
             InitializeComponent();
@@ -62,13 +71,70 @@ namespace WorkFlowDesigner.Forms
             addAtribute.Show();
             addAtribute.FormClosed += AddAtribute_FormClosed;
         }
+        private void Add(object sender, EventArgs e)
+        {
+            AddAtribute addAtribute = new AddAtribute(flow.PositionList,selectedTable);
+            flow.AtributeList.Add(addAtribute.attribute);
+            addAtribute.Show();
+            addAtribute.FormClosed += AddAtribute_FormClosed;
+            
+        }
 
         private void AddAtribute_FormClosed(object sender, FormClosedEventArgs e)
         {
             attribute.Add((sender as AddAtribute).attribute);
-            addItemByType(attribute.Last().Type);
+            if(selectedTable==null)addItemByType(attribute.Last().Type);
+            if(attribute.Last().Type=="table")
+            {
+                listTables.Add(new int[] { gridVievlist.IndexOf(gridVievlist.Last()), attribute.IndexOf(attribute.Last()) });
+            }
+            if((sender as AddAtribute).table!=null)
+            {
+                DataGridViewColumn column = new DataGridViewColumn();
+                DataGridViewCell cell = null; 
+                switch ((sender as AddAtribute).attribute.Type)
+                {
+                    case "list":
+                        { 
+                            cell = new DataGridViewComboBoxCell();
+                            foreach (var item in (sender as AddAtribute).attribute.List)
+                            {
+                                (cell as DataGridViewComboBoxCell).Items.Add(item);
+                            }
+                            (cell as DataGridViewComboBoxCell).DisplayMember = "Name";
+                            break;
+                        }
+                    case "checkbox":
+                        {
+                            cell = new DataGridViewCheckBoxCell();
+                            break;
+                        }
+                    case "text":
+                        {
+                            cell = new DataGridViewTextBoxCell();
+                            break;
+                        }
+                    case "int":
+                        {
+                            cell = new DataGridViewTextBoxCell();
+                            break;
+                        }
+                }
+
+                if (cell != null)
+                {
+                    cell.Style.BackColor = Color.Wheat;
+                    column.CellTemplate = cell;
+                    MessageBox.Show("" + (int)selectedGrid);
+                    gridVievlist.ElementAt((int)selectedGrid).Columns.Add(column);
+                }
+                attribute.Last().Parent = selectedTable;
+                
+                selectedGrid = null;
+                selectedTable = null;
+            }
         }
-        private void addItemByType(string type)
+        private void addItemByType(string type, Attributes parent=null)
         {
             switch (type)
             {
@@ -118,9 +184,46 @@ namespace WorkFlowDesigner.Forms
                         lcLayout.AddItem(layoutControlItemList.Last());
                         break;
                     }
+                case "table":
+                    {
+                        layoutControlItemList.Add(new LayoutControlItem());
+                        gridVievlist.Add(new DataGridView());
+                        gridVievlist.Last().Name = "tab" + (gridVievlist.Count - 1).ToString();
+                        gridVievlist.Last().TextChanged += CreateForm_TextChanged;
+                        layoutControlItemList.Last().Control = gridVievlist.Last();
+                        layoutControlItemList.Last().Name = attribute.Last().Name;
+                        lcLayout.AddItem(layoutControlItemList.Last());
+                        layoutControlItemList.Last().MouseDown += CreateForm_MouseDown;
+                        break;
+                    }
 
             }
         }
+
+        private void CreateForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                foreach (var item in listTables)
+                {
+                    if (gridVievlist.IndexOf((sender as LayoutControlItem).Control as DataGridView) == item[0])
+                    {
+                        selectedTable = attribute.ElementAt(item[1]);
+                        selectedGrid = gridVievlist.IndexOf((sender as LayoutControlItem).Control as DataGridView);
+                        MessageBox.Show("" + selectedTable + "   " + selectedGrid);
+                    }
+                }
+                LayoutControlItem view = sender as LayoutControlItem;
+                ContextMenu menu = new ContextMenu();
+                MenuItem menuItem = new MenuItem("Add Column",
+                new EventHandler(Add));
+                menuItem.Tag = view;
+                menu.MenuItems.Add(menuItem);
+                menu.Show(view.Control, e.Location);
+            }
+            
+        }
+
         private void CreateForm_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch((sender as TextBox).Text, "[^0-9]"))

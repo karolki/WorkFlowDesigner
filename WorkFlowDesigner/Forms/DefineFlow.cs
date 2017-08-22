@@ -25,6 +25,7 @@ namespace WorkFlowDesigner
         FlowLabel selectedLabel=null;
         FlowLabel selectedLabelStart = null;
         FlowLabel selectedLabelEnd =null;
+        Connection selected;
         public List<Step> stepList=new List<Step>();
         public DefineFlow()
         {
@@ -59,9 +60,7 @@ namespace WorkFlowDesigner
             {
                 foreach(var connection in label.connections)
                 {
-                    
-                    stepList.Add(connection.step);
-                    
+                            stepList.Add(connection.step);
                 }
             }
            
@@ -210,9 +209,10 @@ namespace WorkFlowDesigner
                     {
                         if(connection.IsSelected(e.Location))
                         {
+                            selected = connection;
                             DrawLShapeLine(this.CreateGraphics(), connection.startFlowLabel.Location.X, connection.startFlowLabel.Location.Y, connection.endFlowLabel.Location.X, connection.endFlowLabel.Location.Y, Color.Red);
                             AddCondition addCondition = new AddCondition(connection.step, flow.AtributeList);
-                            addCondition.FormClosed += AddCondition_FormClosed;
+                            addCondition.FormClosing += AddCondition_FormClosing;
                             addCondition.Show();
                             return;
                         }
@@ -221,17 +221,16 @@ namespace WorkFlowDesigner
             }
         }
 
-        private void AddCondition_FormClosed(object sender, FormClosedEventArgs e)
+        private void AddCondition_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Step step = new Step();
-            step.Condition = "";
-
+            MessageBox.Show("zamyka");
             foreach (var item in (sender as AddCondition).Condition())
             {
-                step.Condition += item[0];
-                step.Condition += item[1];
+                selected.step.Condition += item[0];
+                selected.step.Condition += item[1];
+
             }
-           
+            MessageBox.Show(selected.step.Id_step.ToString() + "  " + selected.step.Condition);
         }
 
         private void DefineFlow_MouseMove(object sender, MouseEventArgs e)

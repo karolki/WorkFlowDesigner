@@ -19,7 +19,7 @@ namespace WorkFlowDesigner.Forms
             {
                 a.Add(new string[] { condition[i]=='('? "(":(condition[i]==')' ?")":""), "" });
                 if (condition[i] == '('||condition[i]==')') i++;
-                while((condition[i]>='a'&& condition[i] <= 'z')||(condition[i] >= 'A' && condition[i] <= 'Z'))
+                while((condition[i]>='a'&& condition[i] <= 'z')||(condition[i] >= 'A' && condition[i] <= 'Z')||condition[i]==' ')
                 {
                     a.Last()[1] += condition[i];
                     i++;

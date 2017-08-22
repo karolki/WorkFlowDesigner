@@ -58,6 +58,10 @@ namespace WorkFlowDesigner
         {
             flow.AtributeList = (sender as CreateForm).attribute;
             bsAttribute.ResetBindings(true);
+           foreach(var item in flow.AtributeList)
+            {
+                //MessageBox.Show("" + item.Parent.Name);
+            }
         }
 
         private void btnAddPosition_Click(object sender, EventArgs e)
@@ -84,6 +88,7 @@ namespace WorkFlowDesigner
         private void DefineFlow_FormClosing(object sender, FormClosingEventArgs e)
         {
             listStep = (sender as DefineFlow).stepList;
+
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)
@@ -108,10 +113,7 @@ namespace WorkFlowDesigner
                
                 
             }
-            foreach (var step in listStep)
-            {
-                operation.AddElement<Step>(step);
-            }
+            
             foreach (var attribute in flow.AtributeList)
             {
                 attribute.Id_workflow = flow;
@@ -119,6 +121,7 @@ namespace WorkFlowDesigner
                 if(attribute.List.Count!=0)
                 foreach (var item in attribute.List)
                 {
+                       
                     item.Id_attribute = attribute;
                     operation.AddElement<ListElement>(item);
 
@@ -128,6 +131,10 @@ namespace WorkFlowDesigner
                     item.Id_attribute = attribute;
                     operation.AddElement<Access>(item);
                 }
+            }
+            foreach (var step in listStep)
+            {
+                operation.AddElement<Step>(step);
             }
 
 

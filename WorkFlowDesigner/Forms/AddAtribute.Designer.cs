@@ -79,9 +79,9 @@
             "",
             "text",
             "int",
-            "float",
             "checkbox",
-            "list"});
+            "list",
+            "table"});
             this.cbAtributeType.Location = new System.Drawing.Point(177, 46);
             this.cbAtributeType.Name = "cbAtributeType";
             this.cbAtributeType.Size = new System.Drawing.Size(121, 21);

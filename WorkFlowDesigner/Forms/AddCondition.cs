@@ -145,27 +145,6 @@ namespace WorkFlowDesigner.Forms
         }
       
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string b = "";
-            a = Condition();
-            foreach(var item in a)
-            {
-                b += item[0];
-                b += item[1];                                   
-            }
-            MessageBox.Show(b);
-            Parser parser = new Parser();
-            List<string[]> ac = parser.Condition(b);
-            string d="";
-            foreach (var item in ac)
-            {
-                d += item[0];
-                d += item[1];
-            }
-            MessageBox.Show(d);
-
-        }
     }
     public class Operator
     {

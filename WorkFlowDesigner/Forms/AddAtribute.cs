@@ -18,14 +18,17 @@ namespace WorkFlowDesigner
 
         public Attributes attribute;
         IList<Position> positionList;
+        public Attributes table = null;
       //  IList<Attribute> tempAtributeList = new List<Attribute>();
       //  int index;
         bool delete = true;
-        public AddAtribute(IList<Position> pos)
+        public AddAtribute(IList<Position> pos, Attributes id_parent=null)
         {
+            table = id_parent;
             InitializeComponent();
             btnAddListItem.Visible = false;
             attribute = new Attributes();
+            attribute.Parent = id_parent;
             attribute.List = new List<ListElement>();
             listElementBindingSource.DataSource = attribute.List;
             positionList = pos;
@@ -115,5 +118,7 @@ namespace WorkFlowDesigner
         {
         //    if(delete)tempAtributeList.RemoveAt(index); ;
         }
+
+        
     }
 }
