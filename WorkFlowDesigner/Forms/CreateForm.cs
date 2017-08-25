@@ -193,6 +193,7 @@ namespace WorkFlowDesigner.Forms
         private void AddAtribute_FormClosed(object sender, FormClosedEventArgs e)
         {
             attribute.Add((sender as AddAtribute).attribute);
+            MessageBox.Show(attribute.Last().DataSource.TableName);
             if (selectedTable == null) addItemByType(attribute.Last().Type);
 
 
@@ -208,11 +209,23 @@ namespace WorkFlowDesigner.Forms
                 case "list":
                     {
                         cell = new DataGridViewComboBoxCell();
-                        foreach (var item in atribute.List)
+                        if (atribute.DataSource == null)
                         {
-                            (cell as DataGridViewComboBoxCell).Items.Add(item);
+                            foreach (var item in atribute.List)
+                            {
+                                (cell as DataGridViewComboBoxCell).Items.Add(item);
+                            }
+                            (cell as DataGridViewComboBoxCell).DisplayMember = "Name";
                         }
-                        (cell as DataGridViewComboBoxCell).DisplayMember = "Name";
+                        else
+                        {
+                            Connector connector = new Connector();
+                            List<string> lista = connector.GetListFromDataSource(atribute.DataSource);
+                            foreach (var item in lista)
+                            {
+                                (cell as DataGridViewComboBoxCell).Items.Add(item);
+                            }
+                        }
                         break;
                     }
                 case "checkbox":
@@ -282,9 +295,23 @@ namespace WorkFlowDesigner.Forms
                         layoutControlItemList.Add(new LayoutControlItem());
                         comboBoxList.Add(new System.Windows.Forms.ComboBox());
                         comboBoxList.Last().Name = "cb+" + (comboBoxList.Count - 1).ToString();
-                        bs.DataSource = attribute.Last().List;
-                        comboBoxList.Last().DataSource = bs;
-                        comboBoxList.Last().DisplayMember = "Name";
+                        if (attribute.Last().DataSource == null)
+                        {
+                            foreach(var item in attribute.Last().List)
+                            {
+                                comboBoxList.Last().Items.Add(item.Name);
+                            }
+                            
+                        }
+                        else
+                        {
+                            Connector connector = new Connector();
+                            
+                            foreach (var item in connector.GetListFromDataSource(attribute.Last().DataSource))
+                            {
+                                comboBoxList.Last().Items.Add(item);
+                            }
+                        }
                         layoutControlItemList.Last().Name = attribute.Last().Name;
                         layoutControlItemList.Last().Control = comboBoxList.Last();
                         lcLayout.AddItem(layoutControlItemList.Last());
@@ -296,6 +323,7 @@ namespace WorkFlowDesigner.Forms
                         checkBoxList.Add(new CheckBox());
                         checkBoxList.Last().Name = "check" + (checkBoxList.Count - 1).ToString();
                         checkBoxList.Last().Text = attribute.Last().Name;
+                        layoutControlItemList.Last().Name = attribute.Last().Name;
                         layoutControlItemList.Last().Control = checkBoxList.Last();
                         lcLayout.AddItem(layoutControlItemList.Last());
                         break;

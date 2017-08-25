@@ -23,11 +23,10 @@ namespace WorkFlowDesigner.ClassNH
             {
                 m.Column("id_connection");
             });
-            ManyToOne(x => x.Id_attribute, m =>
+            /*OneToOne(x => x.Id_database, m =>
             {
-                m.Column("id_attribute");
-            });
-
+                m.PropertyReference(typeof(DatabaseConnection).GetProperty(nameof(DatabaseConnection.Id_connection)));
+            });*/
 
 
         }

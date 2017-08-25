@@ -17,7 +17,7 @@ namespace WorkFlowDesigner
             Id(x=>x.Id_connection, m => { m.Column("id_connection"); m.Generator(Generators.Identity); });
             Property(x => x.Name, m => { m.Column("name"); });
             Property(x => x.Server, m => { m.Column("server"); });
-            Property(x => x.Database, m => { m.Column("database"); });
+            Property(x => x.Database, m => { m.Column("database_name"); });
             Property(x => x.UserName, m => { m.Column("user_name"); });
             Property(x => x.Password, m => { m.Column("password"); });
         }

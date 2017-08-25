@@ -20,6 +20,6 @@ namespace WorkFlowDesigner
         public virtual Attributes Parent { get; set; }
         public virtual IList<FlowExtension> FlowExtensionList { get; set; }
         public virtual IList<Access> AccessList { get; set; }
-        public virtual Source DataSource { get; set; }
+        public virtual Source DataSource { get; set; } = null;
     }
 }

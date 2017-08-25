@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnDeleteFlow = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.flowDescription = new System.Windows.Forms.TextBox();
             this.btnSetSteps = new System.Windows.Forms.Button();
@@ -72,9 +73,7 @@
             this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnDeleteFlow = new System.Windows.Forms.Button();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.button3 = new System.Windows.Forms.Button();
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -130,6 +129,17 @@
             this.layoutControl1.Size = new System.Drawing.Size(895, 340);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btnDeleteFlow
+            // 
+            this.btnDeleteFlow.Location = new System.Drawing.Point(576, 251);
+            this.btnDeleteFlow.Name = "btnDeleteFlow";
+            this.btnDeleteFlow.Size = new System.Drawing.Size(123, 36);
+            this.btnDeleteFlow.TabIndex = 10;
+            this.btnDeleteFlow.Text = "Delete Flow";
+            this.btnDeleteFlow.UseVisualStyleBackColor = true;
+            this.btnDeleteFlow.Visible = false;
+            this.btnDeleteFlow.Click += new System.EventHandler(this.btnDeleteFlow_Click);
             // 
             // button1
             // 
@@ -503,17 +513,6 @@
             this.emptySpaceItem14.Size = new System.Drawing.Size(46, 29);
             this.emptySpaceItem14.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // btnDeleteFlow
-            // 
-            this.btnDeleteFlow.Location = new System.Drawing.Point(576, 251);
-            this.btnDeleteFlow.Name = "btnDeleteFlow";
-            this.btnDeleteFlow.Size = new System.Drawing.Size(123, 36);
-            this.btnDeleteFlow.TabIndex = 10;
-            this.btnDeleteFlow.Text = "Delete Flow";
-            this.btnDeleteFlow.UseVisualStyleBackColor = true;
-            this.btnDeleteFlow.Visible = false;
-            this.btnDeleteFlow.Click += new System.EventHandler(this.btnDeleteFlow_Click);
-            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnDeleteFlow;
@@ -522,15 +521,6 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(127, 40);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(528, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // emptySpaceItem15
             // 
@@ -545,7 +535,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 340);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.layoutControl1);
             this.Name = "AddFlowPanel";
             this.Text = "AddFlowPanel";
@@ -634,6 +623,5 @@
         private System.Windows.Forms.Button btnDeleteFlow;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem15;
-        private System.Windows.Forms.Button button3;
     }
 }

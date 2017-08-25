@@ -31,22 +31,7 @@ namespace WorkFlowDesigner
                  comboBox1.Items.Add(a.Flow_name);
              }
             comboBox1.SelectedValueChanged += ComboBox1_SelectedValueChanged;
-            using (SqlConnection conn = new SqlConnection())
-            {
-                
-                conn.ConnectionString = @"Server = 172.21.70.40; Database = opticamp; User Id = sa;Password = cdnxl1*";
-                conn.Open();
-                SqlCommand command = new SqlCommand("SELECT name FROM Sys.Tables", conn);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        MessageBox.Show(String.Format("{0}",
-                        // call the objects from their index
-                        reader[0]));
-                    }
-                }
-            }
+            
         }
 
       

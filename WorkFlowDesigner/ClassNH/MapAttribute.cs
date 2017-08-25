@@ -38,6 +38,13 @@ namespace WorkFlowDesigner
             ManyToOne(x => x.Id_workflow, m => {
                 m.Column("id_workflow");
             });
+            ManyToOne(x => x.DataSource, m => {
+                m.Column("data_source");
+            });
+
+            /*OneToOne(x => x.DataSource, m => {
+                m.PropertyReference(typeof(Source).GetProperty(nameof(Source.Id_source)));
+            });*/
 
 
         }

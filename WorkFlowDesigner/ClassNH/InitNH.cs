@@ -9,6 +9,8 @@ using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Mapping.ByCode;
+using WorkFlowDesigner.ClassDatabase;
+using WorkFlowDesigner.ClassNH;
 
 namespace WorkFlowDesigner
 {
@@ -39,7 +41,8 @@ namespace WorkFlowDesigner
               typeof(MapFlow),
               typeof(MapFlowExtension),
               typeof(MapAccess),
-              typeof(MapDatabaseConnection)
+              typeof(MapDatabaseConnection),
+              typeof(MapSource)
             });
 
           config.AddDeserializedMapping(mapper.CompileMappingForAllExplicitlyAddedEntities(), null);

@@ -39,6 +39,7 @@
             this.gvListElements = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colId_list_element = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnSetSouce = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gcListElements)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listElementBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvListElements)).BeginInit();
@@ -136,11 +137,22 @@
             this.colName.Visible = true;
             this.colName.VisibleIndex = 0;
             // 
+            // btnSetSouce
+            // 
+            this.btnSetSouce.Location = new System.Drawing.Point(304, 13);
+            this.btnSetSouce.Name = "btnSetSouce";
+            this.btnSetSouce.Size = new System.Drawing.Size(75, 23);
+            this.btnSetSouce.TabIndex = 7;
+            this.btnSetSouce.Text = "Set Source";
+            this.btnSetSouce.UseVisualStyleBackColor = true;
+            this.btnSetSouce.Click += new System.EventHandler(this.btnSetSouce_Click);
+            // 
             // AddAtribute
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 188);
+            this.Controls.Add(this.btnSetSouce);
             this.Controls.Add(this.gcListElements);
             this.Controls.Add(this.btnAddListItem);
             this.Controls.Add(this.cbAtributeType);
@@ -170,5 +182,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvListElements;
         private DevExpress.XtraGrid.Columns.GridColumn colId_list_element;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private System.Windows.Forms.Button btnSetSouce;
     }
 }

@@ -35,16 +35,17 @@ namespace WorkFlowDesigner
                 }
             }
         }
-        public string GetConnectionString(string name)
+        public DatabaseConnection GetConnectionByName(string name)
         {
             using (ISession session = InitNH.OppenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    DatabaseConnection pos = session.QueryOver<DatabaseConnection>().Where(type => type.Name==name).List().First();
+
+                    IList<DatabaseConnection> pos = session.QueryOver<DatabaseConnection>().Where(type => type.Name == name).List();
                     transaction.Commit();
-                    string connection = @"Server = "+pos.Server+"; Database = "+pos.Database+"; User Id = "+pos.UserName+";Password = "+pos.Password;
-                    return connection;
+
+                    return pos.First();
                 }
             }
         }

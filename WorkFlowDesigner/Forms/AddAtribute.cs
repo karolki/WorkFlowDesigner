@@ -119,6 +119,19 @@ namespace WorkFlowDesigner
         //    if(delete)tempAtributeList.RemoveAt(index); ;
         }
 
-        
+        private void btnSetSouce_Click(object sender, EventArgs e)
+        {
+            SetDatasource setDataSource = new SetDatasource();
+            setDataSource.Show();
+            setDataSource.FormClosing += SetDataSource_FormClosing;
+        }
+
+        private void SetDataSource_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            attribute.DataSource = (sender as SetDatasource).source;
+            btnAddListItem.Visible = false;
+            MessageBox.Show(attribute.DataSource.ToString());
+            MessageBox.Show(attribute.DataSource.TableName);
+        }
     }
 }

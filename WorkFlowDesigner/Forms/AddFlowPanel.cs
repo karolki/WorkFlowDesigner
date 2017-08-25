@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using WorkFlowDesigner.Forms;
+using WorkFlowDesigner.ClassDatabase;
 
 namespace WorkFlowDesigner
 {
@@ -116,6 +117,10 @@ namespace WorkFlowDesigner
             foreach (var attribute in flow.AtributeList)
             {
                 attribute.Id_workflow = flow;
+                MessageBox.Show(attribute.DataSource.ToString());
+                if(attribute.DataSource!=null)                {
+                   operation.AddElement<Source>(attribute.DataSource);
+                }
                 operation.AddElement<Attributes>(attribute);
                 if(attribute.List.Count!=0)
                 foreach (var item in attribute.List)

@@ -77,6 +77,7 @@
     <Compile Include="ClassDatabase\Document.cs" />
     <Compile Include="ClassDatabase\FlowDefinition.cs" />
     <Compile Include="ClassDatabase\FlowExtension.cs" />
+    <Compile Include="ClassDatabase\Source.cs" />
     <Compile Include="ClassNH\MapDatabaseConnection.cs" />
     <Compile Include="ClassNH\MapAccess.cs" />
     <Compile Include="ClassNH\MapAttribute.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="ClassNH\MapFlowExtension.cs" />
     <Compile Include="ClassNH\MapListElement.cs" />
     <Compile Include="ClassNH\MapPosition.cs" />
+    <Compile Include="ClassNH\MapSource.cs" />
     <Compile Include="ClassNH\MapStep.cs" />
     <Compile Include="Forms\AddCondition.cs">
       <SubType>Form</SubType>
@@ -92,6 +94,7 @@
     <Compile Include="Forms\AddCondition.Designer.cs">
       <DependentUpon>AddCondition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Connector.cs" />
     <Compile Include="Forms\CreateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +154,12 @@
     <Compile Include="ClassNH\NHibernateOperation.cs" />
     <Compile Include="ClassDatabase\Position.cs" />
     <Compile Include="Forms\Parser.cs" />
+    <Compile Include="Forms\SetDatasource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetDatasource.Designer.cs">
+      <DependentUpon>SetDatasource.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StepSet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetDatasource.resx">
+      <DependentUpon>SetDatasource.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StepSet.resx">
       <DependentUpon>StepSet.cs</DependentUpon>

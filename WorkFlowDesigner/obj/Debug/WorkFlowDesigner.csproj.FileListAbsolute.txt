@@ -476,3 +476,4 @@ C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlow
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\es\DevExpress.XtraScheduler.v17.1.Core.resources.dll
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\ja\DevExpress.XtraScheduler.v17.1.Core.resources.dll
 C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\bin\Debug\ru\DevExpress.XtraScheduler.v17.1.Core.resources.dll
+C:\Users\KKiwala\Documents\Visual Studio 2017\Projects\WorkFlowDesigner\WorkFlowDesigner\obj\Debug\WorkFlowDesigner.Forms.SetDatasource.resources
