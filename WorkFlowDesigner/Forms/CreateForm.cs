@@ -14,12 +14,13 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Menu;
 using DevExpress.Utils.Menu;
 using DevExpress.XtraBars.Docking2010.Views;
+using System.Xml;
 
 namespace WorkFlowDesigner.Forms
 {
     public partial class CreateForm : DevExpress.XtraEditors.XtraForm
     {
-        public List<Attributes> attribute=new List<Attributes>();
+        public List<Attributes> attribute = new List<Attributes>();
         List<CheckBox> checkBoxList = new List<CheckBox>();
         List<TextBox> textBoxList = new List<TextBox>();
         List<System.Windows.Forms.ComboBox> comboBoxList = new List<System.Windows.Forms.ComboBox>();
@@ -30,38 +31,147 @@ namespace WorkFlowDesigner.Forms
         List<int[]> listTables = new List<int[]>();
         string name;
         string type;
-        private Attributes selectedTable=null;
+        private Attributes selectedTable = null;
         int? selectedGrid = null;
 
         public CreateForm()
         {
             InitializeComponent();
-            
+
         }
         public CreateForm(FlowDefinition flow)
         {
             InitializeComponent();
             this.flow = flow;
-            
-            foreach(var item in flow.AtributeList)
+            this.FormClosing += CreateForm_FormClosing;
+            foreach (var item in flow.AtributeList)
             {
                 attribute.Add(item);
-                addItemByType(item.Type);
+                if (item.Parent == null)
+                    addItemByType(item.Type);
+                else
+                {
+                    foreach (var grid in gridVievlist)
+                    {
+                        foreach (var table in listTables)
+                        {
+                            if (gridVievlist.IndexOf(grid) == table[0])
+                            {
+                                selectedTable = attribute.ElementAt(table[1]);
+                                selectedGrid = gridVievlist.IndexOf(grid);
+                            }
+                        }
+                    }
+                    addColumn(item);
+                }
             }
             this.Load += CreateForm_Load;
+        }
+
+        private void CreateForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            XMLParser parser = new XMLParser();
+            XmlDocument xml = parser.getXMLfromAtributes(layoutControlItemList);
+
+            string name1 = String.Format("{0}/{1}abc.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name);
+            string name2 = String.Format("{0}/{1} DESIGNER.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name);
+            File.Delete(name1);
+            File.Delete(name2);
+            xml.Save(name1);
+            lcLayout.SaveLayoutToXml(name2);
+            Document newDocument = new Document();
+            NHibernateOperation operation = new NHibernateOperation();
+            Document doc = null;
+            Document doc2 = null;
+            try
+            {
+                doc = operation.GetDocByName(flow.Flow_name);
+                doc2 = operation.GetDocByName(flow.Flow_name + "Design");
+            }
+            catch { }
+
+            if (File.Exists(name1))
+            {
+                newDocument.Name = flow.Flow_name;
+                string ext = Path.GetExtension(name1);
+                string contenttype = "application/xml";
+                byte[] bytes;
+                FileStream file = new FileStream(name1, FileMode.Open);
+                BinaryReader br = new BinaryReader(file);
+                bytes = br.ReadBytes((int)file.Length);
+                newDocument.Data = bytes;
+                newDocument.ContentType = contenttype;
+                if (doc != null)
+                {
+                    newDocument.Id_document = doc.Id_document;
+                    operation.Update<Document>(newDocument);
+                }else
+                operation.AddElement<Document>(newDocument);
+
+            }
+            if (File.Exists(name2))
+            {
+                newDocument.Name = flow.Flow_name + "Design";
+                string ext = Path.GetExtension(name2);
+                string contenttype = "application/xml";
+                byte[] bytes;
+                FileStream file = new FileStream(name2, FileMode.Open);
+                BinaryReader br = new BinaryReader(file);
+                bytes = br.ReadBytes((int)file.Length);
+                newDocument.Data = bytes;
+                newDocument.ContentType = contenttype;
+                if (doc2 != null)
+                {
+                    newDocument.Id_document = doc2.Id_document;
+                    operation.Update<Document>(newDocument);
+                }
+                else
+                    operation.AddElement<Document>(newDocument);
+
+            }
+            
+
 
         }
 
         private void CreateForm_Load(object sender, EventArgs e)
         {
+
+            NHibernateOperation operation = new NHibernateOperation();
+            Document doc = null;
             try
             {
-                lcLayout.RestoreLayoutFromXml(String.Format("{0}/{1}.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name));
+                doc = operation.GetDocByName(flow.Flow_name + "Design");
             }
-            catch(Exception exc)
+            catch (Exception aaa)
             {
-                MessageBox.Show(exc.ToString());
+                MessageBox.Show(aaa.ToString());
+
             }
+            if (doc == null) return;
+            XmlDocument a = new XmlDocument();
+            string hex = "";
+            foreach (var b in doc.Data)
+            {
+                hex += b;
+            }
+
+            string data = Encoding.UTF8.GetString(doc.Data);
+            a.LoadXml(data.Substring(1));
+            string path = String.Format("{0}/{1} DESIGNER.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name);
+
+            a.Save(path);
+            try
+            {
+                lcLayout.RestoreLayoutFromXml(path);
+            }
+            catch (Exception exc) { }
+            File.Delete(path);
+        }
+        public void WriteOutXml(XmlReader xmlReader, string fileName)
+        {
+            var writer = XmlWriter.Create(fileName);
+            writer.WriteNode(xmlReader, true);
         }
 
         private void btnAddTB_Click(object sender, EventArgs e)
@@ -73,69 +183,84 @@ namespace WorkFlowDesigner.Forms
         }
         private void Add(object sender, EventArgs e)
         {
-            AddAtribute addAtribute = new AddAtribute(flow.PositionList,selectedTable);
+            AddAtribute addAtribute = new AddAtribute(flow.PositionList, selectedTable);
             flow.AtributeList.Add(addAtribute.attribute);
             addAtribute.Show();
             addAtribute.FormClosed += AddAtribute_FormClosed;
-            
+
         }
 
         private void AddAtribute_FormClosed(object sender, FormClosedEventArgs e)
         {
             attribute.Add((sender as AddAtribute).attribute);
-            if(selectedTable==null)addItemByType(attribute.Last().Type);
-            if(attribute.Last().Type=="table")
+            if (selectedTable == null) addItemByType(attribute.Last().Type);
+
+
+            if ((sender as AddAtribute).attribute.Parent != null) addColumn((sender as AddAtribute).attribute);
+        }
+        private void addColumn(Attributes atribute)
+        {
+            DataGridViewColumn column = new DataGridViewColumn();
+            DataGridViewCheckBoxColumn c_column = null;
+            DataGridViewCell cell = null;
+            switch (atribute.Type)
             {
-                listTables.Add(new int[] { gridVievlist.IndexOf(gridVievlist.Last()), attribute.IndexOf(attribute.Last()) });
+                case "list":
+                    {
+                        cell = new DataGridViewComboBoxCell();
+                        foreach (var item in atribute.List)
+                        {
+                            (cell as DataGridViewComboBoxCell).Items.Add(item);
+                        }
+                        (cell as DataGridViewComboBoxCell).DisplayMember = "Name";
+                        break;
+                    }
+                case "checkbox":
+                    {
+                        c_column = new DataGridViewCheckBoxColumn();
+                        c_column.TrueValue = true;
+                        c_column.FalseValue = false;
+                        cell = new DataGridViewCheckBoxCell();
+
+                        break;
+                    }
+                case "text":
+                    {
+                        cell = new DataGridViewTextBoxCell();
+                        break;
+                    }
+                case "int":
+                    {
+                        cell = new DataGridViewTextBoxCell();
+                        break;
+                    }
             }
-            if((sender as AddAtribute).table!=null)
+
+            if (cell != null)
             {
-                DataGridViewColumn column = new DataGridViewColumn();
-                DataGridViewCell cell = null; 
-                switch ((sender as AddAtribute).attribute.Type)
+                cell.Style.BackColor = Color.Wheat;
+                if (c_column != null)
                 {
-                    case "list":
-                        { 
-                            cell = new DataGridViewComboBoxCell();
-                            foreach (var item in (sender as AddAtribute).attribute.List)
-                            {
-                                (cell as DataGridViewComboBoxCell).Items.Add(item);
-                            }
-                            (cell as DataGridViewComboBoxCell).DisplayMember = "Name";
-                            break;
-                        }
-                    case "checkbox":
-                        {
-                            cell = new DataGridViewCheckBoxCell();
-                            break;
-                        }
-                    case "text":
-                        {
-                            cell = new DataGridViewTextBoxCell();
-                            break;
-                        }
-                    case "int":
-                        {
-                            cell = new DataGridViewTextBoxCell();
-                            break;
-                        }
+                    c_column.Name = atribute.Name;
+                    c_column.CellTemplate = cell;
+                    gridVievlist.ElementAt((int)selectedGrid).Columns.Add(c_column);
                 }
 
-                if (cell != null)
+                else
                 {
-                    cell.Style.BackColor = Color.Wheat;
+                    column.Name = atribute.Name;
                     column.CellTemplate = cell;
-                    MessageBox.Show("" + (int)selectedGrid);
                     gridVievlist.ElementAt((int)selectedGrid).Columns.Add(column);
                 }
-                attribute.Last().Parent = selectedTable;
-                
-                selectedGrid = null;
-                selectedTable = null;
             }
+            attribute.Last().Parent = selectedTable;
+            selectedGrid = null;
+            selectedTable = null;
+
         }
-        private void addItemByType(string type, Attributes parent=null)
+        private void addItemByType(string type, Attributes parent = null)
         {
+
             switch (type)
             {
                 case "text":
@@ -143,6 +268,8 @@ namespace WorkFlowDesigner.Forms
                         layoutControlItemList.Add(new LayoutControlItem());
                         textBoxList.Add(new TextBox());
                         textBoxList.Last().Name = "tb" + (textBoxList.Count - 1).ToString();
+                        textBoxList.Last().Text = "text";
+                        textBoxList.Last().ReadOnly = true;
                         layoutControlItemList.Last().Control = textBoxList.Last();
                         layoutControlItemList.Last().Name = attribute.Last().Name;
                         lcLayout.AddItem(layoutControlItemList.Last());
@@ -178,7 +305,9 @@ namespace WorkFlowDesigner.Forms
                         layoutControlItemList.Add(new LayoutControlItem());
                         textBoxList.Add(new TextBox());
                         textBoxList.Last().Name = "tb" + (textBoxList.Count - 1).ToString();
+                        textBoxList.Last().Text = "number";
                         textBoxList.Last().TextChanged += CreateForm_TextChanged;
+                        textBoxList.Last().ReadOnly = true;
                         layoutControlItemList.Last().Control = textBoxList.Last();
                         layoutControlItemList.Last().Name = attribute.Last().Name;
                         lcLayout.AddItem(layoutControlItemList.Last());
@@ -190,10 +319,13 @@ namespace WorkFlowDesigner.Forms
                         gridVievlist.Add(new DataGridView());
                         gridVievlist.Last().Name = "tab" + (gridVievlist.Count - 1).ToString();
                         gridVievlist.Last().TextChanged += CreateForm_TextChanged;
+                        gridVievlist.Last().AllowUserToAddRows = false;
+                        gridVievlist.Last().AutoGenerateColumns = false;
                         layoutControlItemList.Last().Control = gridVievlist.Last();
                         layoutControlItemList.Last().Name = attribute.Last().Name;
                         lcLayout.AddItem(layoutControlItemList.Last());
                         layoutControlItemList.Last().MouseDown += CreateForm_MouseDown;
+                        listTables.Add(new int[] { gridVievlist.IndexOf(gridVievlist.Last()), attribute.IndexOf(attribute.Last()) });
                         break;
                     }
 
@@ -202,7 +334,7 @@ namespace WorkFlowDesigner.Forms
 
         private void CreateForm_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Left && e.Clicks == 2)
             {
                 foreach (var item in listTables)
                 {
@@ -210,7 +342,6 @@ namespace WorkFlowDesigner.Forms
                     {
                         selectedTable = attribute.ElementAt(item[1]);
                         selectedGrid = gridVievlist.IndexOf((sender as LayoutControlItem).Control as DataGridView);
-                        MessageBox.Show("" + selectedTable + "   " + selectedGrid);
                     }
                 }
                 LayoutControlItem view = sender as LayoutControlItem;
@@ -221,7 +352,7 @@ namespace WorkFlowDesigner.Forms
                 menu.MenuItems.Add(menuItem);
                 menu.Show(view.Control, e.Location);
             }
-            
+
         }
 
         private void CreateForm_TextChanged(object sender, EventArgs e)
@@ -233,41 +364,9 @@ namespace WorkFlowDesigner.Forms
             }
         }
 
-        private void btnSaveFormToLayout_Click(object sender, EventArgs e)
-        {
-            lcLayout.SaveLayoutToXml(String.Format("{0}/{1}.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name));
-            Document newDocument = new Document();
-            NHibernateOperation operation = new NHibernateOperation();
-            string name = String.Format("{0}/{1}.xml", "C:/Users/KKiwala/Desktop", flow.Flow_name);
-            if (File.Exists(name))
-            {
 
-                newDocument.Name = flow.Flow_name;
-                string ext = Path.GetExtension(name);
-                string contenttype = "application/xml";
-                if (contenttype != String.Empty)
-                {
-                    byte[] bytes;
-                    FileStream file = new FileStream(name, FileMode.Open);
-                    BinaryReader br = new BinaryReader(file);
-                    
-                    bytes = br.ReadBytes((int)file.Length);
-                    
-                    newDocument.Data = bytes;
-                    newDocument.ContentType = contenttype;
-                    operation.AddElement<Document>(newDocument);
-                   
-                }
-            }
-            IList<Document> doc = operation.GetList<Document>();
-            Byte[] docs= doc.Last().Data;
-            
-            
-            
-           
-        }
     }
 
-      
-    
+
+
 }

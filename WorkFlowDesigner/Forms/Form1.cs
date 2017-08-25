@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,22 @@ namespace WorkFlowDesigner
                  comboBox1.Items.Add(a.Flow_name);
              }
             comboBox1.SelectedValueChanged += ComboBox1_SelectedValueChanged;
+            using (SqlConnection conn = new SqlConnection())
+            {
+                
+                conn.ConnectionString = @"Server = 172.21.70.40; Database = opticamp; User Id = sa;Password = cdnxl1*";
+                conn.Open();
+                SqlCommand command = new SqlCommand("SELECT name FROM Sys.Tables", conn);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        MessageBox.Show(String.Format("{0}",
+                        // call the objects from their index
+                        reader[0]));
+                    }
+                }
+            }
         }
 
       
@@ -47,16 +64,24 @@ namespace WorkFlowDesigner
              {
                 if (a.Flow_name == comboBox1.SelectedItem.ToString()) 
                  {
-                     MessageBox.Show("X");
+                     
                      NHibernateOperation operation = new NHibernateOperation();
                      flow.Flow_name = a.Flow_name;
                      flow.id_flowDefinition = a.id_flowDefinition;
                      flow.Flow_description = a.Flow_description;
-                     MessageBox.Show("" + flow.id_flowDefinition);
+                     
                      flow.PositionList = operation.GetPositionByID(flow.id_flowDefinition);
                      flow.AtributeList = operation.GetAttributeByID(flow.id_flowDefinition);
-                     access = operation.GetAccesByFlowID(flow);
-                     step2 = operation.GetStepByFlowID(flow);
+                     flow.FlowList = operation.GetFlowByFlowID(flow);
+                     foreach(Attributes at in flow.AtributeList)
+                     {
+                        at.AccessList = operation.GetAccesByAtrID(at);
+                     }
+                     foreach(Position pos in flow.PositionList)
+                    {
+                        operation.GetStepByPosID(pos);
+                    }
+                    return;
                  }
              }
          }

@@ -19,6 +19,7 @@ namespace WorkFlowDesigner
         FlowDefinition flow;
         IList<Step> listStep = new List<Step>();
         IList<Access> access;
+        bool editMode = false;
         public AddFlowPanel()
         {
             this.flow = new FlowDefinition();
@@ -29,7 +30,7 @@ namespace WorkFlowDesigner
             bsAttribute.DataSource = this.flow.AtributeList;
 
         }
-        public AddFlowPanel(FlowDefinition flow,IList<Step> step,IList<Access> access)
+        public AddFlowPanel(FlowDefinition flow,IList<Step> step,IList<Access> access,bool editMode=true)
         {
             this.flow = flow;
             listStep = step;
@@ -39,6 +40,8 @@ namespace WorkFlowDesigner
             tbName.Text = this.flow.Flow_name;
             flowDescription.Text = this.flow.Flow_description;
             this.access = access;
+            this.editMode = editMode;
+            btnDeleteFlow.Visible = true;
         }
 
         private void btnAddAtribute_Click(object sender, EventArgs e)
@@ -58,10 +61,6 @@ namespace WorkFlowDesigner
         {
             flow.AtributeList = (sender as CreateForm).attribute;
             bsAttribute.ResetBindings(true);
-           foreach(var item in flow.AtributeList)
-            {
-                //MessageBox.Show("" + item.Parent.Name);
-            }
         }
 
         private void btnAddPosition_Click(object sender, EventArgs e)
@@ -136,13 +135,54 @@ namespace WorkFlowDesigner
             {
                 operation.AddElement<Step>(step);
             }
-
+       
 
             this.Close();
         }
 
+        private void btnDeleteFlow_Click(object sender, EventArgs e)
+        {
+            NHibernateOperation operation = new NHibernateOperation();
 
-       
-
+           
+            foreach(var item in flow.FlowList)
+            {
+                foreach(var ext in item.FlowExtensionList)
+                {
+                    operation.Delete<FlowExtension>(ext);
+                }
+                operation.Delete<Flow>(item);
+            }
+            List<Attributes> listA = new List<Attributes>();
+            foreach(var item in flow.AtributeList)
+            {
+                foreach (var item2 in item.AccessList)
+                {
+                    operation.Delete<Access>(item2);
+                }
+                foreach (var list in item.List)
+                {
+                    operation.Delete<ListElement>(list);
+                }
+                if (item.Type != "table") operation.Delete<Attributes>(item);
+                else listA.Add(item);
+            }
+            foreach(var item in listA)
+            {
+                operation.Delete<Attributes>(item);
+            }
+            foreach(var item in flow.PositionList)
+            {
+                foreach (var step in item.StartStepList)
+                {
+                    operation.Delete<Step>(step);
+                }
+                operation.Delete<Position>(item);
+            }
+            operation.Delete<FlowDefinition>(flow);
+            this.Hide();
+            Form1 form = new Form1();
+            form.Show();
+        }
     }
 }

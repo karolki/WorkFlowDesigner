@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WorkFlowDesigner.ClassDatabase;
 
 namespace WorkFlowDesigner
 {
@@ -19,5 +20,6 @@ namespace WorkFlowDesigner
         public virtual Attributes Parent { get; set; }
         public virtual IList<FlowExtension> FlowExtensionList { get; set; }
         public virtual IList<Access> AccessList { get; set; }
+        public virtual Source DataSource { get; set; }
     }
 }

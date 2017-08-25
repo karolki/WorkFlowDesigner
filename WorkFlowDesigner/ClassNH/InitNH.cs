@@ -15,14 +15,10 @@ namespace WorkFlowDesigner
     public class InitNH
     {
         public static ISessionFactory SessionFactory;
-        public void InitNHibernate()
+        public void InitNHibernate(string connectionString = @"Server = 172.21.70.40; Database = PraktykiWorkFlow; User Id = sa;Password = cdnxl1*")
         {
             if (SessionFactory != null)
                 return;
-
-            string connectionString = @"Server = 172.21.70.40; Database = PraktykiWorkFlow; User Id = sa;Password = cdnxl1*";
-
-
 
             NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration().DataBaseIntegration(db =>
             {
@@ -42,8 +38,8 @@ namespace WorkFlowDesigner
               typeof(MapStep),
               typeof(MapFlow),
               typeof(MapFlowExtension),
-              typeof(MapAccess)
-
+              typeof(MapAccess),
+              typeof(MapDatabaseConnection)
             });
 
           config.AddDeserializedMapping(mapper.CompileMappingForAllExplicitlyAddedEntities(), null);

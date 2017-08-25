@@ -34,7 +34,7 @@
             this.bs = new System.Windows.Forms.BindingSource(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.btnAddAttribute = new System.Windows.Forms.Button();
-            this.btnSaveFormToLayout = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lcLayout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs)).BeginInit();
@@ -77,22 +77,16 @@
             this.btnAddAttribute.UseVisualStyleBackColor = true;
             this.btnAddAttribute.Click += new System.EventHandler(this.btnAddTB_Click);
             // 
-            // btnSaveFormToLayout
+            // contextMenuStrip1
             // 
-            this.btnSaveFormToLayout.Location = new System.Drawing.Point(22, 233);
-            this.btnSaveFormToLayout.Name = "btnSaveFormToLayout";
-            this.btnSaveFormToLayout.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveFormToLayout.TabIndex = 4;
-            this.btnSaveFormToLayout.Text = "Save to XML";
-            this.btnSaveFormToLayout.UseVisualStyleBackColor = true;
-            this.btnSaveFormToLayout.Click += new System.EventHandler(this.btnSaveFormToLayout_Click);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // CreateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 334);
-            this.Controls.Add(this.btnSaveFormToLayout);
             this.Controls.Add(this.btnAddAttribute);
             this.Controls.Add(this.lcLayout);
             this.Name = "CreateForm";
@@ -110,7 +104,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private System.Windows.Forms.Button btnAddAttribute;
-        private System.Windows.Forms.Button btnSaveFormToLayout;
         private System.Windows.Forms.BindingSource bs;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

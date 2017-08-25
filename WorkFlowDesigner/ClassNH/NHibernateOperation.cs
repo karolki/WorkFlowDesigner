@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
-
+using WorkFlowDesigner.ClassDatabase;
 
 namespace WorkFlowDesigner
 {
@@ -35,20 +35,62 @@ namespace WorkFlowDesigner
                 }
             }
         }
-        public IList<Access> GetAccesByFlowID(FlowDefinition flow)
+        public string GetConnectionString(string name)
         {
             using (ISession session = InitNH.OppenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    IList<Access> access = new List<Access>();
-                    foreach (var pos in flow.AtributeList)
-                    {
-                        IList<Access> a = session.QueryOver<Access>().Where(f => f.Id_attribute.Id_attribute == pos.Id_attribute).List();
-                        access.Union(a);
-                    }
+                    DatabaseConnection pos = session.QueryOver<DatabaseConnection>().Where(type => type.Name==name).List().First();
+                    transaction.Commit();
+                    string connection = @"Server = "+pos.Server+"; Database = "+pos.Database+"; User Id = "+pos.UserName+";Password = "+pos.Password;
+                    return connection;
+                }
+            }
+        }
+        public Document GetDocByName(string name)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                   
+                    IList<Document> pos = session.QueryOver<Document>().Where(type => type.Name==name).List();
+                    transaction.Commit();
+                        
+                    return pos.First();
+                }
+            }
+        }
+
+        public IList<Access> GetAccesByAtrID(Attributes flow)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    
+                        IList<Access> access = session.QueryOver<Access>().Where(f => f.Id_attribute.Id_attribute==flow.Id_attribute).List();
+                        
+                    
                     transaction.Commit();
                     return access;
+                }
+            }
+        }
+        public void GetStepByPosID(Position flow)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+
+                    IList<Step> access = session.QueryOver<Step>().Where(f => f.Start_position_id.Id_position==flow.Id_position).List();
+                    IList<Step> access2 = session.QueryOver<Step>().Where(f => f.End_position_id.Id_position == flow.Id_position).List();
+                    
+                    transaction.Commit();
+                    flow.StartStepList = access;
+                    flow.EndStepList = access2;
                 }
             }
         }
@@ -67,6 +109,21 @@ namespace WorkFlowDesigner
                     transaction.Commit();
                    
                     return step;
+                }
+            }
+        }
+        public IList<Flow> GetFlowByFlowID(FlowDefinition flow)
+        {
+            using (ISession session = InitNH.OppenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                   
+                        IList<Flow> a = session.QueryOver<Flow>().Where(f => f.id_flowdefinition.id_flowDefinition == flow.id_flowDefinition).List();
+                    
+                    transaction.Commit();
+
+                    return a;
                 }
             }
         }

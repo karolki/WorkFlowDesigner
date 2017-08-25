@@ -73,9 +73,11 @@
   <ItemGroup>
     <Compile Include="ClassDatabase\Access.cs" />
     <Compile Include="ClassDatabase\Attributes.cs" />
+    <Compile Include="ClassDatabase\DatabaseConnection.cs" />
     <Compile Include="ClassDatabase\Document.cs" />
     <Compile Include="ClassDatabase\FlowDefinition.cs" />
     <Compile Include="ClassDatabase\FlowExtension.cs" />
+    <Compile Include="ClassNH\MapDatabaseConnection.cs" />
     <Compile Include="ClassNH\MapAccess.cs" />
     <Compile Include="ClassNH\MapAttribute.cs" />
     <Compile Include="ClassNH\MapDocument.cs" />
@@ -161,6 +163,7 @@
     <Compile Include="Forms\SetAccess.Designer.cs">
       <DependentUpon>SetAccess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\XMLParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClassDatabase\Step.cs" />
